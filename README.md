@@ -66,3 +66,15 @@ python3 -m http.server 8080 --bind 127.0.0.1
 GitHub Pages는 `main` 브랜치의 루트 폴더를 배포합니다. 스크립트와 자산은 상대 경로를 사용합니다. 캐시 구성이 바뀌면 `sw.js`의 캐시 버전을 변경하세요.
 
 PDF.js 4.10.38의 라이선스는 `vendor/PDFJS-LICENSE`에 포함되어 있습니다. 모델과 Transformers.js는 별도 배포자의 라이선스가 적용됩니다.
+
+## 브라우저 검증
+
+Playwright와 Chromium이 준비된 환경에서 로컬 서버를 켜고 실행합니다. 테스트는 별도 브라우저 저장소를 사용하므로 실제 공부 기록을 변경하지 않습니다.
+
+```sh
+node tests/library-smoke.cjs
+node tests/csv-offline-smoke.cjs
+node tests/ocr-smoke.cjs
+```
+
+등록·검색·원문, 버전 업데이트 시 기존 기록 유지, CSV·오프라인, OCR로만 찾을 수 있는 이미지 글자를 확인합니다. 현재 환경에서는 `/usr/bin/chromium`을 사용합니다.
