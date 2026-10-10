@@ -78,3 +78,5 @@ node tests/ocr-smoke.cjs
 ```
 
 등록·검색·원문, 버전 업데이트 시 기존 기록 유지, CSV·오프라인, OCR로만 찾을 수 있는 이미지 글자를 확인합니다. 현재 환경에서는 `/usr/bin/chromium`을 사용합니다.
+
+초성 검색: 교재 검색에서 `ㅂㄷㅊ`(반도체), `반ㄷㅊ`처럼 초성 또는 글자와 초성을 섞어 입력할 수 있습니다. PDF 본문, OCR 글자, CSV 검색에 적용됩니다. 검증: `NODE_PATH=/opt/codex/cua_node/lib/node_modules node tests/initial-search.cjs`.

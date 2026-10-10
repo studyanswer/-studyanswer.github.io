@@ -11,3 +11,5 @@ OCR 완료: 이미지가 많은 1082페이지를 처리했고, 944페이지에 �
 OCR 언어 모델: /workspace/.cache/secret-note-ocr/tessdata. 페이지 캐시: /workspace/.cache/secret-note-ocr/pages-v2. 서버: 기존 체크아웃에서 python3 -m http.server 8080 --bind 127.0.0.1. 브라우저 검증은 tests/*.cjs에 저장하며 Playwright와 /usr/bin/chromium이 필요합니다. 실제 모델 의미 검색 검증은 별도 미완료이며 us.aws.cdn.hf.co 접속 허용을 환경 초안에 저장해 두었습니다. TLS 검증을 끄지 말고 기본 Chromium 신뢰 저장소를 영구 수정하지 마세요.
 
 사용량 초기화 후 같은 대화에서 이어서 요청하면 이 기록과 Git 상태를 확인해 진행합니다. 자동 재개를 약속하지 않습니다. 시험 후 삭제 요청을 받으면 원본·검색 색인·Git 기록·기기 캐시를 함께 점검합니다.
+
+초성 검색 추가: PDF/OCR/CSV 본문에서 초성 및 혼합 입력 지원. tests/initial-search.cjs로 기존 단어 검색, 쌍자음, 정규식 특수문자, 실제 교재/OCR 검색 검증 완료.
