@@ -1,4 +1,4 @@
-const CACHE='secret-note-v1';
+const CACHE='secret-note-v2';
 const FILES=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./icon.svg','./vendor/pdf.mjs','./vendor/pdf.worker.mjs'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('secret-note-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

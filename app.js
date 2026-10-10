@@ -1,5 +1,14 @@
 const $ = (s) => document.querySelector(s);
 const uid = () => crypto.randomUUID();
+const defaultSubjects = ['AI기초와활용', '공학생을위한실용AI', '반도체패키지공학실무', '응용수리실무', '전자응용회로설계', '컴퓨터활용실무', '프로그래밍언어(Ⅱ)'];
+async function prepareDefaultSubjects(){
+ if(state.defaultSubjectsVersion === 1)return;
+ for(const name of defaultSubjects){
+  if(!state.subjects.some(subject=>subject.name.trim()===name))state.subjects.push({id:uid(),name});
+ }
+ state.defaultSubjectsVersion=1;
+ await save();
+}
 const kinds = {qa:'문답', choice:'객관식', memo:'일반 노트'};
 const escapeHTML = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let db, state = {subjects:[],notes:[],documents:[]}, selected, editing, tab='notes';
@@ -72,4 +81,4 @@ $('#results').onclick=e=>{const open=e.target.closest('[data-result-open]'),save
 $('#export').onclick=()=>{const data={version:1,subjects:state.subjects,notes:state.notes};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`비밀노트-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('노트를 백업했어요. PDF 원본은 별도로 보관해주세요.')};
 function validBackup(data){return data?.version===1&&Array.isArray(data.subjects)&&Array.isArray(data.notes)&&data.subjects.every(s=>typeof s.id==='string'&&typeof s.name==='string'&&s.name.trim())&&new Set(data.subjects.map(s=>s.id)).size===data.subjects.length&&data.notes.every(n=>typeof n.id==='string'&&data.subjects.some(s=>s.id===n.subjectId)&&['qa','choice','memo'].includes(n.type)&&typeof n.question==='string'&&typeof n.answer==='string'&&Array.isArray(n.choices)&&(n.type!=='choice'||(n.choices.length===4&&Number.isInteger(n.correct)&&n.correct>=0&&n.correct<4&&n.choices.every(c=>typeof c.text==='string'&&typeof c.explanation==='string'))))}
 $('#import').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(busy){toast('현재 작업이 끝난 뒤 복원해주세요.');e.target.value='';return}try{const data=JSON.parse(await file.text());if(!validBackup(data))throw new Error('invalid');if(!confirm('백업의 노트를 현재 기록에 추가할까요? 기존 노트는 유지됩니다.'))return;const mapping=new Map();for(const s of data.subjects){const id=uid();mapping.set(s.id,id);state.subjects.push({id,name:s.name})}for(const n of data.notes)state.notes.push({...n,id:uid(),subjectId:mapping.get(n.subjectId),marked:!!n.marked});if(await persist()){render();toast('백업 노트를 추가했어요.')}}catch{toast('올바른 비밀노트 백업 파일인지 확인해주세요.')}finally{e.target.value=''}};
-try{db=await openDB();state=await getState()||state;render();updateNoteType();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(console.error)}catch(error){toast('기기 저장소를 열지 못했어요. 일반 브라우저 모드에서 다시 열어주세요.');console.error(error);document.querySelectorAll('button,input').forEach(el=>el.disabled=true)}
+try{db=await openDB();state=await getState()||state;await prepareDefaultSubjects();render();updateNoteType();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(console.error)}catch(error){toast('기기 저장소를 열지 못했어요. 일반 브라우저 모드에서 다시 열어주세요.');console.error(error);document.querySelectorAll('button,input').forEach(el=>el.disabled=true)}
