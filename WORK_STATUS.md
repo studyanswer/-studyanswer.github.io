@@ -1,0 +1,13 @@
+# 작업 기록과 재개 안내
+
+7개 과목의 PDF 81개(1771페이지)와 sales.csv 1개가 준비되었습니다. 공개 탑재와 PR 머지·배포는 사용자가 승인했습니다. D-14 표시는 넣지 않습니다. 응용수리의 (1) 중복 2개는 바이트 단위로 완전히 동일하여 제외했습니다. 전자응용회로설계는 7주차 PDF가 없다고 사용자가 확인하여 1~6주차 각 3강만 등록합니다.
+
+OCR 완료: 이미지가 많은 1082페이지를 처리했고, 944페이지에 검색 글자를 추가했습니다. 모든 catalog.json은 version=2, ocrVersion=2입니다. TSV 인식 결과는 csv.QUOTE_NONE으로 읽습니다. 원본 PDF 해시가 그대로인 것과 TSV 메타데이터가 색인에 섞이지 않은 것을 확인했습니다.
+
+검증 완료: 7과목 자료 등록·검색·PDF 렌더링, 기존 노트와 삭제한 교재 보존, CSV 24행 표·행별 출처·노트 저장·오프라인 보기, 이미지 속 이승엽/score 검색과 원문 페이지 열기. 반복 OCR 명령은 완료한 카탈로그를 건너뛰어 재처리 0페이지입니다.
+
+작업 브랜치: feature/course-library-ocr. PR: https://github.com/studyanswer/studyanswer.github.io/pull/4. 배포 상태는 PR 및 Pages API로 확인합니다. 머지된 경우 main의 해당 커밋과 공개 사이트를 기준으로 이어서 작업합니다. 이미 완료한 OCR을 다시 돌릴 필요는 없습니다.
+
+OCR 언어 모델: /workspace/.cache/secret-note-ocr/tessdata. 페이지 캐시: /workspace/.cache/secret-note-ocr/pages-v2. 서버: 기존 체크아웃에서 python3 -m http.server 8080 --bind 127.0.0.1. 브라우저 검증은 tests/*.cjs에 저장하며 Playwright와 /usr/bin/chromium이 필요합니다. 실제 모델 의미 검색 검증은 별도 미완료이며 us.aws.cdn.hf.co 접속 허용을 환경 초안에 저장해 두었습니다. TLS 검증을 끄지 말고 기본 Chromium 신뢰 저장소를 영구 수정하지 마세요.
+
+사용량 초기화 후 같은 대화에서 이어서 요청하면 이 기록과 Git 상태를 확인해 진행합니다. 자동 재개를 약속하지 않습니다. 시험 후 삭제 요청을 받으면 원본·검색 색인·Git 기록·기기 캐시를 함께 점검합니다.
