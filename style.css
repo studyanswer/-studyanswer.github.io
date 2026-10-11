@@ -34,3 +34,5 @@ html.pdf-open{overflow:hidden;overscroll-behavior:none}body.pdf-open{position:fi
 .subject-view #subject-content{padding-bottom:90px}.subject-view .tabs{position:fixed;bottom:0;left:0;right:0;background:#000;z-index:5;justify-content:center;border-top:1px solid var(--line);border-bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom))}.subject-view .tabs button{padding:10px 14px}.subject-heading{margin-top:18px}.document-row[role=button]{cursor:pointer}.document-row[role=button]:focus-visible{outline:2px solid var(--accent)}#pdf-dialog .close-dialog:focus{outline:none}#pdf-dialog .close-dialog:focus-visible{outline:1px solid #849087;outline-offset:-4px}#pdf-canvas{width:min(100%,calc((100svh - var(--pdf-toolbar-height,100px) - 24px)/1.5 * var(--pdf-page-ratio,1)));margin-inline:auto}
 
 #pdf-dialog{overflow:hidden}#pdf-dialog.pdf-zoomed{overflow:auto}
+
+#pdf-dialog.pdf-tap-zoomed #pdf-canvas{width:var(--pdf-zoom-width);max-width:none;margin-inline:0}
