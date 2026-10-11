@@ -202,7 +202,7 @@ function renderReview(){
  const note=reviewList[reviewIndex];
  $('#review-progress').textContent=reviewList.length?`${reviewIndex+1} / ${reviewList.length}`:'0 / 0';
  $('#review-question').textContent=note?.question||'복습할 노트가 없어요';
- $('#review-answer').innerHTML=note?(isChoice(note)?choiceDetails(note):`<p><strong>${escapeHTML(studyAnswer(note.answer))}</strong></p>`):'';
+ $('#review-answer').innerHTML=note?(isChoice(note)?note.choices.map((c,i)=>({...c,isCorrect:i===note.correct,index:i})).sort((a,b)=>(a.originalNumber??a.index+1)-(b.originalNumber??b.index+1)).map((c,i)=>`<div class="card-option ${c.isCorrect?'card-correct':''}">${i+1}) ${c.isCorrect?`<strong>${escapeHTML(c.text)}</strong>`:escapeHTML(c.text)}</div>`).join(''):`<div class="card-option card-correct"><strong>${escapeHTML(studyAnswer(note.answer).split('\n')[0])}</strong></div>`):'';
  $('#review').scrollTop=0;
 }
 $('#start-review').onclick=()=>{prepareReview();$('#review').hidden=false;$('#app').inert=true};
