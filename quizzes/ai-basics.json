@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "subject": "AI기초와활용",
   "notes": [
     {
@@ -1149,6 +1149,212 @@
           "text": "DNN",
           "explanation": "Deep Neural Network: 여러 층으로 구성된 심층 신경망이다. 생성자·판별자의 경쟁을 뜻하는 명칭은 아니다.",
           "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-037",
+      "builtinQuizId": "ai-basics-quiz-037",
+      "number": 37,
+      "type": "choice",
+      "question": "다음 중 LLM 모델을 위한 주요 데이터 원천이 아닌 것은?",
+      "answer": "교안 해설: LLM은 주로 공개된 데이터를 활용해 학습한다. 개인의 데이터는 제한적으로 특수한 상황에서 사용할 수 있다.\n\n보충·암기: 공개되어 있다는 사실만으로 모든 자료를 제한 없이 사용할 수 있다는 뜻은 아니다. 학습 자료에는 공개 데이터 외에 허가·계약으로 확보한 자료 등도 포함될 수 있다.",
+      "choices": [
+        {
+          "text": "스마트폰 앱의 개인 데이터",
+          "explanation": "비공개 개인 데이터는 공개 데이터처럼 일반적으로 수집하는 주요 원천으로 볼 수 없다. 적법한 권한 등 조건을 갖춘 특별한 상황에서는 활용할 수 있다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "웹 데이터",
+          "explanation": "웹 문서는 언어와 다양한 정보를 학습하는 데이터 원천이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "디지털화 된 책",
+          "explanation": "디지털화된 책은 긴 문맥과 다양한 문체·지식을 학습하는 자료로 활용할 수 있다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Github의 공개 소프트웨어 코드",
+          "explanation": "공개 소프트웨어 코드는 프로그래밍 언어와 코드 패턴을 학습하는 자료로 활용할 수 있다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-038",
+      "builtinQuizId": "ai-basics-quiz-038",
+      "number": 38,
+      "type": "choice",
+      "question": "OpenAI 연구팀 에서 제안한 LLM 학습 단계가 아닌 것은?",
+      "answer": "교안 해설: OpenAI 연구팀에서 제안한 LLM의 학습 단계는 사전 학습, 지도 미세조정, 인간 피드백 기반 강화 학습이다.\n\n보충·암기: 교안 기준 순서: 사전 학습 → 지도 미세 조정(SFT) → 인간 피드백 기반 강화 학습(RLHF).",
+      "choices": [
+        {
+          "text": "데이터 크롤링",
+          "explanation": "웹에서 자료를 수집하는 준비 과정으로, 이 교안의 3가지 모델 학습 단계에는 포함되지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "사전 학습",
+          "explanation": "대규모 데이터에서 언어 패턴과 지식을 학습한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "지도 미세 조정",
+          "explanation": "사람이 작성한 질문·답변 등의 예시를 통해 원하는 응답 방식을 학습한다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "인간 피드백 기반 강화 학습",
+          "explanation": "사람의 선호 피드백을 활용해 더 선호되는 응답을 하도록 조정한다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-039",
+      "builtinQuizId": "ai-basics-quiz-039",
+      "number": 39,
+      "type": "choice",
+      "question": "사전 학습을 통해 얻은 '지식'을 인간의 의도와 가치, 그리고 안전한 가이드라인에 부합하도록 인공지능을 조정하는 과정을 무엇이라 하는가?",
+      "answer": "교안 해설: 인공지능이 인간의 의도와 가치에 맞도록 조정하는 과정을 정렬이라 한다.\n\n보충·암기: 원문 선택지 “정렬”을 보존했다. 학습 자료에서는 같은 개념을 “정렬” 또는 “정합” 등으로 표현할 수 있다.",
+      "choices": [
+        {
+          "text": "정렬",
+          "explanation": "AI의 행동을 인간의 의도·가치와 안전 기준에 맞추는 정렬(Alignment)을 뜻한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "학습",
+          "explanation": "데이터나 피드백으로 모델을 개선하는 넓은 과정이다. 인간의 가치에 맞추는 목적을 특정하는 명칭은 정렬이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "검증",
+          "explanation": "모델의 성능이나 결과가 기준에 맞는지 확인하는 과정이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "보상",
+          "explanation": "원하는 행동을 유도하기 위한 평가 신호다. 정렬에 쓰일 수 있지만 전체 과정의 명칭은 아니다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-040",
+      "builtinQuizId": "ai-basics-quiz-040",
+      "number": 40,
+      "type": "choice",
+      "question": "인공 지능의 가치 정렬 기준이 아닌 것은?",
+      "answer": "교안 해설: 인공 지능의 가치 정렬 3H 에 해당하는 항목은 Helpful, Honest, Harmless 이다.\n\n보충·암기: 3H = Helpful(도움) + Honest(정직) + Harmless(무해). Hopeful과 Honest를 구분하기.",
+      "choices": [
+        {
+          "text": "Hopeful",
+          "explanation": "Hopeful = 희망적인. 교안의 가치 정렬 3H에 포함되지 않는다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Helpful",
+          "explanation": "Helpful = 도움이 되는 답변과 행동.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Honest",
+          "explanation": "Honest = 정직함. 모르는 내용과 불확실성을 솔직하게 표현한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Harmless",
+          "explanation": "Harmless = 해를 끼치지 않는 답변과 행동.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-041",
+      "builtinQuizId": "ai-basics-quiz-041",
+      "number": 41,
+      "type": "choice",
+      "question": "과거 RNN과 달리 문장을 한번에 파악하여 병렬로 처리하는 알고리즘을 무엇이라 부르는가?",
+      "answer": "교안 해설: 문장을 한번에 파악하여 병렬로 처리하는 것은 트랜스포머이며 토큰화, 임베딩, 어텐션은 트랜스포머의 내부 단계이다.\n\n보충·암기: 토큰화 → 임베딩 → 어텐션을 활용하는 트랜스포머. 일반적인 자기회귀 LLM의 답변 생성은 여전히 토큰을 순차적으로 생성한다.",
+      "choices": [
+        {
+          "text": "트랜스포머",
+          "explanation": "어텐션을 중심으로 토큰 사이 관계를 학습하는 모델 구조다. RNN과 달리 학습 시 토큰 위치의 연산을 병렬화할 수 있다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "임베딩",
+          "explanation": "토큰을 모델이 처리할 수 있는 수치 벡터로 표현하는 과정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "토큰화",
+          "explanation": "텍스트를 토큰이라는 처리 단위로 나누는 과정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "어텐션",
+          "explanation": "토큰 사이 관련성을 계산해 어떤 정보에 비중을 둘지 결정하는 핵심 메커니즘이다. 전체 모델 구조의 이름은 트랜스포머다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-042",
+      "builtinQuizId": "ai-basics-quiz-042",
+      "number": 42,
+      "type": "ox",
+      "question": "LLM의 트랜스포머에서 문장 속 어떤 단어를 참고해야 하는지를 알려주는 것을 주의(Attention)이라 한다.",
+      "answer": "교안 해설: 제공된 이미지의 해설란이 비어 있음.\n\n보충·암기: Attention = 주의·어텐션. 단어 하나를 단순 선택하는 것이 아니라 토큰 간 관계에 따른 가중치를 계산한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "어텐션은 토큰 사이 관련성을 계산해 문맥에서 참고할 정보의 비중을 정하는 메커니즘이므로 교안 기준 O다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "어텐션이 문맥에서 참고할 정보의 비중을 정하므로 틀린 선택이다.",
+          "originalNumber": 2
         }
       ],
       "correct": 0,
