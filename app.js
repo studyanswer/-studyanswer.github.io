@@ -237,9 +237,40 @@ $('#pdf-dialog').addEventListener('close',()=>{
 });
 // Only a single-finger horizontal swipe at normal zoom changes pages.
 let pdfSwipe;
-const pdfAtNormalZoom=()=>!window.visualViewport||window.visualViewport.scale<=1.02;
+const pdfAtNormalZoom=()=>!$('#pdf-dialog').classList.contains('pdf-tap-zoomed')&&(!window.visualViewport||window.visualViewport.scale<=1.02);
 function updatePDFZoom(){const dialog=$('#pdf-dialog');dialog.classList.toggle('pdf-zoomed',!pdfAtNormalZoom());if(pdfAtNormalZoom())dialog.scrollTop=0}
 window.visualViewport?.addEventListener('resize',updatePDFZoom);
+let pdfTapStart,pdfLastTap;
+function togglePDFTapZoom(x,y){
+ const dialog=$('#pdf-dialog'),canvas=$('#pdf-canvas'),box=canvas.getBoundingClientRect();
+ if(!canvas.width||!$('#conceal').hidden)return;
+ const expanding=!dialog.classList.contains('pdf-tap-zoomed');
+ if(expanding)canvas.style.setProperty('--pdf-zoom-width',box.width*2+'px');
+ dialog.classList.toggle('pdf-tap-zoomed',expanding);updatePDFZoom();
+ if(expanding)requestAnimationFrame(()=>{const enlarged=canvas.getBoundingClientRect();dialog.scrollBy((x-box.left)*2-(x-enlarged.left),(y-box.top)*2-(y-enlarged.top))});
+ else{dialog.scrollLeft=0;dialog.scrollTop=0}
+}
+$('#pdf-canvas').addEventListener('dblclick',e=>{e.preventDefault();togglePDFTapZoom(e.clientX,e.clientY)});
+$('#pdf-canvas').addEventListener('touchstart',e=>{
+ pdfTapStart=undefined;
+ if(e.touches.length!==1){pdfLastTap=undefined;return}
+ const t=e.touches[0];if(inScreenCorner(t)){pdfLastTap=undefined;return}
+ pdfTapStart={x:t.clientX,y:t.clientY,id:t.identifier,time:performance.now()};
+},{passive:true});
+$('#pdf-canvas').addEventListener('touchmove',e=>{
+ const t=e.touches[0];if(e.touches.length!==1||!t||!pdfTapStart||Math.hypot(t.clientX-pdfTapStart.x,t.clientY-pdfTapStart.y)>12){pdfTapStart=undefined;pdfLastTap=undefined}
+},{passive:true});
+$('#pdf-canvas').addEventListener('touchcancel',()=>{pdfTapStart=undefined;pdfLastTap=undefined},{passive:true});
+$('#pdf-canvas').addEventListener('touchend',e=>{
+ const start=pdfTapStart;pdfTapStart=undefined;
+ if(!start||e.touches.length||performance.now()-start.time>250)return;
+ const t=[...e.changedTouches].find(t=>t.identifier===start.id);if(!t)return;
+ const now=performance.now();
+ if(pdfLastTap&&now-pdfLastTap.time<320&&Math.hypot(t.clientX-pdfLastTap.x,t.clientY-pdfLastTap.y)<30){e.preventDefault();e.stopPropagation();pdfLastTap=undefined;togglePDFTapZoom(t.clientX,t.clientY)}
+ else pdfLastTap={x:t.clientX,y:t.clientY,time:now};
+},{passive:false});
+$('#pdf-dialog').addEventListener('close',()=>{pdfTapStart=undefined;pdfLastTap=undefined;$('#pdf-dialog').classList.remove('pdf-tap-zoomed');updatePDFZoom()});
+
 $('#pdf-dialog').addEventListener('cancel',e=>e.preventDefault());
 $('#pdf-dialog').addEventListener('touchmove',e=>{if(e.touches.length===1&&pdfAtNormalZoom())e.preventDefault()},{passive:false});
 $('#pdf-dialog').addEventListener('wheel',e=>{if(pdfAtNormalZoom()&&!e.ctrlKey)e.preventDefault()},{passive:false});
