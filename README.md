@@ -80,3 +80,5 @@ node tests/ocr-smoke.cjs
 등록·검색·원문, 버전 업데이트 시 기존 기록 유지, CSV·오프라인, OCR로만 찾을 수 있는 이미지 글자를 확인합니다. 현재 환경에서는 `/usr/bin/chromium`을 사용합니다.
 
 초성 검색: 교재 검색에서 `ㅂㄷㅊ`(반도체), `반ㄷㅊ`처럼 초성 또는 글자와 초성을 섞어 입력할 수 있습니다. PDF 본문, OCR 글자, CSV 검색에 적용됩니다. 검증: `NODE_PATH=/opt/codex/cua_node/lib/node_modules node tests/initial-search.cjs`.
+
+AI기초와활용 퀴즈: 사용자 제공 이미지의 28문제를 `quizzes/ai-basics.json`에 등록했습니다. 4지선다와 O/X를 지원하며 문제 아래 정답 선지를 먼저, 나머지 보기를 원문 번호 및 설명과 함께 표시합니다. 교안 해설과 보충 설명을 구분하고, 첫 4문제만 확인된 1주차 강의 정보를 기록했습니다. 기기에서 수정·삭제한 기록은 자동 등록 시 유지되며 새 문제는 안정적인 ID로 한 번씩 추가합니다. 검증: 8081 포트에서 사이트를 실행한 뒤 `NODE_PATH=/opt/codex/cua_node/lib/node_modules node tests/quiz-smoke.cjs`.
