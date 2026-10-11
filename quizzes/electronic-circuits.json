@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 4,
   "subject": "전자응용회로설계",
   "notes": [
     {
@@ -304,6 +304,318 @@
         {
           "text": "X",
           "explanation": "전류원과 병렬 저항이라는 구성이 노턴 등가의 형태이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-013",
+      "builtinQuizId": "electronic-circuits-quiz-013",
+      "number": 13,
+      "type": "ox",
+      "question": "회로에서 부하에 공급되는 전력이 최대가 되기 위해서는 회로의 내부 임피던스가 부하 임피던스와 같아져야 한다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이미지의 정답 O는 저항성 회로의 최대 전력 전달 조건으로 이해한다. 저항성 회로에서는 RL=Rth이다. 일반적인 교류 회로에서 부하를 자유롭게 선택할 때는 ZL=Zth의 복소켤레, 즉 저항은 같고 리액턴스 부호는 반대여야 한다. 단순히 복소 임피던스가 같다는 조건은 일반적으로 정확하지 않다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "제공 이미지의 정답은 O다. 저항성 회로에서 부하저항과 내부저항이 같을 때 최대 전력이 전달된다. 교류의 일반 조건은 복소켤레 정합이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에서는 X가 오답으로 표시됐다. 다만 일반적인 복소 임피던스 회로에서 임피던스가 그대로 같아야 한다는 문장은 엄밀하지 않으므로 보충 설명을 확인한다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-014",
+      "builtinQuizId": "electronic-circuits-quiz-014",
+      "number": 14,
+      "type": "ox",
+      "question": "'PARAM'을 이용하면 변하는 값에 대한 다양한 전류 전압값의 변화를 볼 수 있다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: PARAM은 회로에서 사용할 매개변수를 정의하는 데 사용한다. 소자값 등에 매개변수를 연결하고 Parametric Sweep 등 적절한 분석 설정을 통해 값에 따른 전압·전류 변화를 비교한다. PARAM을 배치하는 것만으로 자동 변화가 실행되는 것은 아니다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "매개변수를 정의하고 스윕 분석을 설정하면 값 변화에 따른 전압·전류를 확인할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "PARAM과 매개변수 스윕을 활용해 회로 특성 변화를 볼 수 있으므로 교안의 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-015",
+      "builtinQuizId": "electronic-circuits-quiz-015",
+      "number": 15,
+      "type": "ox",
+      "question": "종속전원은 가상의 전원으로 실제 회로의 등가회로로 만들 때 사용된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 종속 전원은 회로의 다른 전압 또는 전류에 의해 출력이 결정되는 모델이다. 증폭기·트랜지스터 등의 등가회로에 사용한다. 제어량에 따라 전압제어 전압원, 전류제어 전압원, 전압제어 전류원, 전류제어 전류원으로 나뉜다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "종속 전원은 실제 소자의 동작을 등가회로로 표현하는 모델에 사용된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "종속 전원은 등가회로 모델링에 사용되므로 X가 아니다. 독립 전원과 달리 제어 전압·전류에 의존한다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-016",
+      "builtinQuizId": "electronic-circuits-quiz-016",
+      "number": 16,
+      "type": "ox",
+      "question": "실효값은 평균값과 다르며 주로 교류신호에 대한 일종의 평균치의 개념으로 양의 값으로 나타난다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 실효값(RMS)은 제곱한 값의 평균에 제곱근을 취한 값이다. 항상 0 이상이며 신호가 0이면 실효값도 0이다. 정현파의 실효값은 최대값/√2이다. 한 주기 평균값이 0인 정현파도 실효값은 0이 아닐 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "이미지의 정답은 O다. 실효값은 제곱평균제곱근으로 일반 평균과 구분되며 음수가 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "실효값과 산술 평균은 계산법이 다르다. 다만 교안의 양의 값이라는 표현은 0 이상으로 이해해야 한다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-017",
+      "builtinQuizId": "electronic-circuits-quiz-017",
+      "number": 17,
+      "type": "ox",
+      "question": "교류전원을 직렬 저항회로에 연결하면 직류전원과 동일하게 교류전압이 저항값에 비례하여 크기가 나뉘게 된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이상적인 저항만 직렬로 연결된 회로에서는 같은 전류가 흐른다. 따라서 각 저항의 전압은 Vk=V전체×Rk/ΣR이며 크기는 저항값에 비례한다. 모든 저항 전압과 전류의 위상은 같다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "순수 직렬 저항회로에서는 교류도 저항 비율에 따라 전압이 분배된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "저항만 있는 직렬 회로의 전압 분배는 직류와 같은 저항 비율을 따르므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-018",
+      "builtinQuizId": "electronic-circuits-quiz-018",
+      "number": 18,
+      "type": "ox",
+      "question": "교류전압을 R-L 직렬회로에 연결하면 L에 걸리는 전압과 전류의 위상은 전압이 더 앞서가게 된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이상적인 인덕터에서는 vL=L·di/dt이므로 정현파 정상상태에서 인덕터 전압은 전류보다 90° 앞선다. R-L 직렬회로의 전체 전원 전압도 전류보다 앞서지만 위상차는 arctan(ωL/R)이며 일반적으로 90°보다 작다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "인덕터 L 양단의 전압은 흐르는 전류보다 90° 앞선다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "인덕터 전류가 전압보다 앞서는 것이 아니라 전압이 앞서므로 교안의 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-019",
+      "builtinQuizId": "electronic-circuits-quiz-019",
+      "number": 19,
+      "type": "ox",
+      "question": "Voff 값은 일종의 직류전압원을 교류전원에 더해주는 효과를 가진다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: VSIN의 VOFF는 직류 오프셋이다. 정현파 전압 전체를 VOFF만큼 위아래로 이동시키며, 진폭이나 주파수 자체를 바꾸는 값은 아니다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "VOFF는 교류 파형에 더해지는 직류 오프셋 전압이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "VOFF는 진폭이 아닌 직류 오프셋이므로 교안의 설명은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-020",
+      "builtinQuizId": "electronic-circuits-quiz-020",
+      "number": 20,
+      "type": "ox",
+      "question": "VSIN 전원에서 DF는 댐핑팩터라고 해서 교류신호를 시간이 지남에 따라 크기를 줄여주는 정도를 나타낸다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: VSIN의 DF는 감쇠 계수다. 지연 시간 이후 정현파 진폭에 exp(−DF·시간)이 곱해지는 형태로, DF>0이면 시간에 따라 진폭이 감소하고 DF=0이면 감쇠하지 않는다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "DF는 시간에 따른 정현파 진폭의 감쇠 정도를 정한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "DF는 주파수나 직류 오프셋이 아니라 감쇠 계수이므로 이 설명은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-021",
+      "builtinQuizId": "electronic-circuits-quiz-021",
+      "number": 21,
+      "type": "ox",
+      "question": "리사쥬 도형은 schematic 창에서 바로 실행하여 그릴 수 없고 Probe 창에서 x축을 더블클릭하여 x축을 변경시켜주어야 그릴 수 있다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: 교안의 Probe 환경에서 X축을 시간 대신 다른 신호로 설정해 한 신호를 다른 신호에 대해 그린다. 이런 X-Y 그래프로 두 정현파의 주파수·위상 관계를 확인할 수 있다. 축 설정을 여는 방법은 프로그램 버전에 따라 다를 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 Probe 환경에서 X축을 다른 신호로 변경해 리사주 도형을 그린다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "리사주 도형은 교안에서 회로도 편집 창이 아니라 Probe의 X-Y 표시로 확인하므로 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-022",
+      "builtinQuizId": "electronic-circuits-quiz-022",
+      "number": 22,
+      "type": "ox",
+      "question": "MULT는 두 입력 파형을 곱해서 결과를 출력으로 만들어준다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: MULT는 두 입력 신호를 곱하는 곱셈 블록이다. 두 신호의 합을 구하는 가산기와 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "MULT의 출력은 두 입력 신호의 곱에 해당한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "MULT는 곱셈을 수행하므로 두 입력을 곱한다는 설명은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-023",
+      "builtinQuizId": "electronic-circuits-quiz-023",
+      "number": 23,
+      "type": "ox",
+      "question": "R-C 직렬회로에서는 전압이 전류보다 위상이 θ만큼 뒤진다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: 정현파 정상상태의 직렬 RC 회로에서 전체 전원 전압은 전류보다 θ=arctan(1/(ωCR))만큼 뒤진다. 저항 전압은 전류와 동상이고, 커패시터 전압은 전류보다 90° 뒤진다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "직렬 RC 회로는 용량성으로 전류가 전체 전압보다 앞선다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "인덕터 회로와 달리 RC 직렬회로에서는 전체 전압이 전류보다 뒤지므로 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-024",
+      "builtinQuizId": "electronic-circuits-quiz-024",
+      "number": 24,
+      "type": "ox",
+      "question": "RC 회로에서 C의 위치에 따라 미분회로 또는 적분회로가 될 수 있다.",
+      "answer": "교안 해설: 이미지에 해설 내용이 없음.\n\n보충·암기: 입출력 연결과 출력 위치에 따라 RC 고역통과 또는 저역통과 회로가 된다. C를 직렬, R을 접지 쪽에 두고 R 양단을 출력으로 잡으면 ωRC≪1 범위에서 미분 근사다. R을 직렬, C를 접지 쪽에 두고 C 양단을 출력으로 잡으면 ωRC≫1 범위에서 적분 근사다. 위치만 바꾸면 모든 주파수에서 정확한 미분·적분이 되는 것은 아니다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "출력 위치와 동작 주파수 조건을 맞추면 RC 회로를 미분 또는 적분 회로로 사용할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "RC 회로는 구성과 조건에 따라 미분·적분 근사 동작이 가능하므로 교안의 정답은 O다.",
           "originalNumber": 2
         }
       ],
