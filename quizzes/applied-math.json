@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "subject": "응용수리실무",
   "notes": [
     {
@@ -424,6 +424,582 @@
         {
           "text": "48",
           "explanation": "48도 공배수이지만 최소는 24다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-013",
+      "builtinQuizId": "applied-math-quiz-013",
+      "number": 13,
+      "type": "choice",
+      "question": "연립방정식 x+3y=9, 2x-3y=3에서 x의 값은?",
+      "answer": "교안 해설: 가감법으로 두 식을 더하면, 3x=12이므로, x=4.\n\n보충·암기: 두 식을 더해 y를 소거한다. x=4를 대입하면 y=5/3이다.",
+      "choices": [
+        {
+          "text": "4",
+          "explanation": "y항이 소거되어 3x=12, 따라서 x=4다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "1",
+          "explanation": "두 식의 합은 3x=12이므로 x=1이 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "2",
+          "explanation": "3x=12에서 3으로 나누면 x=4다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "3",
+          "explanation": "x=3이면 두 식을 동시에 만족하지 않는다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-014",
+      "builtinQuizId": "applied-math-quiz-014",
+      "number": 14,
+      "type": "choice",
+      "question": "어떤 일을 할 때 A가 2시간 걸리고, B가 1시간 걸릴 때, 두 사람이 동시에 일을 하면 얼마나 걸리는가?",
+      "answer": "교안 해설: (1/2+1)x=1이므로, x=2/3이다. 2/3시간은 40분이다.\n\n보충·암기: 한 시간당 작업량을 더한다. A는 1/2, B는 1이므로 총 3/2. 걸리는 시간은 그 역수 2/3시간.",
+      "choices": [
+        {
+          "text": "40분",
+          "explanation": "1÷(1/2+1)=2/3시간=40분이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "20분",
+          "explanation": "20분에는 전체 작업의 절반만 완료한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "30분",
+          "explanation": "30분에는 (3/2)×(1/2)=3/4만 완료한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "60분",
+          "explanation": "60분은 B 혼자 걸리는 시간이며 함께하면 더 짧다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-015",
+      "builtinQuizId": "applied-math-quiz-015",
+      "number": 15,
+      "type": "choice",
+      "question": "어떤 회사의 직원 수가 50명에서 60명으로 늘었다면 증가율은?",
+      "answer": "교안 해설: 증가율 = (60-50)/50×100 = 20%.\n\n보충·암기: 증가율의 분모는 증가 전 값이다. 증가한 10명을 원래 50명으로 나눈다.",
+      "choices": [
+        {
+          "text": "20%",
+          "explanation": "(60−50)/50×100=20%다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "15%",
+          "explanation": "10/50×100=20%이므로 15%가 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "25%",
+          "explanation": "증가 전 50명을 기준으로 하면 25%가 아니다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "30%",
+          "explanation": "10명 증가는 50명의 20%다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-016",
+      "builtinQuizId": "applied-math-quiz-016",
+      "number": 16,
+      "type": "choice",
+      "question": "정가가 1,200원인 물건을 1,100원으로 할인하여 판매하였다. 원가가 1,000원이라면 실제이익은?",
+      "answer": "교안 해설: 실제이익(A)=판매금액(S)-원가(C)이므로, A=1,100-1,000=100원이다.\n\n보충·암기: 실제 판매가에서 원가를 뺀다. 정가와 할인액을 이익으로 혼동하지 않는다.",
+      "choices": [
+        {
+          "text": "100원",
+          "explanation": "실제 판매가 1100−원가 1000=100원이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "200원",
+          "explanation": "200원은 정가로 판매했을 때의 이익이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "300원",
+          "explanation": "실제 판매가와 원가의 차이는 100원이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "400원",
+          "explanation": "이익 계산에 정가를 더하지 않는다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-017",
+      "builtinQuizId": "applied-math-quiz-017",
+      "number": 17,
+      "type": "choice",
+      "question": "시속 2km 속력으로 달릴 때, 30분 동안 이동한 거리는?",
+      "answer": "교안 해설: 거리=속력×시간=2[km]×0.5[h]=1[km]\n\n보충·암기: 30분=0.5시간. 속력의 단위는 km/h이며 (2km/h)×0.5h=1km이다.",
+      "choices": [
+        {
+          "text": "1km",
+          "explanation": "30분을 0.5시간으로 바꾸면 2×0.5=1km다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "0.5km",
+          "explanation": "2×0.5=1이므로 0.5km가 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "2km",
+          "explanation": "2km는 같은 속력으로 1시간 이동한 거리다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "4km",
+          "explanation": "4km는 같은 속력으로 2시간 이동한 거리다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-018",
+      "builtinQuizId": "applied-math-quiz-018",
+      "number": 18,
+      "type": "choice",
+      "question": "A와 B는 서로 12km 떨어진 직선거리의 양 끝에서 1시간 마주보고 달려서 한 지점에서 만났다. B는 A보다 2배 빠르다고 할 때, A의 속력은?",
+      "answer": "교안 해설: A와 B의 속력을 각각 v, 2v라고 하면, A와 B가 이동한 거리는 각각 v, 2v와 같다. 두 거리의 합이 12이므로, v+2v=12를 풀어서, v=4[km/h]를 구한다.\n\n보충·암기: 서로 다가올 때 상대속력은 두 속력의 합이다. (v+2v)×1=12, A=4km/h, B=8km/h.",
+      "choices": [
+        {
+          "text": "4km/h",
+          "explanation": "3v=12이므로 A=4km/h다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "1km/h",
+          "explanation": "A=1, B=2이면 1시간에 합계 3km로 부족하다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "2km/h",
+          "explanation": "A=2, B=4이면 합계 6km로 부족하다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "3km/h",
+          "explanation": "A=3, B=6이면 합계 9km로 부족하다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-019",
+      "builtinQuizId": "applied-math-quiz-019",
+      "number": 19,
+      "type": "choice",
+      "question": "A와 B가 각각 3km/h와 2km/h의 속력으로 같은 방향으로 이동할 때, 1시간 후 A와 B의 거리 차이는?",
+      "answer": "교안 해설: 같은 방향이므로, A와 B의 이동거리를 빼야 하므로, (3km/h)×(1h)-(2km/h)×(1h)=(1h)이다.\n\n보충·암기: 교안의 결과 단위 1h는 1km의 오타다. 같은 지점에서 출발한다는 가정에서 (3−2)×1=1km.",
+      "choices": [
+        {
+          "text": "1km",
+          "explanation": "같은 출발점 기준 상대속력은 3−2=1km/h, 1시간 후 1km 차이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "2km",
+          "explanation": "2km는 B 혼자 이동한 거리다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "3km",
+          "explanation": "3km는 A 혼자 이동한 거리다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "5km",
+          "explanation": "5km는 이동거리의 합이며 같은 방향의 거리 차이는 아니다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-020",
+      "builtinQuizId": "applied-math-quiz-020",
+      "number": 20,
+      "type": "choice",
+      "question": "100m의 열차가 10m/s의 속도로 500m의 다리를 완전히 지나는 데 걸리는 시간은?",
+      "answer": "교안 해설: 열차의 이동거리는 열차의 길이와 다리의 길이를 더해서 100+500=600m이고, 다리를 완전히 지나는 데 걸리는 시간은 (600m)/(10m/s)=(60s)이다.\n\n보충·암기: 열차 앞부분이 다리에 들어온 때부터 뒷부분이 빠져나갈 때까지는 열차 길이+다리 길이를 이동한다.",
+      "choices": [
+        {
+          "text": "60초",
+          "explanation": "(100+500)/10=60초다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "10초",
+          "explanation": "10초는 열차 길이 100m만 이동하는 시간이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "40초",
+          "explanation": "600÷10=60이므로 40초가 아니다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "50초",
+          "explanation": "50초는 다리 길이 500m만 고려한 값이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-021",
+      "builtinQuizId": "applied-math-quiz-021",
+      "number": 21,
+      "type": "choice",
+      "question": "물에 100g의 소금을 넣었을 때, 10% 농도의 소금물이 되었다. 처음에 있던 물의 양은 몇 g인가?",
+      "answer": "교안 해설: 농도=소금/소금물이므로, 물의 양을 x로 두면 0.1=100/(100+x)이다. 그러므로, x=900이다.\n\n보충·암기: 소금물 전체 질량은 100÷0.1=1000g. 물은 전체에서 소금 100g을 빼 900g이다.",
+      "choices": [
+        {
+          "text": "900g",
+          "explanation": "100/(100+900)=0.1, 즉 10%다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "800g",
+          "explanation": "물 800g이면 농도는 100/900≈11.11%다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "1000g",
+          "explanation": "1000g은 소금물 전체의 질량이며 물만의 질량이 아니다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "1100g",
+          "explanation": "물 1100g이면 농도는 100/1200≈8.33%다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-022",
+      "builtinQuizId": "applied-math-quiz-022",
+      "number": 22,
+      "type": "choice",
+      "question": "어떤 소금물 100g과 20% 소금물 100g을 섞었더니, 30% 소금물이 되었다. 어떤 소금물의 농도는?",
+      "answer": "교안 해설: 어떤 소금물의 농도를 x로 두면, (x/100)×100+0.2×100=0.3×(100+100)이므로, x는 40%이다.\n\n보충·암기: 같은 질량끼리 섞으면 두 농도의 평균이다. (x+20)/2=30이므로 x=40.",
+      "choices": [
+        {
+          "text": "40%",
+          "explanation": "40g+20g의 소금이 총 200g에 녹아 30%가 된다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "20%",
+          "explanation": "20%끼리 섞으면 20%가 된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "30%",
+          "explanation": "30%와 20%를 같은 질량으로 섞으면 25%다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "50%",
+          "explanation": "50%와 20%를 같은 질량으로 섞으면 35%다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-023",
+      "builtinQuizId": "applied-math-quiz-023",
+      "number": 23,
+      "type": "choice",
+      "question": "10% 소금물과 30% 소금물을 섞었더니, 20% 소금물 400g이 되었다. 처음 30% 소금물의 양은?",
+      "answer": "교안 해설: 10% 소금물의 양과 20% 소금물의 양을 각각 x, y로 두면, x+y=400, 0.1x+0.3y=0.2×400이므로, x=200, y=200이다.\n\n보충·암기: 교안에서 y의 설명은 20%가 아니라 30% 소금물의 양이다. 20%는 10%와 30%의 중간이므로 같은 질량 200g씩 섞는다.",
+      "choices": [
+        {
+          "text": "200g",
+          "explanation": "0.1(400−y)+0.3y=80이므로 y=200g이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "50g",
+          "explanation": "30% 소금물이 50g이면 소금은 35+15=50g, 농도는 12.5%다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "100g",
+          "explanation": "30% 소금물이 100g이면 농도는 (30+30)/400=15%다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "300g",
+          "explanation": "30% 소금물이 300g이면 농도는 (10+90)/400=25%다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-024",
+      "builtinQuizId": "applied-math-quiz-024",
+      "number": 24,
+      "type": "choice",
+      "question": "10% 소금물 100g에 물 100g을 넣으면, 몇 % 소금물이 되는가?",
+      "answer": "교안 해설: 10% 소금물 100g에는 0.1×100=10g의 소금이 있으므로, 물 100g을 넣었을 때, 소금물의 농도는 10/(100+100)=0.05가 된다.\n\n보충·암기: 소금의 양은 10g으로 유지되고 전체 질량은 200g으로 두 배가 되어 농도는 절반이 된다.",
+      "choices": [
+        {
+          "text": "5%",
+          "explanation": "10/200×100=5%다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "2%",
+          "explanation": "소금 10g/전체 200g=5%이므로 2%가 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "3%",
+          "explanation": "희석 뒤의 농도는 5%다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "4%",
+          "explanation": "0.05를 백분율로 바꾸면 5%다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-025",
+      "builtinQuizId": "applied-math-quiz-025",
+      "number": 25,
+      "type": "choice",
+      "question": "주사위 1개를 던졌을 때 6의 약수가 나오는 경우의 수는?",
+      "answer": "교안 해설: 6의 약수는 1, 2, 3, 6이므로, 4가지이다.\n\n보충·암기: 경우의 수와 확률을 구분한다. 경우의 수는 4, 확률은 4/6=2/3.",
+      "choices": [
+        {
+          "text": "4가지",
+          "explanation": "6을 나누어떨어지게 하는 눈은 1, 2, 3, 6으로 4가지다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "2가지",
+          "explanation": "6의 약수에 1과 6도 포함해야 한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "3가지",
+          "explanation": "1, 2, 3, 6의 네 눈이 해당한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "5가지",
+          "explanation": "4와 5는 6의 약수가 아니므로 총 4가지다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-026",
+      "builtinQuizId": "applied-math-quiz-026",
+      "number": 26,
+      "type": "choice",
+      "question": "지폐가 5,000원, 10,000원 각각 4개씩 있다고 할 때, 20,000원을 낼 수 있는 방법의 가짓수는?",
+      "answer": "교안 해설: 10,000×2, 10,000+5,000×2, 5,000×4이므로, 3가지.\n\n보충·암기: 같은 액면가 지폐는 구별하지 않는다. 5000a+10000b=20000 → a+2b=4. (a,b)=(4,0),(2,1),(0,2).",
+      "choices": [
+        {
+          "text": "3가지",
+          "explanation": "만원권 2장, 만원권 1장+오천원권 2장, 오천원권 4장으로 3가지다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "2가지",
+          "explanation": "만원권 0장, 1장, 2장인 세 경우를 모두 세어야 한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "4가지",
+          "explanation": "같은 액면가의 개별 지폐나 지불 순서는 구별하지 않는다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "5가지",
+          "explanation": "a+2b=4의 가능한 비음수 정수 조합은 3개다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-027",
+      "builtinQuizId": "applied-math-quiz-027",
+      "number": 27,
+      "type": "choice",
+      "question": "두 개의 주사위 A와 B를 동시에 던졌을 때, 눈의 수의 합이 3 또는 5가 되는 경우의 수는?",
+      "answer": "교안 해설: 1+2, 2+1, 1+4, 2+3, 3+2, 4+1이므로, 6가지.\n\n보충·암기: A와 B는 구별하므로 (1,2)와 (2,1)은 서로 다른 경우다. 합 3은 2가지, 합 5는 4가지, 총 6가지.",
+      "choices": [
+        {
+          "text": "6가지",
+          "explanation": "(1,2),(2,1),(1,4),(2,3),(3,2),(4,1)의 6가지다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "5가지",
+          "explanation": "합 3인 2가지와 합 5인 4가지를 더하면 6이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "7가지",
+          "explanation": "합 3과 합 5는 겹치는 경우가 없고 총 6가지다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "8가지",
+          "explanation": "합 5의 경우는 4가지이며 합 3의 2가지를 더하면 6이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "applied-math-quiz-028",
+      "builtinQuizId": "applied-math-quiz-028",
+      "number": 28,
+      "type": "choice",
+      "question": "1,000원 지폐 2장과 5,000원 지폐 3장으로 지불할 수 있는 금액의 경우의 수는? (단, 0원은 제외)",
+      "answer": "교안 해설: (2+1)×(3+1)-1 = 11가지.\n\n보충·암기: 천원권 사용 장수는 0~2의 3가지, 오천원권은 0~3의 4가지. 서로 다른 조합의 금액이 중복되지 않으므로 3×4−1=11.",
+      "choices": [
+        {
+          "text": "11가지",
+          "explanation": "가능한 금액은 1000,2000,5000,6000,7000,10000,11000,12000,15000,16000,17000원의 11가지다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "5가지",
+          "explanation": "천원권 3가지와 오천원권 4가지를 곱한 뒤 0원을 제외해야 한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "6가지",
+          "explanation": "장수 선택을 더하지 않고 곱해야 한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "12가지",
+          "explanation": "12에는 아무 지폐도 사용하지 않는 0원 경우가 포함된다.",
           "originalNumber": 4
         }
       ],
