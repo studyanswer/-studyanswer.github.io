@@ -48,3 +48,5 @@ button:focus,button:focus-visible,[role=button]:focus,[role=button]:focus-visibl
 
 button.review-launch{display:block;width:100%;text-align:left;color:var(--text);font-size:14px;padding:20px}#review{font-size:16px}#review-card{padding-top:38px;min-height:calc(100svh - 176px)}#review-answer .question-details summary strong{font-weight:700}
 .home-view .subject-chip,.home-view .subject-chip.active{border-color:transparent}
+
+#review-answer .card-option{margin:12px 0;line-height:1.7;font-weight:400}#review-answer .card-correct strong{font-weight:700;color:#c0c0c0}
