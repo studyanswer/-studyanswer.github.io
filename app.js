@@ -235,7 +235,7 @@ $('#pdf-dialog').addEventListener('close',()=>{
  document.body.classList.remove('pdf-open');document.documentElement.classList.remove('pdf-open');
  document.body.style.top='';if(saved)window.scrollTo(saved.x,saved.y);
 });
-// Only a single-finger horizontal swipe at normal zoom changes pages.
+// At normal zoom swipe freely; at enlarged zoom page-turn only from an edge.
 let pdfSwipe;
 const pdfAtNormalZoom=()=>!$('#pdf-dialog').classList.contains('pdf-tap-zoomed')&&(!window.visualViewport||window.visualViewport.scale<=1.02);
 function updatePDFZoom(){const dialog=$('#pdf-dialog');dialog.classList.toggle('pdf-zoomed',!pdfAtNormalZoom());if(pdfAtNormalZoom())dialog.scrollTop=0}
@@ -295,17 +295,19 @@ $('#pdf-canvas').addEventListener('touchend',e=>{
 $('#pdf-dialog').addEventListener('close',()=>{pdfTapStart=undefined;pdfLastTap=undefined;pdfScale=1;pdfBaseWidth=0;pdfPinch=undefined;pdfPan=undefined;$('#pdf-dialog').classList.remove('pdf-tap-zoomed');updatePDFZoom()});
 
 $('#pdf-dialog').addEventListener('cancel',e=>e.preventDefault());
+$('#pdf-dialog').addEventListener('click',e=>{const box=$('#pdf-canvas').getBoundingClientRect();if(e.target.matches('#pdf-dialog,#pdf-canvas-wrap')&&(e.clientY<box.top||e.clientY>box.bottom)&&!inScreenCorner(e)&&$('#conceal').hidden)$('#pdf-dialog').close()});
 $('#pdf-dialog').addEventListener('touchmove',e=>{if(e.touches.length===1&&pdfAtNormalZoom())e.preventDefault()},{passive:false});
 $('#pdf-dialog').addEventListener('wheel',e=>{if(pdfAtNormalZoom()&&!e.ctrlKey)e.preventDefault()},{passive:false});
 $('#pdf-dialog').addEventListener('touchstart',e=>{
  pdfSwipe=undefined;
- if(e.touches.length!==1||!$('#conceal').hidden||!viewer||!pdfAtNormalZoom()||!e.target.closest('#pdf-canvas-wrap'))return;
- const t=e.touches[0];pdfSwipe={id:t.identifier,x:t.clientX,y:t.clientY,time:performance.now()};
+ if(e.touches.length!==1||!$('#conceal').hidden||!viewer||!e.target.closest('#pdf-canvas-wrap'))return;
+ const t=e.touches[0],dialog=$('#pdf-dialog');
+ pdfSwipe={id:t.identifier,x:t.clientX,y:t.clientY,time:performance.now(),zoomed:!pdfAtNormalZoom(),leftEdge:dialog.scrollLeft<=2,rightEdge:dialog.scrollLeft>=dialog.scrollWidth-dialog.clientWidth-2};
 },{passive:true});
 $('#pdf-dialog').addEventListener('touchmove',e=>{
  if(!pdfSwipe)return;
  const t=[...e.touches].find(t=>t.identifier===pdfSwipe.id);
- if(e.touches.length!==1||!t||!pdfAtNormalZoom()){pdfSwipe=undefined;return}
+ if(e.touches.length!==1||!t){pdfSwipe=undefined;return}
  const dx=t.clientX-pdfSwipe.x,dy=t.clientY-pdfSwipe.y;
  if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){pdfSwipe=undefined;return}
  if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.5)e.preventDefault();
@@ -314,10 +316,11 @@ $('#pdf-dialog').addEventListener('touchcancel',()=>{pdfSwipe=undefined},{passiv
 $('#pdf-dialog').addEventListener('close',()=>{pdfSwipe=undefined});
 $('#pdf-dialog').addEventListener('touchend',e=>{
  const start=pdfSwipe;pdfSwipe=undefined;
- if(!start||e.touches.length||!$('#conceal').hidden||!pdfAtNormalZoom())return;
+ if(!start||e.touches.length||!$('#conceal').hidden)return;
  const t=[...e.changedTouches].find(t=>t.identifier===start.id);if(!t)return;
  const dx=t.clientX-start.x,dy=t.clientY-start.y;
  if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5||performance.now()-start.time>1200)return;
+ if(start.zoomed&&!(dx>0?start.leftEdge:start.rightEdge))return;
  e.preventDefault();e.stopPropagation();
  const button=$(dx<0?'#pdf-next':'#pdf-prev');if(!button.disabled)button.click();
 },{passive:false});

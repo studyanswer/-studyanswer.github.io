@@ -1,0 +1,19 @@
+const assert=require('node:assert/strict');const {chromium}=require('playwright');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{
+const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});await page.goto('http://127.0.0.1:8082');await page.getByRole('button',{name:'AI기초와활용',exact:true}).click();await page.locator('[data-tab="pdf"]').click();await page.locator('[data-open-pdf]').first().click();
+assert.equal(await page.evaluate(()=>getComputedStyle(document.body).position),'fixed');assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).overflow),'hidden');const ready=n=>page.waitForFunction(n=>document.querySelector('#pdf-page').textContent.startsWith(n+' /')&&document.querySelector('#pdf-canvas-wrap').getAttribute('aria-busy')==='false',n);await ready(1);
+const session=await page.context().newCDPSession(page);const send=(type,points)=>session.send('Input.dispatchTouchEvent',{type,touchPoints:points});
+const swipe=async(dx,dy=0)=>{const box=await page.locator('#pdf-canvas').boundingBox(),x=dx<0?280:100,y=Math.max(180,Math.min(650,box.y+box.height/2));await send('touchStart',[{x,y,id:1}]);for(let i=1;i<=8;i++)await send('touchMove',[{x:x+dx*i/8,y:y+dy*i/8,id:1}]);await send('touchEnd',[])};
+await swipe(-150);await ready(2);await swipe(150);await ready(1);await swipe(150);await ready(1);await swipe(0,-70);await ready(1);
+await page.keyboard.press('Escape');assert.ok(await page.locator('#pdf-dialog').isVisible(),'Escape must not dismiss PDF');assert.ok(await page.locator('#conceal').isHidden());
+const box=await page.locator('#pdf-canvas').boundingBox();await page.touchscreen.tap(180,box.y+box.height/2);await page.touchscreen.tap(180,box.y+box.height/2);
+await page.locator('#pdf-dialog').evaluate(e=>e.scrollLeft=(e.scrollWidth-e.clientWidth)/2);await swipe(-150);await ready(1);
+await page.locator('#pdf-dialog').evaluate(e=>e.scrollLeft=e.scrollWidth);await swipe(150);await ready(1);
+await page.locator('#pdf-dialog').evaluate(e=>e.scrollLeft=e.scrollWidth);await swipe(-150);await ready(2);
+assert.ok(await page.locator('#pdf-dialog').evaluate(e=>e.classList.contains('pdf-tap-zoomed')));
+await page.locator('#pdf-dialog').evaluate(e=>e.scrollLeft=0);await swipe(-150);await ready(2);
+await page.locator('#pdf-dialog').evaluate(e=>e.scrollLeft=0);await swipe(150);await ready(1);
+await swipe(150);await ready(1);
+await page.locator('#pdf-canvas').dblclick({position:{x:100,y:100}});
+await page.touchscreen.tap(190,120);await page.locator('#pdf-dialog').waitFor({state:'hidden'});await page.waitForFunction(()=>getComputedStyle(document.body).position!=='fixed');assert.ok(await page.locator('#app').evaluate(e=>e.classList.contains('subject-view')));console.log('PASS: enlarged interior pans, inward edge pans, outward edge page turns, retained zoom and first-page boundary');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});
