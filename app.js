@@ -128,9 +128,10 @@ function render(){
  if(!selected)return;
  $('#subject-title').textContent=state.subjects.find(s=>s.id===selected).name;
  const notes=subjectNotes(), docs=subjectDocs(),query=$('#note-search').value.trim();
- const visibleNotes=query?notes.filter(n=>lexicalScore([n.question,n.answer,...(n.choices||[]).flatMap(c=>[c.text,c.explanation])].join(' '),query)>0):notes;
+ const unhiddenNotes=notes.filter(n=>!(state.hiddenNoteIds||[]).includes(n.id));
+ const visibleNotes=query?unhiddenNotes.filter(n=>lexicalScore([n.question,n.answer,...(n.choices||[]).flatMap(c=>[c.text,c.explanation])].join(' '),query)>0):unhiddenNotes;
  $('#note-count').textContent=notes.length;$('#pdf-count').textContent=docs.length;
- $('#notes').innerHTML=visibleNotes.length?visibleNotes.map(n=>`<article class="note-row"><div class="note-main"><span class="note-type">${kinds[n.type]}${n.week?' · '+n.week+'주차 '+n.lecture+'강':''}${n.marked?' · 다시 보기':''}</span><h3>${n.number?n.number+'. ':''}${escapeHTML(n.question)}</h3>${noteContent(n)}</div></article>`).join(''):(query?'<p class="empty-inline">검색 결과가 없어요. 다른 단어나 초성으로 찾아보세요.</p>':'<p class="empty-inline">아직 등록된 노트가 없어요.<br>이 대화에서 문제를 보내주면 등록할 수 있어요.</p>');
+ $('#notes').innerHTML=visibleNotes.length?visibleNotes.map(n=>`<article class="note-row" data-note-id="${escapeHTML(n.id)}"><div class="note-main"><span class="note-type">${kinds[n.type]}${n.week?' · '+n.week+'주차 '+n.lecture+'강':''}${n.marked?' · 다시 보기':''}</span><h3>${n.number?n.number+'. ':''}${escapeHTML(n.question)}</h3>${noteContent(n)}</div></article>`).join(''):(query?'<p class="empty-inline">검색 결과가 없어요. 다른 단어나 초성으로 찾아보세요.</p>':notes.length?'<p class="empty-inline">모든 문제를 숨겼어요. 새로고침을 누르면 다시 보여요.</p>':'<p class="empty-inline">아직 등록된 노트가 없어요.<br>이 대화에서 문제를 보내주면 등록할 수 있어요.</p>');
  $('#start-review').disabled=!notes.length;
  $('#documents').innerHTML=docs.map(d=>`<article class="document-row" role="button" tabindex="0" data-open-pdf="${d.id}" aria-label="${escapeHTML(d.name)}"><div><strong>${escapeHTML(d.name)}</strong>${$('#pdf-expand').checked?`<div class="pdf-learning-content">${pdfLearningContent(d).map(line=>`<div>${escapeHTML(line)}</div>`).join('')}</div>`:''}</div></article>`).join('');
 }
@@ -152,6 +153,41 @@ document.addEventListener('pointerup',e=>{
  swipeClickUntil=performance.now()+400;homeView=true;render();window.scrollTo({top:0});
 });
 document.addEventListener('click',e=>{if(performance.now()<swipeClickUntil){e.preventDefault();e.stopImmediatePropagation()}},{capture:true});
+
+let noteSwipe;
+function clearNoteSwipe(){if(noteSwipe){noteSwipe.row.style.transform='';noteSwipe.row.style.opacity=''}noteSwipe=undefined}
+$('#notes').addEventListener('pointerdown',e=>{
+ clearNoteSwipe();
+ if(e.pointerType!=='touch'||!e.isPrimary||homeView||!$('#conceal').hidden||!$('#review').hidden||document.querySelector('dialog[open]'))return;
+ const row=e.target.closest('[data-note-id]');if(!row)return;
+ noteSwipe={row,id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now()};
+});
+document.addEventListener('pointermove',e=>{
+ const start=noteSwipe;if(!start||start.id!==e.pointerId)return;
+ if(!$('#conceal').hidden){clearNoteSwipe();return}
+ const dx=e.clientX-start.x,dy=e.clientY-start.y;
+ if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){clearNoteSwipe();return}
+ if(dx<-12&&Math.abs(dx)>Math.abs(dy)*1.5){start.row.style.transform=`translateX(${dx}px)`;start.row.style.opacity=Math.max(.15,1+dx/start.row.clientWidth)}
+});
+document.addEventListener('pointercancel',clearNoteSwipe);
+document.addEventListener('pointerdown',e=>{if(!e.isPrimary)clearNoteSwipe()},{capture:true});
+document.addEventListener('pointerup',async e=>{
+ const start=noteSwipe;if(!start||start.id!==e.pointerId)return;noteSwipe=undefined;
+ const dx=e.clientX-start.x,dy=e.clientY-start.y;
+ if(dx>-80||Math.abs(dx)<Math.abs(dy)*1.5||performance.now()-start.time>1200||!$('#conceal').hidden){start.row.style.transform='';start.row.style.opacity='';return}
+ swipeClickUntil=performance.now()+500;
+ const reset=$('#reset-hidden-notes');reset.disabled=true;
+ start.row.classList.add('hiding-note');start.row.style.transform='translateX(-110%)';start.row.style.opacity='0';
+ const previous=state.hiddenNoteIds||[];state.hiddenNoteIds=[...new Set([...previous,start.row.dataset.noteId])];
+ if(!await persist())state.hiddenNoteIds=previous;
+ await new Promise(resolve=>setTimeout(resolve,160));reset.disabled=false;render();
+});
+$('#reset-hidden-notes').onclick=async()=>{
+ clearNoteSwipe();const previous=state.hiddenNoteIds||[],ids=new Set(subjectNotes().map(n=>n.id));
+ state.hiddenNoteIds=previous.filter(id=>!ids.has(id));
+ if(!await persist())state.hiddenNoteIds=previous;
+ else $('#note-search').value='';render();
+};
 
 $('.tabs').onclick=e=>{const b=e.target.closest('[data-tab]');if(b)setTab(b.dataset.tab)};
 for(const b of document.querySelectorAll('.close-dialog'))b.onclick=()=>b.closest('dialog').close();

@@ -14,7 +14,7 @@
 <div id="subject-content" hidden>
 <div class="subject-heading"><div><p class="eyebrow">공부 자료</p><h2 id="subject-title"></h2></div></div>
 
-<section id="notes-panel"><input id="note-search" type="search" aria-label="노트 검색" placeholder="문제·보기 검색 (초성 가능)"><div id="notes"></div><div class="review-launch"><div><h3>잠깐의 틈, 한 문제씩.</h3><p>터치로 답을 확인하는 조용한 복습</p></div><button id="start-review" class="primary">복습 시작 →</button></div></section>
+<section id="notes-panel"><input id="note-search" type="search" aria-label="노트 검색" placeholder="문제·보기 검색 (초성 가능)"><button id="reset-hidden-notes" class="text-button">새로고침</button><div id="notes"></div><div class="review-launch"><div><h3>잠깐의 틈, 한 문제씩.</h3><p>터치로 답을 확인하는 조용한 복습</p></div><button id="start-review" class="primary">복습 시작 →</button></div></section>
 <section id="pdf-panel" hidden><input id="pdf-upload" type="file" hidden disabled><form id="search-form" class="search-box"><input id="search-query" placeholder="단어·초성·문제를 입력하세요" required aria-label="교재 검색"><button class="primary">검색</button></form><label class="pdf-expand-option"><input id="pdf-expand" type="checkbox"> PDF 펼치기</label><p id="search-status" role="status"></p><div id="results"></div><h3 class="library-heading">자료 목록</h3><div id="documents"></div></section>
 <nav class="tabs" aria-label="과목 메뉴"><button data-tab="notes" class="active">문제 <span id="note-count">0</span></button><button data-tab="pdf">PDF <span id="pdf-count">0</span></button></nav>
 </div>
