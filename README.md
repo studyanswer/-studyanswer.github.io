@@ -83,4 +83,4 @@ node tests/ocr-smoke.cjs
 
 퀴즈: AI기초와활용 28문제를 `quizzes/ai-basics.json`, 공학생을위한실용AI 28문제를 `quizzes/practical-ai.json`에 등록했습니다. 4지선다와 O/X를 지원하며 문제 아래 정답 선지를 먼저, 나머지 보기를 원문 번호 및 설명과 함께 표시합니다. 교안 해설과 보충 설명을 구분하고, 첫 4문제만 확인된 1주차 강의 정보를 기록했습니다. 기기에서 수정·삭제한 기록은 자동 등록 시 유지되며 새 문제는 안정적인 ID로 한 번씩 추가합니다. 검증: 8081 포트에서 사이트를 실행한 뒤 `NODE_PATH=/opt/codex/cua_node/lib/node_modules node tests/quiz-smoke.cjs`.
 
-반도체패키지공학실무 퀴즈 12문제: `quizzes/semiconductor-packaging.json`. 패키지 기능·단계·공정·경박단소·실장 방식을 정답 우선 형식으로 등록했습니다. 주차는 미확인 상태입니다.
+반도체패키지공학실무 퀴즈 18문제: `quizzes/semiconductor-packaging.json`. 패키지 기능·단계·공정·경박단소·실장 방식을 정답 우선 형식으로 등록했습니다. 주차는 미확인 상태입니다.

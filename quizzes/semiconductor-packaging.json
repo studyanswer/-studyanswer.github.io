@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "subject": "반도체패키지공학실무",
   "notes": [
     {
@@ -424,6 +424,222 @@
         {
           "text": "Laser Sawing",
           "explanation": "레이저를 이용해 웨이퍼를 절단·분리하는 방법이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-013",
+      "builtinQuizId": "semiconductor-packaging-quiz-013",
+      "number": 13,
+      "type": "choice",
+      "question": "다음 중 반도체 패키지 공정의 다이 본딩 공정 준비 작업이 아닌 것은 ?",
+      "answer": "교안 해설: 반도체 후공정 패키지 공정의 다이 본딩 공정 진행전 준비하는 공정은 웨이퍼 백-그라인딩 공정과 웨이퍼 소-잉 공정이 있다 또한 칩과 리드프레임을 준비하는 공정이 있다.\n\n보충·암기: 다이 본딩 준비 = 칩·리드프레임 준비 + 웨이퍼 백그라인딩·소잉 / 몰딩 = 후속 공정.",
+      "choices": [
+        {
+          "text": "몰딩 공정",
+          "explanation": "칩과 연결부를 봉지 재료로 보호하는 뒤쪽 공정으로 다이 본딩 준비 작업이 아니다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "웨이퍼 제조 공정",
+          "explanation": "다이 본딩에 사용할 칩의 원재료인 웨이퍼를 제조하는 선행 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "리드프레임 제조 공정",
+          "explanation": "칩을 부착할 리드프레임을 준비하는 선행 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "백그라인딩 공정",
+          "explanation": "웨이퍼를 얇게 만드는 준비 공정이며 이후 소잉으로 칩을 분리한다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-014",
+      "builtinQuizId": "semiconductor-packaging-quiz-014",
+      "number": 14,
+      "type": "choice",
+      "question": "반도체 후 공정 패키지 공정에서 다이 본딩 공정에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: 다이본딩 공정은, 1. 리드프레임 또는 PCB기판 매거진 정렬 2. 에폭시 어드히시브 또는 PCB 기판 매거진 정렬 3. 웨이퍼상 칩 픽업 및 리드프레임 다이패드 로딩 4. 기판에 로딩완료된 매거진 언로딩 분리 공정 5. 다이 접착제 경화 공정 6. 외관 및 DST 검사 공정\n\n보충·암기: 다이 본딩 흐름 = 로딩 → 접착제 도포 → 칩 픽업·배치 → 언로딩 → 경화 → 검사. 교안 해설 2단계의 반복된 표현은 원문대로 보존했다.",
+      "choices": [
+        {
+          "text": "Package Swa & Sorter 공정",
+          "explanation": "패키지 절단·분류 공정으로 다이 본딩 공정에 포함되지 않는다. 보기의 “Swa”는 원문 표기를 보존했다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "리드 프레임 로딩 공정",
+          "explanation": "리드프레임이나 기판을 장비에 공급·정렬하는 단계다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "에폭시 접착제 도포 공정",
+          "explanation": "칩 부착을 위한 접착제를 도포하는 단계다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "칩 픽업 & 마운팅 공정",
+          "explanation": "칩을 집어 지정 위치에 배치·부착하는 단계다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-015",
+      "builtinQuizId": "semiconductor-packaging-quiz-015",
+      "number": 15,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정에서 칩을 픽업하는 Tool 이름은 무엇인가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정에서 칩을 픽업 하는 Tool 은 Collet 이다\n\n보충·암기: 다이 본딩 픽업 = Collet / 와이어 본딩 도구 = Capillary / 소재 수납·공급 = Magazine.",
+      "choices": [
+        {
+          "text": "Collet",
+          "explanation": "교안에서 제시하는 다이 본딩 칩 픽업 도구다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Capillary",
+          "explanation": "주로 와이어 본딩에서 와이어를 안내하고 본딩하는 도구다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Nozzle",
+          "explanation": "분사·흡착 등에 사용하는 노즐의 일반 명칭이다. 이 문항에서 묻는 도구 명칭은 Collet이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Magazine",
+          "explanation": "리드프레임이나 기판 등을 담아 공급하는 수납 장치다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-016",
+      "builtinQuizId": "semiconductor-packaging-quiz-016",
+      "number": 16,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정에서 칩과 리드프레임을 붙여 본딩하는 것을 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정에서 칩과 리드프레임을 붙여 본딩하는 것을 Adhesive(접착제)라고 한다.\n\n보충·암기: Adhesive = 접착제 / Grit = 연마 입자 / Wire = 금속선 / Chip Pocket = 칩 배출 공간.",
+      "choices": [
+        {
+          "text": "Adhesive",
+          "explanation": "칩과 리드프레임 등을 붙이는 접착제다. 교안의 정답은 Adhesive이며 재료 명칭이라는 점도 기억하기.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Grit",
+          "explanation": "그라인딩 휠의 연마 입자다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Wire",
+          "explanation": "와이어 본딩에서 전기적으로 연결하는 금속선이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Chip Pocket",
+          "explanation": "그라인딩 휠에서 가공 칩이나 이물이 빠져나가는 공간이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-017",
+      "builtinQuizId": "semiconductor-packaging-quiz-017",
+      "number": 17,
+      "type": "choice",
+      "question": "다음중 다이 본더 설비의 구성 요소가 아닌 것은 ?",
+      "answer": "교안 해설: 다이 본더 설비의 주요 구성요소는 Lead Frame Loading~Adhesive~Die Pick-up & Placement~Unloading~ Cure 부분이다.\n\n보충·암기: 다이 본더 구성 = 리드프레임 로딩 + 접착제 + 픽업·배치 + 언로딩 + 경화.",
+      "choices": [
+        {
+          "text": "Molding Loading Fixture",
+          "explanation": "몰딩 작업의 로딩 고정구이며 교안의 다이 본더 구성요소에 해당하지 않는다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Lead Frame Loader",
+          "explanation": "리드프레임을 장비에 공급하는 구성요소다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Ag Epoxy Syringe",
+          "explanation": "은(Ag)이 포함된 에폭시 접착제를 도포하는 시린지다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Wafer Ring Holder",
+          "explanation": "칩 픽업을 위한 웨이퍼 링을 고정하는 구성요소다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-018",
+      "builtinQuizId": "semiconductor-packaging-quiz-018",
+      "number": 18,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정이 완료된 제품의 칩과 기판의 접착력을 검사하는 방법은 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정 완료후 접착력을 검사하는 공정은 다이 접착력의 전단응력 테스트 인 DST(Die Shear Test)이다.\n\n보충·암기: DST = 다이 접착 전단 강도 / BPT = 본딩 인장 강도 / PCT = 환경 신뢰성 / X-Ray = 내부 비파괴 관찰.",
+      "choices": [
+        {
+          "text": "DST(Die Shear Test)",
+          "explanation": "다이에 옆 방향 힘을 가해 접착부의 전단 강도를 측정하는 시험이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "BPT(Bond Pull Test)",
+          "explanation": "본딩된 와이어 등을 당겨 결합 강도를 확인하는 인장 시험이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "PCT(Pressure Cooker Test)",
+          "explanation": "고온·고습·가압 조건에서 제품의 신뢰성을 평가하는 시험이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "X-Ray Test",
+          "explanation": "X선을 이용해 내부 구조·접합 상태·공극 등을 비파괴적으로 관찰하는 검사다.",
           "originalNumber": 4
         }
       ],
