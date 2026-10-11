@@ -1,4 +1,4 @@
-async function selectSubject(page,name){if(await page.locator('#home').isVisible())await page.locator('#home').click();await page.getByRole('button',{name,exact:true}).first().click()}
+const {selectSubject}=require('./navigation.cjs');
 const assert=require('node:assert/strict');
 const {chromium}=require('playwright');
 async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,q=db.transaction('data').objectStore('data').get('state');q.onsuccess=()=>{resolve(q.result);db.close()}}}))}

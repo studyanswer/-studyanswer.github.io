@@ -1,3 +1,4 @@
+const {goHome}=require('./navigation.cjs');
 const assert=require('node:assert/strict');
 const {chromium}=require('playwright');
 (async()=>{
@@ -21,7 +22,7 @@ const {chromium}=require('playwright');
  await page.locator('#start-review').click();await page.locator('#review-card').click();
  await page.locator('#review-answer summary').click();assert.equal(await page.locator('#review-progress').innerText(),'1 / 28');
  assert.equal(await page.locator('#review-answer .study-choice:visible').count(),4);
- await page.locator('#exit-review').click();await page.locator('#home').click();
+ await page.locator('#exit-review').click();await goHome(page);
  await page.setViewportSize({width:320,height:640});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.equal(await page.locator('#app button:visible').count(),7);
  console.log('PASS: seven-button black home, correct-first expandable choices, note search, review expansion, mobile width');

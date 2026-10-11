@@ -1,4 +1,4 @@
-async function selectSubject(page,name){if(await page.locator('#home').isVisible())await page.locator('#home').click();await page.getByRole('button',{name,exact:true}).first().click()}
+const {selectSubject}=require('./navigation.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const {chromium}=require('playwright');
@@ -38,26 +38,22 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   await page.locator('#start-review').click();await page.locator('#review-card').click();
   assert.match(await page.locator('#review-answer .study-choice').first().innerText(),/K-means/);
   await page.locator('#hide-review').click();assert.ok(await page.locator('#conceal').isVisible());await page.mouse.click(380,10);await page.locator('#exit-review').click();
-  const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;
-  const backup=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(backup.notes.length,158);
+  assert.equal(await page.locator('header,.backup,#export,#import').count(),0);assert.equal((await read(page)).notes.length,158);
   page.on('dialog',d=>d.accept());
   // Previously deleted built-in notes stay deleted after reload.
   await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const state=q.result;state.notes=state.notes.filter(n=>n.id!=='ai-basics-quiz-001');store.put(state,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
   await page.reload();await page.locator('#app.home-view').waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
-  await page.locator('#import').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backup))});await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');
-  assert.equal((await read(page)).notes.length,315);
-  await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');assert.equal((await read(page)).notes.length,315);
   assert.equal((await read(page)).documents.length,82);
-  await page.evaluate(()=>navigator.serviceWorker.ready);await context.setOffline(true);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.locator('.note-row').first().waitFor();assert.equal((await read(page)).notes.length,315);
+  await page.evaluate(()=>navigator.serviceWorker.ready);await context.setOffline(true);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.locator('.note-row').first().waitFor();assert.equal((await read(page)).notes.length,157);
   await context.setOffline(false);
   await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result;s.notes=[{id:'existing-personal',subjectId:s.subjects[0].id,type:'qa',question:'기존 개인 노트',answer:'보존할 답변',choices:[]}];delete s.builtinQuizIds;store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
   await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===29);
   assert.match(await page.locator('.note-row').first().innerText(),/보존할 답변/);
-  await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result,id=s.subjects[0].id;s.subjects=s.subjects.filter(x=>x.id!==id);s.notes=s.notes.filter(x=>x.subjectId!==id);s.documents=s.documents.filter(x=>x.subjectId!==id);store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');
-  assert.equal((await read(page)).subjects.filter(s=>s.name==='AI기초와활용').length,1);
+  await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result,id=s.subjects[0].id;s.subjects=s.subjects.filter(x=>x.id!==id);s.notes=s.notes.filter(x=>x.subjectId!==id);s.documents=s.documents.filter(x=>x.subjectId!==id);store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'공학생을위한실용AI');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='6');
+  assert.equal((await read(page)).subjects.filter(s=>s.name==='AI기초와활용').length,0);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
   assert.deepEqual(errors,[]);
-  console.log('PASS: all 158 answers, mobile correct-first display, read-only list and existing O/X edits preserved, reload idempotence, original numbers, review conceal, backup/restore, deletion preservation, offline notes, 82 course assets retained');
+  console.log('PASS: all 158 answers, mobile correct-first display, read-only list and existing O/X edits preserved, reload idempotence, original numbers, review conceal, removed header/backup UI, deletion preservation, offline notes, 82 course assets retained');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
