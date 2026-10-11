@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "subject": "반도체패키지공학실무",
+  "notes": [
+    {
+      "id": "semiconductor-packaging-quiz-001",
+      "builtinQuizId": "semiconductor-packaging-quiz-001",
+      "number": 1,
+      "type": "choice",
+      "question": "다음 중 전자패키지의 주요 기능이 아닌 것은 무엇인가 ?",
+      "answer": "교안 해설: 전자패키지의 주요 기능은 반도체 소자의 파워 분배, 신호 전달, 열 분산, 칩 보호 기능에 있다.\n\n보충·암기: 패키지 주요 기능 = 전력 분배 + 신호 전달 + 열 분산 + 칩 보호.",
+      "choices": [
+        {
+          "text": "원가 절감",
+          "explanation": "원가 절감은 설계·제조의 목표가 될 수 있지만 이 문항에서 묻는 주요 기능에는 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "소자의 전력 분배",
+          "explanation": "칩에 필요한 전력을 공급하고 분배한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "신호 전달 및 열 분산",
+          "explanation": "칩의 신호를 외부로 전달하고 발생한 열을 분산한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "소자 칩 보호",
+          "explanation": "칩을 외부 충격·오염·환경으로부터 보호한다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-002",
+      "builtinQuizId": "semiconductor-packaging-quiz-002",
+      "number": 2,
+      "type": "choice",
+      "question": "반도체 패키지 공정의 구분에서 다음 중 잘못 정의된 것은 ?",
+      "answer": "교안 해설: 반도체 패키지는 Wafer 단계의 0 Level Package, 오리지널 패키지 제조 단계에 해당하는 1’st Level Packagem 2’nd Level Package에 해당하는 Board, 3’rd Level Package 에 해당하는 System으로 구분된다.\n\n보충·암기: 0 = Wafer / 1 = Package / 2 = Board / 3 = System. 교안 해설의 “Packagem” 표기는 원문을 보존했다.",
+      "choices": [
+        {
+          "text": "3’rd Level Package : PCB",
+          "explanation": "교안 기준 3단계는 PCB가 아니라 System이다. PCB는 보드에 해당한다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "0 Level Package : Wafer",
+          "explanation": "교안 기준 0단계는 웨이퍼(Wafer) 단계다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "1’st Level Package : Package",
+          "explanation": "교안 기준 1단계는 개별 패키지 제조 단계다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "2’nd Level Package : Board",
+          "explanation": "교안 기준 2단계는 패키지를 보드에 실장하는 Board 단계다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-003",
+      "builtinQuizId": "semiconductor-packaging-quiz-003",
+      "number": 3,
+      "type": "choice",
+      "question": "반도체 주요 공정에서 다음 중 패키지 공정에 해당되는 것은 ?",
+      "answer": "교안 해설: 반도체 공정 중 후 공정에 해당하는 패키징 공정은 백그라인딩, 쏘잉, 다이본딩, 와이어본딩, 몰딩, 마킹, 플레이팅, 싱귤레이션, 트림, 폼, 쏘앤쏘터, 파이널 테스트 공정으로 진행된다.\n\n보충·암기: 반도체 전체 흐름에서 Photo·Etching·Diffusion = 웨이퍼 제조 전공정 / Wire Bonding = 패키징 후공정.",
+      "choices": [
+        {
+          "text": "Wire Bonding 공정",
+          "explanation": "칩의 패드와 패키지의 연결부를 가는 금속선으로 연결하는 패키지 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Photo 공정",
+          "explanation": "감광막 등을 이용해 회로 패턴을 형성하는 웨이퍼 제조 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Etching 공정",
+          "explanation": "불필요한 물질을 제거해 원하는 패턴을 만드는 식각 공정이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Diffusion 공정",
+          "explanation": "불순물을 반도체에 확산시켜 전기적 특성을 조절하는 웨이퍼 제조 공정이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-004",
+      "builtinQuizId": "semiconductor-packaging-quiz-004",
+      "number": 4,
+      "type": "choice",
+      "question": "반도체 패키지의 기술 방향성과 거리가 먼 것은 ?",
+      "answer": "교안 해설: 반도체 패키지의 기술 방향성은 경·박·단·소 (LTSS), 가벼운, 얇은, 짧은, 작은 방향성을 가진다.\n\n보충·암기: LTSS = Light(가벼운) + Thin(얇은) + Short(짧은) + Small(작은). Light의 L과 Transparent의 T를 혼동하지 않기.",
+      "choices": [
+        {
+          "text": "Transparent (투명한)",
+          "explanation": "투명함은 교안의 경·박·단·소 방향성에 포함되지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Thin(얇은)",
+          "explanation": "박 = Thin = 얇게 만드는 방향이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Short(짧은)",
+          "explanation": "단 = Short = 짧게 만드는 방향이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Small(작은)",
+          "explanation": "소 = Small = 작게 만드는 방향이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-005",
+      "builtinQuizId": "semiconductor-packaging-quiz-005",
+      "number": 5,
+      "type": "choice",
+      "question": "반도체 패키지의 실장 방식에서 나머지 셋과 다른 것은 ?",
+      "answer": "교안 해설: 반도체 패키지의 실장방식은 삽입형과 실장형 가지로 구분한다. 삽입형에는 DIP, PGA, ZIP 등이 있다. 실장형에는 WLCSP, SOP, QFP등이 있다.\n\n보충·암기: 교안 기준 삽입형 = DIP·PGA·ZIP / 표면 실장형 = WLCSP·SOP·QFP.",
+      "choices": [
+        {
+          "text": "DIP",
+          "explanation": "Dual In-line Package. 두 줄의 핀을 기판 구멍에 삽입하는 방식으로 다른 세 보기와 구분된다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "WLCSP",
+          "explanation": "Wafer Level Chip Scale Package. 교안에서는 표면 실장형으로 분류한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "SOP",
+          "explanation": "Small Outline Package. 교안에서는 표면 실장형으로 분류한다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "QFP",
+          "explanation": "Quad Flat Package. 네 면에 리드가 있는 표면 실장형 패키지다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-006",
+      "builtinQuizId": "semiconductor-packaging-quiz-006",
+      "number": 6,
+      "type": "choice",
+      "question": "반도체 패키지 공정의 전 공정에 해당되는 것은 다음중 어느 공정인가 ?",
+      "answer": "교안 해설: 반도체 패키지 공정중 전 공정에 해당되는 것은 백그라인딩, 쏘잉, 다이본딩, 와이어본딩 공정이 해당된다. 몰딩,마킹,플레이팅,싱귤레이션,트림,폼,쏘앤쏘터,파이널 테스트 공정은 패키지 공정의 후 공정에 해당된다.\n\n보충·암기: 구분 범위 주의: 반도체 전체에서 패키징은 후공정이지만, 패키징 내부에서는 Wire Bonding이 전공정으로 분류된다.",
+      "choices": [
+        {
+          "text": "Wire Bonding 공정",
+          "explanation": "패키지 내부 구분에서 전공정이다. 칩과 패키지를 금속선으로 연결한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Final Test 공정",
+          "explanation": "패키지 내부 구분에서 후공정이다. 완성된 제품의 전기적 기능 등을 검사한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Molding 공정",
+          "explanation": "패키지 내부 구분에서 후공정이다. 칩과 연결부를 봉지 재료로 보호한다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Saw & Sorter 공정",
+          "explanation": "패키지 내부 구분에서 후공정이다. 절단 및 분류 등의 작업을 수행한다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    }
+  ]
+}
