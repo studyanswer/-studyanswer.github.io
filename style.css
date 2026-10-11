@@ -28,3 +28,5 @@ body.screen-concealed > *{visibility:hidden!important}body.screen-concealed #con
 #pdf-error{margin:0;padding:0 16px 16px}
 
 #pdf-dialog,#pdf-canvas-wrap,#pdf-canvas{touch-action:pan-x pan-y pinch-zoom}
+
+html.pdf-open{overflow:hidden;overscroll-behavior:none}body.pdf-open{position:fixed;width:100%;overflow:hidden;overscroll-behavior:none}#pdf-dialog{overscroll-behavior:contain}

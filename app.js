@@ -206,7 +206,7 @@ async function pdfjs(){if(!pdfModule){pdfModule=await import('./vendor/pdf.mjs')
 function chunksFor(text,page){const chunks=[];for(let start=0;start<text.length;start+=550){const section=text.slice(start,start+700).trim();if(section)chunks.push({page,text:section})}return chunks}
 $('#pdf-upload').onchange=async e=>{if(busy)return;const files=[...e.target.files],subjectId=selected;busy=true;$('#pdf-upload').disabled=true;try{const pdf=await pdfjs();for(const file of files){if(file.size>50*1024*1024){toast(`${file.name}: PDF는 50MB 이하로 넣어주세요.`);continue}$('#search-status').textContent=`${file.name} 읽는 중…`;let doc;try{doc=await pdf.getDocument({data:new Uint8Array(await file.arrayBuffer()),cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;const chunks=[];for(let p=1;p<=doc.numPages;p++){const page=await doc.getPage(p);const content=await page.getTextContent();const text=content.items.map(x=>x.str+(x.hasEOL?'\n':' ')).join('').trim();chunks.push(...chunksFor(text,p));$('#search-status').textContent=`${file.name} · ${p}/${doc.numPages}페이지 추출 중…`}const item={id:uid(),subjectId,name:file.name,pageCount:doc.numPages,chunks,blob:file,vectors:null};state.documents.push(item);if(!await persist()){state.documents.pop();break}render();if(!chunks.length)toast('글자가 추출되지 않았어요. 스캔 PDF는 글자 인식이 필요합니다.')}catch(error){toast(`${file.name}: PDF를 읽지 못했어요. 암호나 파일 상태를 확인해주세요.`);console.error(error)}finally{await doc?.destroy()}}$('#search-status').textContent='PDF 추가를 마쳤어요. 단어 검색은 바로 사용할 수 있어요.'}catch(error){toast('PDF 도구를 불러오지 못했어요.');console.error(error)}finally{busy=false;$('#pdf-upload').disabled=false;e.target.value=''}};
 $('#documents').onclick=e=>{const open=e.target.closest('[data-open-pdf]');if(open)openPDF(open.dataset.openPdf,1)};
-async function openPDF(id,page){const item=state.documents.find(d=>d.id===id);if(!item)return;if(item.type==='csv'){openCSV(item,page);return}$('#pdf-title').textContent=item.name;$('#pdf-error').textContent='';$('#pdf-canvas').width=0;$('#pdf-canvas').height=0;$('#pdf-page').textContent='불러오는 중…';$('#pdf-prev').disabled=true;$('#pdf-next').disabled=true;$('#pdf-dialog').showModal();try{if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}await viewer?.destroy();const pdf=await pdfjs();viewer=await pdf.getDocument({...item.blob?{data:new Uint8Array(await item.blob.arrayBuffer())}:{url:new URL(item.sourceUrl,import.meta.url).href,disableRange:true},cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;viewerPage=page;await renderPDF()}catch(error){$('#pdf-error').textContent='페이지를 열지 못했어요. 인터넷 연결과 PDF 상태를 확인해주세요.';console.error(error)}}
+async function openPDF(id,page){const item=state.documents.find(d=>d.id===id);if(!item)return;if(item.type==='csv'){openCSV(item,page);return}$('#pdf-title').textContent=item.name;$('#pdf-error').textContent='';$('#pdf-canvas').width=0;$('#pdf-canvas').height=0;$('#pdf-page').textContent='불러오는 중…';$('#pdf-prev').disabled=true;$('#pdf-next').disabled=true;lockPDFBackground();$('#pdf-dialog').showModal();try{if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}await viewer?.destroy();const pdf=await pdfjs();viewer=await pdf.getDocument({...item.blob?{data:new Uint8Array(await item.blob.arrayBuffer())}:{url:new URL(item.sourceUrl,import.meta.url).href,disableRange:true},cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;viewerPage=page;await renderPDF()}catch(error){$('#pdf-error').textContent='페이지를 열지 못했어요. 인터넷 연결과 PDF 상태를 확인해주세요.';console.error(error)}}
 async function renderPDF(){if(!viewer)return;if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}const page=await viewer.getPage(viewerPage);const base=page.getViewport({scale:1});const width=Math.max(240,$('#pdf-canvas-wrap').clientWidth);const viewport=page.getViewport({scale:Math.min(2,width/base.width)*devicePixelRatio});const canvas=$('#pdf-canvas');canvas.width=viewport.width;canvas.height=viewport.height;$('#pdf-page').textContent=`${viewerPage} / ${viewer.numPages}`;$('#pdf-prev').disabled=viewerPage<=1;$('#pdf-next').disabled=viewerPage>=viewer.numPages;const task=renderTask=page.render({canvasContext:canvas.getContext('2d'),viewport});$('#pdf-canvas-wrap').setAttribute('aria-busy','true');try{await task.promise}catch(error){if(error.name!=='RenderingCancelledException')throw error}finally{if(renderTask===task)$('#pdf-canvas-wrap').setAttribute('aria-busy','false')}}
 const pdfLayoutObserver=new ResizeObserver(()=>{
  const canvas=$('#pdf-canvas'),wrap=$('#pdf-canvas-wrap');
@@ -218,6 +218,47 @@ const pdfLayoutObserver=new ResizeObserver(()=>{
 pdfLayoutObserver.observe($('#pdf-canvas'));
 pdfLayoutObserver.observe($('#pdf-dialog .dialog-heading'));
 pdfLayoutObserver.observe($('#pdf-dialog .pdf-controls'));
+let pdfBackgroundScroll;
+function lockPDFBackground(){
+ if(pdfBackgroundScroll)return;
+ pdfBackgroundScroll={x:window.scrollX,y:window.scrollY};
+ document.body.style.top=-pdfBackgroundScroll.y+'px';
+ document.body.classList.add('pdf-open');
+ document.documentElement.classList.add('pdf-open');
+}
+$('#pdf-dialog').addEventListener('close',()=>{
+ const saved=pdfBackgroundScroll;pdfBackgroundScroll=undefined;
+ document.body.classList.remove('pdf-open');document.documentElement.classList.remove('pdf-open');
+ document.body.style.top='';if(saved)window.scrollTo(saved.x,saved.y);
+});
+// Only a single-finger horizontal swipe at normal zoom changes pages.
+let pdfSwipe;
+const pdfAtNormalZoom=()=>!window.visualViewport||window.visualViewport.scale<=1.02;
+$('#pdf-dialog').addEventListener('cancel',e=>e.preventDefault());
+$('#pdf-dialog').addEventListener('touchstart',e=>{
+ pdfSwipe=undefined;
+ if(e.touches.length!==1||!$('#conceal').hidden||!viewer||!pdfAtNormalZoom()||!e.target.closest('#pdf-canvas-wrap'))return;
+ const t=e.touches[0];pdfSwipe={id:t.identifier,x:t.clientX,y:t.clientY,time:performance.now()};
+},{passive:true});
+$('#pdf-dialog').addEventListener('touchmove',e=>{
+ if(!pdfSwipe)return;
+ const t=[...e.touches].find(t=>t.identifier===pdfSwipe.id);
+ if(e.touches.length!==1||!t||!pdfAtNormalZoom()){pdfSwipe=undefined;return}
+ const dx=t.clientX-pdfSwipe.x,dy=t.clientY-pdfSwipe.y;
+ if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){pdfSwipe=undefined;return}
+ if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.5)e.preventDefault();
+},{passive:false});
+$('#pdf-dialog').addEventListener('touchcancel',()=>{pdfSwipe=undefined},{passive:true});
+$('#pdf-dialog').addEventListener('close',()=>{pdfSwipe=undefined});
+$('#pdf-dialog').addEventListener('touchend',e=>{
+ const start=pdfSwipe;pdfSwipe=undefined;
+ if(!start||e.touches.length||!$('#conceal').hidden||!pdfAtNormalZoom())return;
+ const t=[...e.changedTouches].find(t=>t.identifier===start.id);if(!t)return;
+ const dx=t.clientX-start.x,dy=t.clientY-start.y;
+ if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5||performance.now()-start.time>1200)return;
+ e.preventDefault();e.stopPropagation();
+ const button=$(dx<0?'#pdf-next':'#pdf-prev');if(!button.disabled)button.click();
+},{passive:false});
 $('#pdf-prev').onclick=async()=>{if(viewerPage>1){viewerPage--;await renderPDF()}};$('#pdf-next').onclick=async()=>{if(viewerPage<viewer.numPages){viewerPage++;await renderPDF()}};
 function sourceLocation(row){return row.doc.type==='csv'?`${row.chunk.rowStart}행`:`${row.chunk.page}페이지`}
 function openCSV(item,rowNumber){
