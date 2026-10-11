@@ -35,7 +35,7 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   const saved=await read(page);assert.equal(saved.notes[4].choices[1].originalNumber,2);
   await page.locator('#start-review').click();await page.locator('#review-card').click();
   assert.match(await page.locator('#review-answer .study-choice').first().innerText(),/K-means/);
-  await page.locator('#hide-review').click();assert.ok(await page.locator('#conceal').isVisible());await page.locator('#conceal').dblclick();await page.locator('#exit-review').click();
+  await page.locator('#hide-review').click();assert.ok(await page.locator('#conceal').isVisible());await page.mouse.click(380,10);await page.locator('#exit-review').click();
   const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;
   const backup=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(backup.notes.length,94);
   page.on('dialog',d=>d.accept());await first.getByRole('button',{name:'삭제',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
