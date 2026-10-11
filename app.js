@@ -109,7 +109,7 @@ const kinds = {qa:'문답', choice:'객관식', ox:'O/X', memo:'일반 노트'};
 const escapeHTML = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let db, state = {subjects:[],notes:[],documents:[]}, selected, editing, tab='notes';
 let homeView=true;
-let reviewList=[],reviewIndex=0,revealed=false,viewer,viewerPage=1,renderTask;
+let reviewList=[],reviewIndex=0,viewer,viewerPage=1,renderTask;
 let pdfModule, busy=false;
 function toast(message){$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').hidden=true,4500)}
 function openDB(){return new Promise((resolve,reject)=>{const request=indexedDB.open('secret-note',1);request.onupgradeneeded=()=>request.result.createObjectStore('data');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)})}
@@ -197,17 +197,23 @@ function updateNoteType(){const type=$('#note-type').value,count=type==='ox'?2:4
 $('#note-type').onchange=updateNoteType;
 function noteEditor(note){editing=note?.id;$('#note-form').reset();$('#note-dialog-title').textContent=note?'노트 수정':'노트 추가';$('#note-type').value=note?.type||'qa';$('#question').value=note?.question||'';$('#answer').value=note?.answer||'';if(isChoice(note)){note.choices.forEach((c,i)=>{$(`#choice-${i}`).value=c.text;$(`#explanation-${i}`).value=c.explanation});$(`input[name="correct"][value="${note.correct}"]`).checked=true}updateNoteType();$('#note-dialog').showModal()}
 $('#note-form').onsubmit=async e=>{e.preventDefault();const type=$('#note-type').value,question=$('#question').value.trim(),answer=$('#answer').value.trim();if(!question||(!isChoice({type})&&!answer)){toast('빈칸에 내용을 입력해주세요.');return}const choices=isChoice({type})?Array.from({length:type==='ox'?2:4},(_,i)=>({text:$(`#choice-${i}`).value.trim(),explanation:$(`#explanation-${i}`).value.trim()})):[];if(isChoice({type})&&choices.some(c=>!c.text)){toast('보기를 모두 입력해주세요.');return}const old=state.notes.find(n=>n.id===editing);if(old&&isChoice(old))choices.forEach((c,i)=>{if(old.choices[i]?.originalNumber)c.originalNumber=old.choices[i].originalNumber});const note={...old,id:editing||uid(),subjectId:selected,type,question,answer,choices,correct:Number($('input[name="correct"]:checked').value),marked:old?.marked||false};if(old)state.notes[state.notes.indexOf(old)]=note;else state.notes.push(note);if(await persist()){$('#note-dialog').close();render();toast('노트를 저장했어요.')}};
-function prepareReview(){reviewList=subjectNotes().filter(n=>!$('#marked-only').checked||n.marked);if($('#shuffle').checked)for(let i=reviewList.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[reviewList[i],reviewList[j]]=[reviewList[j],reviewList[i]]}reviewIndex=0;revealed=false;renderReview()}
-function renderReview(){const note=reviewList[reviewIndex];$('#review-progress').textContent=reviewList.length?`${reviewIndex+1} / ${reviewList.length}`:'0 / 0';$('#review-question').textContent=note?.question||'복습할 노트가 없어요';$('#review-kind').textContent=note?kinds[note.type]:'';$('#review-options').innerHTML=!revealed&&isChoice(note)?note.choices.map((c,i)=>`<div>${i+1}. ${escapeHTML(c.text)}</div>`).join(''):'';$('#review-answer').hidden=!revealed;$('#review-answer').innerHTML=note?(isChoice(note)?choiceDetails(note):`<p>${escapeHTML(studyAnswer(note.answer))}</p>`):'';$('#mark').textContent=note?.marked?'★ 다시 보기':'☆ 다시 보기';$('#review-hint').textContent=(revealed?'터치하면 다음 노트로 넘어가요':'화면을 터치하면 답이 보여요')+' · 오른쪽 위·아래 모서리를 누르면 숨김/복귀';$('#previous').disabled=!note;$('#next').disabled=!note;$('#mark').disabled=!note}
-$('#start-review').onclick=()=>{$('#shuffle').checked=false;$('#marked-only').checked=false;prepareReview();$('#review').hidden=false;$('#app').inert=true};
+function prepareReview(){reviewList=subjectNotes();reviewIndex=0;renderReview()}
+function renderReview(){
+ const note=reviewList[reviewIndex];
+ $('#review-progress').textContent=reviewList.length?`${reviewIndex+1} / ${reviewList.length}`:'0 / 0';
+ $('#review-question').textContent=note?.question||'복습할 노트가 없어요';
+ $('#review-answer').innerHTML=note?(isChoice(note)?choiceDetails(note):`<p><strong>${escapeHTML(studyAnswer(note.answer))}</strong></p>`):'';
+ $('#review').scrollTop=0;
+}
+$('#start-review').onclick=()=>{prepareReview();$('#review').hidden=false;$('#app').inert=true};
 $('#exit-review').onclick=()=>{$('#review').hidden=true;$('#app').inert=false;render()};
-function moveReview(delta){if(!reviewList.length)return;reviewIndex=(reviewIndex+delta+reviewList.length)%reviewList.length;revealed=false;renderReview()}
-$('#review-card').onclick=e=>{if(e.target.closest('.wrong-choices'))return;if(!reviewList.length)return;if(revealed)moveReview(1);else{revealed=true;renderReview()}};
-$('#review-card').onkeydown=e=>{if(e.target!==e.currentTarget)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.click()}};
-$('#next').onclick=()=>moveReview(1);$('#previous').onclick=()=>moveReview(-1);
-$('#mark').onclick=async()=>{const note=reviewList[reviewIndex];if(note){note.marked=!note.marked;await persist();renderReview()}};
-$('#shuffle').onchange=prepareReview;$('#marked-only').onchange=prepareReview;
-$('#font-size').oninput=e=>$('#review').style.fontSize=e.target.value+'px';
+function moveReview(delta){if(!reviewList.length)return;reviewIndex=(reviewIndex+delta+reviewList.length)%reviewList.length;renderReview()}
+$('#review').onclick=e=>{
+ if(!$('#conceal').hidden||e.target.closest('button,summary,input,a'))return;
+ if(e.clientY<88||e.clientY>window.innerHeight-88)return;
+ moveReview(e.clientX<window.innerWidth/2?-1:1);
+};
+$('#review-card').onkeydown=e=>{if(e.target!==e.currentTarget)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();moveReview(e.key==='ArrowLeft'?-1:1)}};
 function setConcealed(value){
  $('#toast').hidden=true;
  $('#conceal').hidden=!value;
@@ -246,7 +252,6 @@ document.addEventListener('touchend',e=>{
  if(!touch||!inScreenCorner(touch)||Math.hypot(touch.clientX-tap.x,touch.clientY-tap.y)>12)return;
  e.preventDefault();e.stopImmediatePropagation();setConcealed(true);
 },{capture:true,passive:false});
-$('#hide-review').onclick=()=>setConcealed(true);
 document.addEventListener('keydown',e=>{
  if(!$('#conceal').hidden){e.preventDefault();e.stopImmediatePropagation();return}
  if(e.key==='Escape'&&!$('#review').hidden)setConcealed(true);
