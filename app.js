@@ -55,19 +55,34 @@ async function prepareCourseLibrary(){
  }
 }
 async function prepareQuizLibrary(){
- try{
-  const response=await fetch('./quizzes/ai-basics.json');
-  if(!response.ok)throw new Error('Quiz catalog unavailable');
-  const catalog=await response.json();
+ const catalogs=[];
+ for(const url of ['./quizzes/ai-basics.json','./quizzes/practical-ai.json']){
+  try{
+   const response=await fetch(url);
+   if(!response.ok)throw new Error('Quiz catalog unavailable');
+   catalogs.push(await response.json());
+  }catch(error){console.error(error);toast('기본 퀴즈를 불러오지 못했어요. 인터넷에 연결한 뒤 새로고침해주세요.')}
+ }
+ const previousNotes=state.notes,previousIds=state.builtinQuizIds,previousCorrection=state.quizSubjectCorrectionVersion;
+ const known=new Set(state.builtinQuizIds||[]);
+ let notes=[...state.notes];
+ for(const catalog of catalogs){
   const subject=state.subjects.find(s=>s.name.trim()===catalog.subject);
-  if(!subject)return;
-  const known=new Set(state.builtinQuizIds||[]);
-  const additions=catalog.notes.filter(n=>!known.has(n.id)&&!state.notes.some(old=>old.id===n.id||old.builtinQuizId===n.id));
-  const previousNotes=state.notes,previousIds=state.builtinQuizIds;
-  state.notes=[...state.notes,...additions.map(n=>({...n,subjectId:subject.id}))];
-  state.builtinQuizIds=[...new Set([...known,...catalog.notes.map(n=>n.id)])];
-  try{await save()}catch(error){state.notes=previousNotes;state.builtinQuizIds=previousIds;throw error}
- }catch(error){console.error(error);toast('기본 퀴즈를 불러오지 못했어요. 인터넷에 연결한 뒤 새로고침해주세요.')}
+  if(!subject)continue;
+  for(const note of catalog.notes){
+   if(!known.has(note.id)&&!notes.some(old=>old.id===note.id||old.builtinQuizId===note.id))notes.push({...note,subjectId:subject.id});
+   known.add(note.id);
+  }
+ }
+ const practicalCatalog=catalogs.find(c=>c.subject==='공학생을위한실용AI');
+ const aiSubject=state.subjects.find(s=>s.name.trim()==='AI기초와활용'),practicalSubject=state.subjects.find(s=>s.name.trim()==='공학생을위한실용AI');
+ if(!state.quizSubjectCorrectionVersion&&practicalCatalog&&aiSubject&&practicalSubject){
+  const corrected=new Map(practicalCatalog.notes.map(n=>[n.id,n.number]));
+  notes=notes.map(note=>{const source=note.builtinQuizId||note.id;return note.subjectId===aiSubject.id&&corrected.has(source)?{...note,subjectId:practicalSubject.id,number:corrected.get(source)}:note});
+  state.quizSubjectCorrectionVersion=1;
+ }
+ state.notes=notes;state.builtinQuizIds=[...known];
+ try{await save()}catch(error){state.notes=previousNotes;state.builtinQuizIds=previousIds;state.quizSubjectCorrectionVersion=previousCorrection;console.error(error);toast('퀴즈를 저장하지 못했어요. 저장 공간을 확인해주세요.')}
 }
 const isChoice=note=>note?.type==='choice'||note?.type==='ox';
 function orderedChoices(note){return [note.correct,...note.choices.map((_,i)=>i).filter(i=>i!==note.correct)].map(i=>({...note.choices[i],isCorrect:i===note.correct}))}
