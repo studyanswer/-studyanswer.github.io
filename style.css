@@ -3,3 +3,5 @@
 .library-heading{margin-top:30px;color:var(--muted);font-size:12px}.dialog-heading h2{overflow-wrap:anywhere;min-width:0}
 
 #csv-dialog{width:min(850px,calc(100% - 24px))}.csv-table-wrap{overflow:auto;max-height:60svh;margin:20px 0}#csv-table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}#csv-table th,#csv-table td{padding:12px;border:1px solid var(--line);white-space:nowrap}#csv-table thead th{position:sticky;top:0;background:#192019;color:var(--accent)}#csv-table tbody th{color:var(--muted);font-weight:400}#csv-table .selected-row{background:#263525}
+
+.note-main{min-width:0;flex:1}.study-choice{margin:14px 0;padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.7;overflow-wrap:anywhere}.study-choice p,.study-explanation{white-space:pre-wrap;line-height:1.8}.correct-choice>strong{color:var(--accent)}.original-choice{display:inline-block;margin-left:8px;color:var(--muted);font-size:11px}.study-explanation{font-size:13px;color:var(--muted)}#review-answer .study-choice{font-size:inherit;border-color:#202020}#review-answer .correct-choice>strong{color:#999}
