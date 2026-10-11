@@ -164,7 +164,7 @@ function setConcealed(value){
  $('#conceal').hidden=!value;
  document.body.classList.toggle('screen-concealed',value);
 }
-const inScreenCorner=e=>e.clientX>=window.innerWidth-88&&(e.clientY<=88||e.clientY>=window.innerHeight-88);
+const inScreenCorner=e=>!e.target?.closest?.('#pdf-dialog .close-dialog')&&e.clientX>=window.innerWidth-88&&(e.clientY<=88||e.clientY>=window.innerHeight-88);
 document.addEventListener('pointerdown',e=>{
  if(!e.isPrimary||e.button!==0||!inScreenCorner(e))return;
  e.preventDefault();e.stopImmediatePropagation();
@@ -184,6 +184,13 @@ $('#pdf-upload').onchange=async e=>{if(busy)return;const files=[...e.target.file
 $('#documents').onclick=e=>{const open=e.target.closest('[data-open-pdf]');if(open)openPDF(open.dataset.openPdf,1)};
 async function openPDF(id,page){const item=state.documents.find(d=>d.id===id);if(!item)return;if(item.type==='csv'){openCSV(item,page);return}$('#pdf-title').textContent=item.name;$('#pdf-error').textContent='';$('#pdf-canvas').width=0;$('#pdf-canvas').height=0;$('#pdf-page').textContent='불러오는 중…';$('#pdf-prev').disabled=true;$('#pdf-next').disabled=true;$('#pdf-dialog').showModal();try{if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}await viewer?.destroy();const pdf=await pdfjs();viewer=await pdf.getDocument({...item.blob?{data:new Uint8Array(await item.blob.arrayBuffer())}:{url:new URL(item.sourceUrl,import.meta.url).href,disableRange:true},cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;viewerPage=page;await renderPDF()}catch(error){$('#pdf-error').textContent='페이지를 열지 못했어요. 인터넷 연결과 PDF 상태를 확인해주세요.';console.error(error)}}
 async function renderPDF(){if(!viewer)return;if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}const page=await viewer.getPage(viewerPage);const base=page.getViewport({scale:1});const width=Math.max(240,$('#pdf-canvas-wrap').clientWidth);const viewport=page.getViewport({scale:Math.min(2,width/base.width)*devicePixelRatio});const canvas=$('#pdf-canvas');canvas.width=viewport.width;canvas.height=viewport.height;$('#pdf-page').textContent=`${viewerPage} / ${viewer.numPages}`;$('#pdf-prev').disabled=viewerPage<=1;$('#pdf-next').disabled=viewerPage>=viewer.numPages;const task=renderTask=page.render({canvasContext:canvas.getContext('2d'),viewport});$('#pdf-canvas-wrap').setAttribute('aria-busy','true');try{await task.promise}catch(error){if(error.name!=='RenderingCancelledException')throw error}finally{if(renderTask===task)$('#pdf-canvas-wrap').setAttribute('aria-busy','false')}}
+const pdfLayoutObserver=new ResizeObserver(()=>{
+ const canvas=$('#pdf-canvas'),wrap=$('#pdf-canvas-wrap');
+ if(!canvas.width||!canvas.height)return;
+ wrap.style.setProperty('--pdf-display-height',canvas.getBoundingClientRect().height+'px');
+ wrap.style.setProperty('--pdf-toolbar-height',wrap.offsetTop+'px');
+});
+pdfLayoutObserver.observe($('#pdf-canvas'));
 $('#pdf-prev').onclick=async()=>{if(viewerPage>1){viewerPage--;await renderPDF()}};$('#pdf-next').onclick=async()=>{if(viewerPage<viewer.numPages){viewerPage++;await renderPDF()}};
 function sourceLocation(row){return row.doc.type==='csv'?`${row.chunk.rowStart}행`:`${row.chunk.page}페이지`}
 function openCSV(item,rowNumber){
