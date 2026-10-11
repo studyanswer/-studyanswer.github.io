@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const source=fs.readFileSync('app.js','utf8');
 const context=vm.createContext({});
-vm.runInContext(source.slice(source.indexOf('function initialPattern('),source.indexOf('\nasync function getExtractor')),context);
+vm.runInContext(source.slice(source.indexOf('function initialPattern('),source.indexOf('\nfunction rankRows')),context);
 for(const [text,query,hit] of [
  ['반도체 패키지','ㅂㄷㅊ',true],['반 도 체','ㅂㄷㅊ',true],
  ['반도체 패키지','반ㄷㅊ',true],['패키지 공학','ㅍㅋㅈ ㄱㅎ',true],
