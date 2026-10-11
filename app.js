@@ -211,10 +211,13 @@ async function renderPDF(){if(!viewer)return;if(renderTask){renderTask.cancel();
 const pdfLayoutObserver=new ResizeObserver(()=>{
  const canvas=$('#pdf-canvas'),wrap=$('#pdf-canvas-wrap');
  if(!canvas.width||!canvas.height)return;
- wrap.style.setProperty('--pdf-display-height',canvas.getBoundingClientRect().height+'px');
- wrap.style.setProperty('--pdf-toolbar-height',wrap.offsetTop+'px');
+ const dialog=$('#pdf-dialog');
+ dialog.style.setProperty('--pdf-display-height',canvas.getBoundingClientRect().height+'px');
+ dialog.style.setProperty('--pdf-toolbar-height',($('#pdf-dialog .dialog-heading').getBoundingClientRect().height+$('#pdf-dialog .pdf-controls').getBoundingClientRect().height)+'px');
 });
 pdfLayoutObserver.observe($('#pdf-canvas'));
+pdfLayoutObserver.observe($('#pdf-dialog .dialog-heading'));
+pdfLayoutObserver.observe($('#pdf-dialog .pdf-controls'));
 $('#pdf-prev').onclick=async()=>{if(viewerPage>1){viewerPage--;await renderPDF()}};$('#pdf-next').onclick=async()=>{if(viewerPage<viewer.numPages){viewerPage++;await renderPDF()}};
 function sourceLocation(row){return row.doc.type==='csv'?`${row.chunk.rowStart}행`:`${row.chunk.page}페이지`}
 function openCSV(item,rowNumber){
