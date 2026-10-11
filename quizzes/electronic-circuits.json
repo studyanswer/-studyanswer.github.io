@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "subject": "전자응용회로설계",
   "notes": [
     {
@@ -616,6 +616,162 @@
         {
           "text": "X",
           "explanation": "RC 회로는 구성과 조건에 따라 미분·적분 근사 동작이 가능하므로 교안의 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-025",
+      "builtinQuizId": "electronic-circuits-quiz-025",
+      "number": 25,
+      "type": "ox",
+      "question": "R-C 직렬회로에서는 전원이 직류전압으로 설정되면 콘덴서의 리액턴스가 무한대로 커져 전류가 거의 흐를 수 없다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 일정한 직류의 정상상태에서는 이상적인 커패시터가 개방 회로처럼 동작한다. 전원을 연결한 직후에는 충전 전류가 흐를 수 있으며, 이 설명은 충분한 시간이 지난 정상상태에 해당한다. 실제 소자는 작은 누설 전류가 있을 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "직류 정상상태의 커패시터는 개방 회로처럼 동작해 직렬 회로 전류가 0으로 수렴한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "전원 연결 직후의 과도상태가 아닌 직류 정상상태에서 맞는 설명이므로 교안의 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-026",
+      "builtinQuizId": "electronic-circuits-quiz-026",
+      "number": 26,
+      "type": "ox",
+      "question": "R-L-C 직렬회로에서 XL과 XC가 같아질 경우를 공진 상태라고 하고 회로에 전류가 최대로 흐른다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 직렬 RLC에서 XL=ωL, XC=1/(ωC)이다. 공진 때 두 리액턴스가 상쇄되어 임피던스 크기는 R로 최소가 되고, 동일한 전압 진폭 기준 전류는 최대다. 공진 각주파수 ω0=1/√(LC).",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "직렬 공진에서는 XL=XC, |Z|=R이므로 주어진 전압에서 전류가 최대다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "병렬 공진과 혼동하지 않는다. 이 문제는 직렬 RLC 회로의 공진을 설명하므로 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-027",
+      "builtinQuizId": "electronic-circuits-quiz-027",
+      "number": 27,
+      "type": "ox",
+      "question": "다이오드는 순방향 바이어스에서 실리콘의 경우 0.7V 정도의 문턱전압이 존재하는데 제너다이오드도 동일한 특성이 있다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 실리콘 다이오드의 순방향 전압강하는 통상 약 0.7V로 근사하며 실제 값은 전류·온도·소자에 따라 다르다. 제너 다이오드도 순방향에서는 일반 다이오드처럼 동작하고, 역방향에서는 정해진 항복전압 부근에서 사용한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "실리콘 제너 다이오드도 순방향에서는 보통 약 0.7V 전압강하로 근사할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "제너의 역방향 항복전압과 순방향 전압강하는 다른 값이다. 순방향 특성에 대한 설명은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-028",
+      "builtinQuizId": "electronic-circuits-quiz-028",
+      "number": 28,
+      "type": "ox",
+      "question": "다이오드 4개를 사용한 전파정류회로가 반파정류회로보다 훨씬 더 에너지 효율이 좋기 때문에 일반적으로 충전기 회로로 사용된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 4개 다이오드 브리지 전파정류는 교류의 양쪽 반주기를 이용하므로 반파정류보다 출력 리플과 전원 이용 측면에서 유리하다. 실제 충전기에는 정류 외에도 평활·전압 제어·충전 제어가 필요하며 정류회로만으로 모든 충전 기능을 수행하는 것은 아니다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "브리지 전파정류는 양쪽 반주기를 이용해 반파정류보다 전원 이용에 유리하며 전원 입력 정류에 쓰인다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "교안은 브리지 전파정류의 장점을 설명한다. 다만 실제 충전기에 필요한 제어 기능은 보충 설명을 확인한다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-029",
+      "builtinQuizId": "electronic-circuits-quiz-029",
+      "number": 29,
+      "type": "ox",
+      "question": "변압기의 중간탭을 사용한 회로에서는 전파정류회로이지만 다이오드 두 개를 사용해서 구현이 가능하다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 센터탭 변압기의 두 반권선과 다이오드 2개를 이용하면 각 반주기에 다이오드가 번갈아 도통하면서 부하 전류가 같은 방향으로 흐른다. 센터탭이 없는 브리지 방식은 다이오드 4개를 사용한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "센터탭 방식은 다이오드 2개로 전파정류를 구현할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "다이오드 4개가 필요한 브리지 방식과 달리 센터탭 방식은 2개로 가능하므로 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-030",
+      "builtinQuizId": "electronic-circuits-quiz-030",
+      "number": 30,
+      "type": "ox",
+      "question": "제너다이오드는 일반적으로 역방향바이어스 회로로 설계하여 항복전압과 같이 일정한 전압을 만들어내는데 사용한다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 제너 다이오드는 역방향 항복 영역에서 전압이 비교적 일정한 특성을 이용해 정전압·전압 기준 회로를 만든다. 전류 제한 저항과 허용 전류·전력 조건이 필요하며 출력 전압은 전류·온도에 따라 조금 변한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "역방향 항복 영역의 전압 안정화 특성을 이용해 정전압 회로에 사용한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "제너 정전압 동작은 통상 역방향 항복 영역을 이용하므로 O다.",
           "originalNumber": 2
         }
       ],
