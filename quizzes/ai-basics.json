@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "subject": "AI기초와활용",
   "notes": [
     {
@@ -871,6 +871,78 @@
           "text": "운영체제 설치 자동화",
           "explanation": "운영체제를 설치하는 작업으로 Word의 문서 작업과는 다르다.",
           "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-029",
+      "builtinQuizId": "ai-basics-quiz-029",
+      "number": 29,
+      "type": "choice",
+      "question": "다음 중 OpenAI에서 정의한 AGI의 5 레벨에 속하지 않는 것은?",
+      "answer": "교안 해설: OpenAI에서 정의한 AGI의 5 레벨은 챗봇, 추론가, 에이전트, 혁신가, 조직이다.\n\n보충·암기: 교안 기준 순서: 챗봇 → 추론가 → 에이전트 → 혁신가 → 조직. 사람 수준의 문제 해결 능력을 뜻하는 추론가와 보기의 전문가를 구분하기.",
+      "choices": [
+        {
+          "text": "전문가",
+          "explanation": "교안의 5단계 명칭에는 전문가가 없다. 2단계 명칭은 추론가다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "챗봇",
+          "explanation": "사람과 대화하는 AI에 해당하는 1단계다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "에이전트",
+          "explanation": "사용자를 대신해 행동하고 작업을 수행하는 AI에 해당하는 3단계다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "조직",
+          "explanation": "조직의 업무를 수행할 수 있는 AI에 해당하는 5단계다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "ai-basics-quiz-030",
+      "builtinQuizId": "ai-basics-quiz-030",
+      "number": 30,
+      "type": "choice",
+      "question": "전통적인 소프트웨어의 특징이 아닌 것은?",
+      "answer": "교안 해설: 스스로 학습할 수 있는 소프트웨어는 AI이다.\n\n보충·암기: 전통적인 소프트웨어 = 사람이 규칙을 코딩 / 머신러닝 AI = 데이터로 학습. 모든 AI가 새 데이터 입력만으로 자동 재학습하는 것은 아니다.",
+      "choices": [
+        {
+          "text": "새로운 데이터 유입 시 스스로 학습한다.",
+          "explanation": "새 데이터에서 패턴을 학습하는 것은 머신러닝 기반 AI의 특징으로, 전통적인 규칙 기반 소프트웨어와 구분된다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "사람이 모든 상황을 예측해 코딩한다.",
+          "explanation": "교안에서는 사람이 예상한 상황과 규칙을 코드로 명시하는 방식으로 설명한다. 실제로 모든 상황을 완벽히 예측할 수 있다는 뜻은 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "예상치 못한 오류에 동작이 중지될 수 있다.",
+          "explanation": "예외 처리가 준비되지 않은 오류가 발생하면 동작이 중지될 수 있다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "설계자의 지능 한계가 시스템이 한계가 된다.",
+          "explanation": "교안에서는 설계자가 정의한 규칙과 설계 범위가 시스템의 한계를 결정한다는 뜻으로 설명한다. 원문의 “시스템이 한계” 표현을 보존했다.",
+          "originalNumber": 3
         }
       ],
       "correct": 0,
