@@ -241,15 +241,38 @@ const pdfAtNormalZoom=()=>!$('#pdf-dialog').classList.contains('pdf-tap-zoomed')
 function updatePDFZoom(){const dialog=$('#pdf-dialog');dialog.classList.toggle('pdf-zoomed',!pdfAtNormalZoom());if(pdfAtNormalZoom())dialog.scrollTop=0}
 window.visualViewport?.addEventListener('resize',updatePDFZoom);
 let pdfTapStart,pdfLastTap;
-function togglePDFTapZoom(x,y){
+let pdfScale=1,pdfBaseWidth=0,pdfPinch,pdfPan;
+function setPDFScale(scale,x,y){
  const dialog=$('#pdf-dialog'),canvas=$('#pdf-canvas'),box=canvas.getBoundingClientRect();
  if(!canvas.width||!$('#conceal').hidden)return;
- const expanding=!dialog.classList.contains('pdf-tap-zoomed');
- if(expanding)canvas.style.setProperty('--pdf-zoom-width',box.width*2+'px');
- dialog.classList.toggle('pdf-tap-zoomed',expanding);updatePDFZoom();
- if(expanding)requestAnimationFrame(()=>{const enlarged=canvas.getBoundingClientRect();dialog.scrollBy((x-box.left)*2-(x-enlarged.left),(y-box.top)*2-(y-enlarged.top))});
+ if(pdfScale===1)pdfBaseWidth=box.width;
+ const next=Math.max(1,Math.min(4,scale)),ratio=next/pdfScale;
+ pdfScale=next;canvas.style.setProperty('--pdf-zoom-width',pdfBaseWidth*next+'px');
+ dialog.classList.toggle('pdf-tap-zoomed',next>1);updatePDFZoom();
+ if(next>1){const enlarged=canvas.getBoundingClientRect();dialog.scrollBy((x-box.left)*ratio-(x-enlarged.left),(y-box.top)*ratio-(y-enlarged.top))}
  else{dialog.scrollLeft=0;dialog.scrollTop=0}
 }
+function togglePDFTapZoom(x,y){setPDFScale(pdfScale>1?1:2,x,y)}
+const pdfTouchDistance=touches=>Math.hypot(touches[0].clientX-touches[1].clientX,touches[0].clientY-touches[1].clientY);
+$('#pdf-dialog').addEventListener('touchstart',e=>{
+ pdfPan=undefined;
+ if(!$('#conceal').hidden)return;
+ if(e.touches.length===2){
+  e.preventDefault();pdfTapStart=undefined;pdfLastTap=undefined;pdfSwipe=undefined;
+  pdfPinch={distance:pdfTouchDistance(e.touches),scale:pdfScale};
+ }else if(e.touches.length===1&&pdfScale>1){const t=e.touches[0];pdfPan={x:t.clientX,y:t.clientY}}
+},{capture:true,passive:false});
+$('#pdf-dialog').addEventListener('touchmove',e=>{
+ if(!$('#conceal').hidden)return;
+ if(e.touches.length===2){
+  e.preventDefault();pdfTapStart=undefined;pdfLastTap=undefined;pdfSwipe=undefined;
+  if(pdfPinch?.distance>0)setPDFScale(pdfPinch.scale*pdfTouchDistance(e.touches)/pdfPinch.distance,(e.touches[0].clientX+e.touches[1].clientX)/2,(e.touches[0].clientY+e.touches[1].clientY)/2);
+ }else if(e.touches.length===1&&pdfPan&&pdfScale>1){
+  e.preventDefault();const t=e.touches[0];$('#pdf-dialog').scrollBy(pdfPan.x-t.clientX,pdfPan.y-t.clientY);pdfPan={x:t.clientX,y:t.clientY};
+ }
+},{capture:true,passive:false});
+$('#pdf-dialog').addEventListener('touchend',e=>{if(e.touches.length<2)pdfPinch=undefined;if(!e.touches.length)pdfPan=undefined},{capture:true,passive:true});
+$('#pdf-dialog').addEventListener('touchcancel',()=>{pdfPinch=undefined;pdfPan=undefined},{passive:true});
 $('#pdf-canvas').addEventListener('dblclick',e=>{e.preventDefault();togglePDFTapZoom(e.clientX,e.clientY)});
 $('#pdf-canvas').addEventListener('touchstart',e=>{
  pdfTapStart=undefined;
@@ -269,7 +292,7 @@ $('#pdf-canvas').addEventListener('touchend',e=>{
  if(pdfLastTap&&now-pdfLastTap.time<320&&Math.hypot(t.clientX-pdfLastTap.x,t.clientY-pdfLastTap.y)<30){e.preventDefault();e.stopPropagation();pdfLastTap=undefined;togglePDFTapZoom(t.clientX,t.clientY)}
  else pdfLastTap={x:t.clientX,y:t.clientY,time:now};
 },{passive:false});
-$('#pdf-dialog').addEventListener('close',()=>{pdfTapStart=undefined;pdfLastTap=undefined;$('#pdf-dialog').classList.remove('pdf-tap-zoomed');updatePDFZoom()});
+$('#pdf-dialog').addEventListener('close',()=>{pdfTapStart=undefined;pdfLastTap=undefined;pdfScale=1;pdfBaseWidth=0;pdfPinch=undefined;pdfPan=undefined;$('#pdf-dialog').classList.remove('pdf-tap-zoomed');updatePDFZoom()});
 
 $('#pdf-dialog').addEventListener('cancel',e=>e.preventDefault());
 $('#pdf-dialog').addEventListener('touchmove',e=>{if(e.touches.length===1&&pdfAtNormalZoom())e.preventDefault()},{passive:false});
