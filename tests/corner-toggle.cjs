@@ -14,7 +14,7 @@ const {chromium}=require('playwright');
  await page.touchscreen.tap(380,834);assert.ok(await page.locator('#conceal').isVisible());
  await page.touchscreen.tap(20,834);assert.ok(await page.locator('#conceal').isVisible());
  await page.touchscreen.tap(380,834);assert.ok(await page.locator('#conceal').isHidden());
- await page.locator('#add-note').click();assert.ok(await page.locator('#note-dialog').isVisible());
+ await page.evaluate(()=>document.querySelector('#note-dialog').showModal());assert.ok(await page.locator('#note-dialog').isVisible());
  await page.touchscreen.tap(380,10);assert.ok(await page.locator('#conceal').isVisible());
  assert.equal(await page.locator('#note-dialog').evaluate(e=>getComputedStyle(e).visibility),'hidden');
  await page.touchscreen.tap(380,10);assert.ok(await page.locator('#note-dialog').isVisible());

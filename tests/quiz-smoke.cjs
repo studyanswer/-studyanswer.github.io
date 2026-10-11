@@ -27,9 +27,9 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   assert.equal(await first.locator('.study-choice').count(),4);
   assert.equal(await page.locator('.note-row').nth(4).locator('.study-choice').count(),2);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-  await page.locator('.note-row').nth(4).getByRole('button',{name:'수정',exact:true}).click();
-  assert.equal(await page.locator('#note-type').inputValue(),'ox');
-  await page.locator('#explanation-1').fill('내 추가 설명 유지');await page.getByRole('button',{name:'저장하기',exact:true}).click();await page.locator('#note-dialog').waitFor({state:'hidden'});
+  assert.equal(await page.locator('#notes [data-edit],#notes [data-delete]').count(),0);
+  // Existing personal explanations from earlier app versions must survive the read-only list.
+  await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const state=q.result;state.notes[4].choices[1].explanation='내 추가 설명 유지';store.put(state,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
   await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.locator('.note-row').nth(27).waitFor();assert.equal(await page.locator('.note-row').count(),28);
   assert.match(await page.locator('.note-row').nth(4).textContent(),/내 추가 설명 유지/);
   const saved=await read(page);assert.equal(saved.notes[4].choices[1].originalNumber,2);
@@ -38,7 +38,10 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   await page.locator('#hide-review').click();assert.ok(await page.locator('#conceal').isVisible());await page.mouse.click(380,10);await page.locator('#exit-review').click();
   const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;
   const backup=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(backup.notes.length,94);
-  page.on('dialog',d=>d.accept());await first.getByRole('button',{name:'삭제',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
+  page.on('dialog',d=>d.accept());
+  // Previously deleted built-in notes stay deleted after reload.
+  await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const state=q.result;state.notes=state.notes.filter(n=>n.id!=='ai-basics-quiz-001');store.put(state,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
+  await page.reload();await page.locator('#app.home-view').waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
   await page.locator('#import').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backup))});await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');
   assert.equal((await read(page)).notes.length,187);
@@ -49,10 +52,10 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result;s.notes=[{id:'existing-personal',subjectId:s.subjects[0].id,type:'qa',question:'기존 개인 노트',answer:'보존할 답변',choices:[]}];delete s.builtinQuizIds;store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
   await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===29);
   assert.match(await page.locator('.note-row').first().innerText(),/보존할 답변/);
-  await page.locator('#delete-subject').click();await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');
+  await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result,id=s.subjects[0].id;s.subjects=s.subjects.filter(x=>x.id!==id);s.notes=s.notes.filter(x=>x.subjectId!==id);s.documents=s.documents.filter(x=>x.subjectId!==id);store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');
   assert.equal((await read(page)).subjects.filter(s=>s.name==='AI기초와활용').length,1);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
   assert.deepEqual(errors,[]);
-  console.log('PASS: all 94 answers, mobile correct-first display, O/X edits, reload idempotence, original numbers, review conceal, backup/restore, deletion preservation, offline notes, 82 course assets retained');
+  console.log('PASS: all 94 answers, mobile correct-first display, read-only list and existing O/X edits preserved, reload idempotence, original numbers, review conceal, backup/restore, deletion preservation, offline notes, 82 course assets retained');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

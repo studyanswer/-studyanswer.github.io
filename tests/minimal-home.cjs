@@ -10,6 +10,7 @@ const {chromium}=require('playwright');
  await page.screenshot({path:'/tmp/minimal-home.png'});
  await page.getByRole('button',{name:'AI기초와활용',exact:true}).click();
  assert.equal(await page.locator('.note-row').count(),28);
+ assert.equal(await page.locator('#add-note,#add-subject,#delete-subject,[data-edit],[data-delete],[data-delete-pdf]').count(),0);
  const first=page.locator('.note-row').first();
  assert.match(await first.innerText(),/K-means/);
  assert.equal(await first.locator('details').getAttribute('open'),null);
