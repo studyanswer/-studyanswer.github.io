@@ -138,7 +138,7 @@ $('#add-note').onclick=()=>noteEditor();
 $('#note-form').onsubmit=async e=>{e.preventDefault();const type=$('#note-type').value,question=$('#question').value.trim(),answer=$('#answer').value.trim();if(!question||(!isChoice({type})&&!answer)){toast('빈칸에 내용을 입력해주세요.');return}const choices=isChoice({type})?Array.from({length:type==='ox'?2:4},(_,i)=>({text:$(`#choice-${i}`).value.trim(),explanation:$(`#explanation-${i}`).value.trim()})):[];if(isChoice({type})&&choices.some(c=>!c.text)){toast('보기를 모두 입력해주세요.');return}const old=state.notes.find(n=>n.id===editing);if(old&&isChoice(old))choices.forEach((c,i)=>{if(old.choices[i]?.originalNumber)c.originalNumber=old.choices[i].originalNumber});const note={...old,id:editing||uid(),subjectId:selected,type,question,answer,choices,correct:Number($('input[name="correct"]:checked').value),marked:old?.marked||false};if(old)state.notes[state.notes.indexOf(old)]=note;else state.notes.push(note);if(await persist()){$('#note-dialog').close();render();toast('노트를 저장했어요.')}};
 $('#notes').onclick=async e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)noteEditor(state.notes.find(n=>n.id===edit.dataset.edit));if(del&&confirm('이 노트를 삭제할까요?')){state.notes=state.notes.filter(n=>n.id!==del.dataset.delete);await persist();render()}};
 function prepareReview(){reviewList=subjectNotes().filter(n=>!$('#marked-only').checked||n.marked);if($('#shuffle').checked)for(let i=reviewList.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[reviewList[i],reviewList[j]]=[reviewList[j],reviewList[i]]}reviewIndex=0;revealed=false;renderReview()}
-function renderReview(){const note=reviewList[reviewIndex];$('#review-progress').textContent=reviewList.length?`${reviewIndex+1} / ${reviewList.length}`:'0 / 0';$('#review-question').textContent=note?.question||'복습할 노트가 없어요';$('#review-kind').textContent=note?kinds[note.type]:'';$('#review-options').innerHTML=!revealed&&isChoice(note)?note.choices.map((c,i)=>`<div>${i+1}. ${escapeHTML(c.text)}</div>`).join(''):'';$('#review-answer').hidden=!revealed;$('#review-answer').innerHTML=note?(isChoice(note)?choiceDetails(note):'')+`<p>${escapeHTML(note.answer)}</p>`:'';$('#mark').textContent=note?.marked?'★ 다시 보기':'☆ 다시 보기';$('#review-hint').textContent=(revealed?'터치하면 다음 노트로 넘어가요':'화면을 터치하면 답이 보여요')+' · 숨긴 뒤 두 번 터치하면 복귀';$('#previous').disabled=!note;$('#next').disabled=!note;$('#mark').disabled=!note}
+function renderReview(){const note=reviewList[reviewIndex];$('#review-progress').textContent=reviewList.length?`${reviewIndex+1} / ${reviewList.length}`:'0 / 0';$('#review-question').textContent=note?.question||'복습할 노트가 없어요';$('#review-kind').textContent=note?kinds[note.type]:'';$('#review-options').innerHTML=!revealed&&isChoice(note)?note.choices.map((c,i)=>`<div>${i+1}. ${escapeHTML(c.text)}</div>`).join(''):'';$('#review-answer').hidden=!revealed;$('#review-answer').innerHTML=note?(isChoice(note)?choiceDetails(note):'')+`<p>${escapeHTML(note.answer)}</p>`:'';$('#mark').textContent=note?.marked?'★ 다시 보기':'☆ 다시 보기';$('#review-hint').textContent=(revealed?'터치하면 다음 노트로 넘어가요':'화면을 터치하면 답이 보여요')+' · 오른쪽 위·아래 모서리를 누르면 숨김/복귀';$('#previous').disabled=!note;$('#next').disabled=!note;$('#mark').disabled=!note}
 $('#start-review').onclick=()=>{$('#shuffle').checked=false;$('#marked-only').checked=false;prepareReview();$('#review').hidden=false;$('#app').inert=true};
 $('#exit-review').onclick=()=>{$('#review').hidden=true;$('#app').inert=false;render()};
 function moveReview(delta){if(!reviewList.length)return;reviewIndex=(reviewIndex+delta+reviewList.length)%reviewList.length;revealed=false;renderReview()}
@@ -148,10 +148,25 @@ $('#next').onclick=()=>moveReview(1);$('#previous').onclick=()=>moveReview(-1);
 $('#mark').onclick=async()=>{const note=reviewList[reviewIndex];if(note){note.marked=!note.marked;await persist();renderReview()}};
 $('#shuffle').onchange=prepareReview;$('#marked-only').onchange=prepareReview;
 $('#font-size').oninput=e=>$('#review').style.fontSize=e.target.value+'px';
-$('#hide-review').onclick=()=>{$('#toast').hidden=true;$('#conceal').hidden=false;$('#review').inert=true;$('#conceal').focus()};
-let concealTap=0;function unhide(){const now=Date.now();if(now-concealTap<550){$('#conceal').hidden=true;$('#review').inert=false;concealTap=0}else concealTap=now}
-$('#conceal').onclick=unhide;$('#conceal').onkeydown=e=>{if(e.key==='Enter')unhide()};
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#review').hidden){$('#conceal').hidden=false;$('#review').inert=true;$('#conceal').focus()}});
+function setConcealed(value){
+ $('#toast').hidden=true;
+ $('#conceal').hidden=!value;
+ document.body.classList.toggle('screen-concealed',value);
+}
+const inScreenCorner=e=>e.clientX>=window.innerWidth-88&&(e.clientY<=88||e.clientY>=window.innerHeight-88);
+document.addEventListener('pointerdown',e=>{
+ if(!e.isPrimary||e.button!==0||!inScreenCorner(e))return;
+ e.preventDefault();e.stopImmediatePropagation();
+ setConcealed($('#conceal').hidden);
+},{capture:true});
+document.addEventListener('click',e=>{
+ if(inScreenCorner(e)||!$('#conceal').hidden){e.preventDefault();e.stopImmediatePropagation()}
+},{capture:true});
+$('#hide-review').onclick=()=>setConcealed(true);
+document.addEventListener('keydown',e=>{
+ if(!$('#conceal').hidden){e.preventDefault();e.stopImmediatePropagation();return}
+ if(e.key==='Escape'&&!$('#review').hidden)setConcealed(true);
+},{capture:true});
 async function pdfjs(){if(!pdfModule){pdfModule=await import('./vendor/pdf.mjs');pdfModule.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdf.worker.mjs',import.meta.url).href}return pdfModule}
 function chunksFor(text,page){const chunks=[];for(let start=0;start<text.length;start+=550){const section=text.slice(start,start+700).trim();if(section)chunks.push({page,text:section})}return chunks}
 $('#pdf-upload').onchange=async e=>{if(busy)return;const files=[...e.target.files],subjectId=selected;busy=true;$('#pdf-upload').disabled=true;try{const pdf=await pdfjs();for(const file of files){if(file.size>50*1024*1024){toast(`${file.name}: PDF는 50MB 이하로 넣어주세요.`);continue}$('#search-status').textContent=`${file.name} 읽는 중…`;let doc;try{doc=await pdf.getDocument({data:new Uint8Array(await file.arrayBuffer()),cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;const chunks=[];for(let p=1;p<=doc.numPages;p++){const page=await doc.getPage(p);const content=await page.getTextContent();const text=content.items.map(x=>x.str+(x.hasEOL?'\n':' ')).join('').trim();chunks.push(...chunksFor(text,p));$('#search-status').textContent=`${file.name} · ${p}/${doc.numPages}페이지 추출 중…`}const item={id:uid(),subjectId,name:file.name,pageCount:doc.numPages,chunks,blob:file,vectors:null};state.documents.push(item);if(!await persist()){state.documents.pop();break}render();if(!chunks.length)toast('글자가 추출되지 않았어요. 스캔 PDF는 글자 인식이 필요합니다.')}catch(error){toast(`${file.name}: PDF를 읽지 못했어요. 암호나 파일 상태를 확인해주세요.`);console.error(error)}finally{await doc?.destroy()}}$('#search-status').textContent='PDF 추가를 마쳤어요. 단어 검색은 바로 사용할 수 있어요.'}catch(error){toast('PDF 도구를 불러오지 못했어요.');console.error(error)}finally{busy=false;$('#pdf-upload').disabled=false;e.target.value=''}};
