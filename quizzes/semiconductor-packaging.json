@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 6,
   "subject": "반도체패키지공학실무",
   "notes": [
     {
@@ -425,6 +425,942 @@
           "text": "Laser Sawing",
           "explanation": "레이저를 이용해 웨이퍼를 절단·분리하는 방법이다.",
           "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-013",
+      "builtinQuizId": "semiconductor-packaging-quiz-013",
+      "number": 13,
+      "type": "choice",
+      "question": "다음 중 반도체 패키지 공정의 다이 본딩 공정 준비 작업이 아닌 것은 ?",
+      "answer": "교안 해설: 반도체 후공정 패키지 공정의 다이 본딩 공정 진행전 준비하는 공정은 웨이퍼 백-그라인딩 공정과 웨이퍼 소-잉 공정이 있다 또한 칩과 리드프레임을 준비하는 공정이 있다.\n\n보충·암기: 다이 본딩 준비 = 칩·리드프레임 준비 + 웨이퍼 백그라인딩·소잉 / 몰딩 = 후속 공정.",
+      "choices": [
+        {
+          "text": "몰딩 공정",
+          "explanation": "칩과 연결부를 봉지 재료로 보호하는 뒤쪽 공정으로 다이 본딩 준비 작업이 아니다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "웨이퍼 제조 공정",
+          "explanation": "다이 본딩에 사용할 칩의 원재료인 웨이퍼를 제조하는 선행 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "리드프레임 제조 공정",
+          "explanation": "칩을 부착할 리드프레임을 준비하는 선행 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "백그라인딩 공정",
+          "explanation": "웨이퍼를 얇게 만드는 준비 공정이며 이후 소잉으로 칩을 분리한다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-014",
+      "builtinQuizId": "semiconductor-packaging-quiz-014",
+      "number": 14,
+      "type": "choice",
+      "question": "반도체 후 공정 패키지 공정에서 다이 본딩 공정에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: 다이본딩 공정은, 1. 리드프레임 또는 PCB기판 매거진 정렬 2. 에폭시 어드히시브 또는 PCB 기판 매거진 정렬 3. 웨이퍼상 칩 픽업 및 리드프레임 다이패드 로딩 4. 기판에 로딩완료된 매거진 언로딩 분리 공정 5. 다이 접착제 경화 공정 6. 외관 및 DST 검사 공정\n\n보충·암기: 다이 본딩 흐름 = 로딩 → 접착제 도포 → 칩 픽업·배치 → 언로딩 → 경화 → 검사. 교안 해설 2단계의 반복된 표현은 원문대로 보존했다.",
+      "choices": [
+        {
+          "text": "Package Swa & Sorter 공정",
+          "explanation": "패키지 절단·분류 공정으로 다이 본딩 공정에 포함되지 않는다. 보기의 “Swa”는 원문 표기를 보존했다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "리드 프레임 로딩 공정",
+          "explanation": "리드프레임이나 기판을 장비에 공급·정렬하는 단계다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "에폭시 접착제 도포 공정",
+          "explanation": "칩 부착을 위한 접착제를 도포하는 단계다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "칩 픽업 & 마운팅 공정",
+          "explanation": "칩을 집어 지정 위치에 배치·부착하는 단계다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-015",
+      "builtinQuizId": "semiconductor-packaging-quiz-015",
+      "number": 15,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정에서 칩을 픽업하는 Tool 이름은 무엇인가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정에서 칩을 픽업 하는 Tool 은 Collet 이다\n\n보충·암기: 다이 본딩 픽업 = Collet / 와이어 본딩 도구 = Capillary / 소재 수납·공급 = Magazine.",
+      "choices": [
+        {
+          "text": "Collet",
+          "explanation": "교안에서 제시하는 다이 본딩 칩 픽업 도구다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Capillary",
+          "explanation": "주로 와이어 본딩에서 와이어를 안내하고 본딩하는 도구다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Nozzle",
+          "explanation": "분사·흡착 등에 사용하는 노즐의 일반 명칭이다. 이 문항에서 묻는 도구 명칭은 Collet이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Magazine",
+          "explanation": "리드프레임이나 기판 등을 담아 공급하는 수납 장치다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-016",
+      "builtinQuizId": "semiconductor-packaging-quiz-016",
+      "number": 16,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정에서 칩과 리드프레임을 붙여 본딩하는 것을 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정에서 칩과 리드프레임을 붙여 본딩하는 것을 Adhesive(접착제)라고 한다.\n\n보충·암기: Adhesive = 접착제 / Grit = 연마 입자 / Wire = 금속선 / Chip Pocket = 칩 배출 공간.",
+      "choices": [
+        {
+          "text": "Adhesive",
+          "explanation": "칩과 리드프레임 등을 붙이는 접착제다. 교안의 정답은 Adhesive이며 재료 명칭이라는 점도 기억하기.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Grit",
+          "explanation": "그라인딩 휠의 연마 입자다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Wire",
+          "explanation": "와이어 본딩에서 전기적으로 연결하는 금속선이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Chip Pocket",
+          "explanation": "그라인딩 휠에서 가공 칩이나 이물이 빠져나가는 공간이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-017",
+      "builtinQuizId": "semiconductor-packaging-quiz-017",
+      "number": 17,
+      "type": "choice",
+      "question": "다음중 다이 본더 설비의 구성 요소가 아닌 것은 ?",
+      "answer": "교안 해설: 다이 본더 설비의 주요 구성요소는 Lead Frame Loading~Adhesive~Die Pick-up & Placement~Unloading~ Cure 부분이다.\n\n보충·암기: 다이 본더 구성 = 리드프레임 로딩 + 접착제 + 픽업·배치 + 언로딩 + 경화.",
+      "choices": [
+        {
+          "text": "Molding Loading Fixture",
+          "explanation": "몰딩 작업의 로딩 고정구이며 교안의 다이 본더 구성요소에 해당하지 않는다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Lead Frame Loader",
+          "explanation": "리드프레임을 장비에 공급하는 구성요소다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Ag Epoxy Syringe",
+          "explanation": "은(Ag)이 포함된 에폭시 접착제를 도포하는 시린지다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Wafer Ring Holder",
+          "explanation": "칩 픽업을 위한 웨이퍼 링을 고정하는 구성요소다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-018",
+      "builtinQuizId": "semiconductor-packaging-quiz-018",
+      "number": 18,
+      "type": "choice",
+      "question": "반도체 패키지 다이 본딩 공정이 완료된 제품의 칩과 기판의 접착력을 검사하는 방법은 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 다이 본딩 공정 완료후 접착력을 검사하는 공정은 다이 접착력의 전단응력 테스트 인 DST(Die Shear Test)이다.\n\n보충·암기: DST = 다이 접착 전단 강도 / BPT = 본딩 인장 강도 / PCT = 환경 신뢰성 / X-Ray = 내부 비파괴 관찰.",
+      "choices": [
+        {
+          "text": "DST(Die Shear Test)",
+          "explanation": "다이에 옆 방향 힘을 가해 접착부의 전단 강도를 측정하는 시험이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "BPT(Bond Pull Test)",
+          "explanation": "본딩된 와이어 등을 당겨 결합 강도를 확인하는 인장 시험이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "PCT(Pressure Cooker Test)",
+          "explanation": "고온·고습·가압 조건에서 제품의 신뢰성을 평가하는 시험이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "X-Ray Test",
+          "explanation": "X선을 이용해 내부 구조·접합 상태·공극 등을 비파괴적으로 관찰하는 검사다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-019",
+      "builtinQuizId": "semiconductor-packaging-quiz-019",
+      "number": 19,
+      "type": "choice",
+      "question": "다음 중 반도체 패키지 공정의 와이어 본딩 공정 작업이 아닌 것은 ?",
+      "answer": "교안 해설: 반도체 후공정 패키지 공정의 와이어 본딩 공정 진행은, 먼저 다이본딩 완료된 매거진을 로더에 장착하고 와이어 및 Capillary를 체크한 후 와이어 본딩후 Bond Pull Tes를 진행하여 Pull값이 정상값에 들어오면 작업을 시작한다.\n\n보충·암기: Capillary = 와이어 안내 도구 / Spool = 와이어 공급 릴 / BPT = 본딩 인장 검사. 교안의 “Bond Pull Tes” 표기는 원문을 보존했다.",
+      "choices": [
+        {
+          "text": "Fixture Loading",
+          "explanation": "교안의 와이어 본딩 작업 목록에 포함되지 않는 보기다. 소재를 공급하는 매거진 로딩과 구분하기.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Capillary 교체",
+          "explanation": "와이어를 안내하는 Capillary의 상태를 확인하고 필요시 교체하는 작업이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "BPT",
+          "explanation": "Bond Pull Test. 본딩된 와이어의 인장 강도를 확인하는 검사다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Spool 교체",
+          "explanation": "와이어를 감아 공급하는 Spool을 교체하는 작업이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-020",
+      "builtinQuizId": "semiconductor-packaging-quiz-020",
+      "number": 20,
+      "type": "choice",
+      "question": "반도체 후공정 패키지 공정에서 와이어 본딩 공정의 중요한 Parameter가 아닌 것은 ?",
+      "answer": "교안 해설: 반도체 후공정 패키지 공정의 와이어 본딩 중요요소는, 1. Time, 2. Power, 3. Force, 4. Temperature 이다\n\n보충·암기: 와이어 본딩 주요 조건 = Time + Power + Force + Temperature. Jig Weight와 구분하기.",
+      "choices": [
+        {
+          "text": "Jig Weight",
+          "explanation": "지그의 무게이며 교안의 주요 본딩 파라미터에 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Time",
+          "explanation": "본딩에 에너지를 가하는 시간이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Power",
+          "explanation": "본딩 시 사용하는 초음파 에너지 등의 출력이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Force",
+          "explanation": "본딩 도구가 누르는 힘이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-021",
+      "builtinQuizId": "semiconductor-packaging-quiz-021",
+      "number": 21,
+      "type": "choice",
+      "question": "반도체 패키지 와이어 본딩 공정에서 와이어를 가이드 하는 Tool 이름은 무엇인가 ?",
+      "answer": "교안 해설: 반도체 패키지 와이어 본딩 공정에서 와이어를 가이드 하는 Tool 은 Capillary 이다\n\n보충·암기: 와이어 본딩 = Capillary / 다이 본딩 픽업 = Collet.",
+      "choices": [
+        {
+          "text": "Capillary",
+          "explanation": "와이어를 안내하고 패드 등에 본딩하는 도구다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Collet",
+          "explanation": "다이 본딩에서 칩을 픽업하는 도구다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Nozzle",
+          "explanation": "분사·흡착 등에 쓰는 노즐의 일반 명칭이다. 이 문항의 와이어 안내 도구는 Capillary다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Magazine",
+          "explanation": "리드프레임이나 기판 등을 수납·공급하는 장치다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-022",
+      "builtinQuizId": "semiconductor-packaging-quiz-022",
+      "number": 22,
+      "type": "choice",
+      "question": "반도체 패키지 와이어 본딩 공정에서 와이어의 원재료 소재가 아닌것은 ?",
+      "answer": "교안 해설: 반도체 패키지 와이어 본딩 공정에서 와이어의 원재료로 사용하는 금속은 Gold, Aluminum, Copper, Silver, 백금과 이들의 합금 와이어 재료가 있다.\n\n보충·암기: 원소 기호 구분: Au = 금 / Al = 알루미늄 / Cu = 구리 / Ag = 은 / Pt = 백금 / Sn = 주석.",
+      "choices": [
+        {
+          "text": "Sn Wire",
+          "explanation": "Sn은 주석이다. 교안에서 제시한 본딩 와이어 소재 목록에 포함되지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Au Wire",
+          "explanation": "Au는 금(Gold)이며 본딩 와이어 소재다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Al Wire",
+          "explanation": "Al은 알루미늄(Aluminum)이며 본딩 와이어 소재다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Cu Wire",
+          "explanation": "Cu는 구리(Copper)이며 본딩 와이어 소재다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-023",
+      "builtinQuizId": "semiconductor-packaging-quiz-023",
+      "number": 23,
+      "type": "choice",
+      "question": "다음 중 와이어 본더 설비의 구성 요소가 아닌 것은 ?",
+      "answer": "교안 해설: 와이어 본더 설비는 다이본딩 완료된 매거진 로더, 와이어 본딩 암 헤드, 본딩 완료된 언로더 매거진, 그리고 컨트롤시스템 과 모니터로 구성된다\n\n보충·암기: Epoxy Dotting = 접착제 도포·다이 본딩 / Wire Bond Arm Head = 와이어 본딩.",
+      "choices": [
+        {
+          "text": "Epoxy Dotting",
+          "explanation": "에폭시 접착제를 점 형태로 도포하는 것으로 주로 다이 본딩에 관련된 구성이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Wire Bond Arm Head",
+          "explanation": "와이어 본딩 작업을 수행하는 암과 헤드다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Un-loader Magazine",
+          "explanation": "본딩 완료된 소재를 수납하는 언로더 매거진이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "컨트롤시스템,모니터",
+          "explanation": "장비 동작과 공정 조건을 제어하고 상태를 확인하는 구성요소다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-024",
+      "builtinQuizId": "semiconductor-packaging-quiz-024",
+      "number": 24,
+      "type": "choice",
+      "question": "반도체 패키지 와이어 본딩 공정이 완료된 제품의 Ball과 Pad간 접착력을 검사하는 방법은 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 와이어 본딩 공정 완료후 Ball과 Al Pad간 접착력을 검사하는 방법은 Ball접착력의 전단응력 테스트 인 BST(Ball Shear Test)이다\n\n보충·암기: DST = Die Shear Test, 다이 접착 전단 강도 / BST = Ball Shear Test, 볼 접합 전단 강도 / BPT = Bond Pull Test, 본딩 인장 강도.",
+      "choices": [
+        {
+          "text": "BST(Ball Shear Test)",
+          "explanation": "본딩 볼에 옆 방향 힘을 가해 볼과 패드 사이 접합부의 전단 강도를 측정하는 시험이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "BPT(Bond Pull Test)",
+          "explanation": "와이어 등을 당겨 인장 강도를 확인하는 시험이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "PCT(Pressure Cooker Test)",
+          "explanation": "고온·고습·가압 조건에서 신뢰성을 평가하는 시험이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "X-Ray Test",
+          "explanation": "내부 구조나 접합 상태를 X선으로 관찰하는 비파괴 검사다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-025",
+      "builtinQuizId": "semiconductor-packaging-quiz-025",
+      "number": 25,
+      "type": "choice",
+      "question": "다음 중 반도체 패키지 공정의 솔더볼 마운팅 공정과 거리가 먼 것은 ?",
+      "answer": "교안 해설: 솔더볼 마운팅 공정은 크게 3가지 공정으로 구성되는데, 솔더볼 마운트 공정, 리플로우 공정, 플럭스 제거 공정이 있다.\n\n보충·암기: 솔더볼 공정 3단계 = 마운트 → 리플로우 → 플럭스 제거. 리플로우와 접착제 경화를 구분하기.",
+      "choices": [
+        {
+          "text": "경화 공정",
+          "explanation": "접착제 등을 굳히는 공정으로 교안의 솔더볼 마운팅 3단계에 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "솔더볼 마운팅 공정",
+          "explanation": "정해진 위치에 솔더볼을 배치하는 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "리플로우 공정",
+          "explanation": "열을 가해 솔더를 녹여 접합한 뒤 냉각하는 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "플럭스 제거 공정",
+          "explanation": "접합 후 남은 플럭스를 제거하는 공정이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-026",
+      "builtinQuizId": "semiconductor-packaging-quiz-026",
+      "number": 26,
+      "type": "choice",
+      "question": "반도체 후공정 패키지 공정에서 다음 중 솔더볼 마운트 공정이 필요없는 패키지는 어느 것인가 ?",
+      "answer": "교안 해설: BOC,BGA,QFN.LGA를 포함하는 다양한 패키지는 리드 프레임 대신 PCB와 솔더볼을 사용하는 방식인데,하나의 PCB위에 여러 개의 다이를 본딩하고 와이어 본딩을 한 후 PCB전체 몰딩을 하게 된다.\n\n보충·암기: 교안의 정답은 22-DIP-400이다. 해설에 나열된 QFN·LGA 등을 모두 솔더볼 방식으로 일반화하지 않기. QFN은 노출 패드·리드, LGA는 랜드 접점을 사용하는 등 구조가 다르다.",
+      "choices": [
+        {
+          "text": "22-DIP-400",
+          "explanation": "핀을 기판 구멍에 삽입하는 DIP 계열 패키지로 외부 접속용 솔더볼 마운트를 하지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "BGA",
+          "explanation": "Ball Grid Array. 외부 접속에 솔더볼 배열을 사용하는 패키지다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "WLP",
+          "explanation": "Wafer Level Package. 이 문항에서는 솔더볼 마운트가 필요한 유형으로 제시됐다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "FCBGA",
+          "explanation": "Flip Chip Ball Grid Array. 외부 기판 연결에 BGA 솔더볼을 사용하는 패키지다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-027",
+      "builtinQuizId": "semiconductor-packaging-quiz-027",
+      "number": 27,
+      "type": "choice",
+      "question": "반도체 패키지 공정에서 솔더볼 어태치를 하는 공정의 플럭스 기능과 거리가 먼 것은 ?",
+      "answer": "교안 해설: 플럭스의 기능으로는, 화학적 기능, 물리적 기능, 열적 기능 과 불순물을 제거하고 유동성이 좋게 등의 기능과 필요 요소가 있다.\n\n보충·암기: 플럭스 = 산화물 제거 + 젖음·퍼짐성 향상 + 접합 보조. 열저항 증폭과 구분하기.",
+      "choices": [
+        {
+          "text": "열저항을 증폭 시킴",
+          "explanation": "열저항을 높이는 것은 교안에서 묻는 플럭스의 기능이 아니다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "솔더 표면의 산화물 제거",
+          "explanation": "산화물을 제거해 접합이 잘 되도록 돕는다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "솔더의 퍼짐성을 좋게 함.",
+          "explanation": "젖음성과 퍼짐성을 높여 솔더가 접합면에 잘 퍼지도록 돕는다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "모재의 산화피막과 같은 불순물을 제거하고 유동성을 좋게 함",
+          "explanation": "접합면의 산화피막 등을 제거해 솔더의 젖음과 흐름을 돕는다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-028",
+      "builtinQuizId": "semiconductor-packaging-quiz-028",
+      "number": 28,
+      "type": "choice",
+      "question": "솔더볼 마운팅 공정에서 솔더볼 어태치 방식의 종류가 아닌 것은 ?",
+      "answer": "교안 해설: 솔더볼 어태치 방식은, 1. 스크린프린트 방식, 2. 픽 & 플레이스 방식, 3. 솔더 제트 방식, 4. 메탈 솔더 제트 방식 이 있다\n\n보충·암기: 교안 목록 = 스크린프린트 / 픽 & 플레이스 / 솔더 제트 / 메탈 솔더 제트.",
+      "choices": [
+        {
+          "text": "Attach Film 방식",
+          "explanation": "교안의 솔더볼 어태치 방식 목록에 포함되지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "스크린 프린트 방식",
+          "explanation": "스크린의 패턴을 활용해 지정 위치에 솔더 재료를 배치하는 방식이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "솔더 제트 방식",
+          "explanation": "솔더를 제트 방식으로 공급하는 방법이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "픽 & 플레이스 방식",
+          "explanation": "솔더볼을 집어 정해진 위치에 배치하는 방식이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-029",
+      "builtinQuizId": "semiconductor-packaging-quiz-029",
+      "number": 29,
+      "type": "choice",
+      "question": "다음중 솔더볼 마운팅 공정 전에 진행되는 공정이 아닌 것은 ?",
+      "answer": "교안 해설: 반도체 패키지 공정은, B/G -> SAW -> D/B -> W/B -> M/D -> M/K 공정 진행후 L/F 사용 제품은 도금 -> Trim -> Form 공정으로 진행하고, PCB 기판 사용 제품은 SBM -> IR Reflow -> Flux cleaning -> Saw & Sorter 공정으로 나누어 진다\n\n보충·암기: 교안의 PCB 기판 제품 흐름: 몰딩·마킹 이후 SBM → IR Reflow → Flux cleaning → Saw & Sorter. 실제 순서는 패키지 구조에 따라 달라질 수 있다.",
+      "choices": [
+        {
+          "text": "Singulation",
+          "explanation": "제품을 개별 단위로 분리하는 공정으로 이 교안의 흐름에서는 솔더볼 마운팅 이후다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Mold",
+          "explanation": "교안의 흐름에서는 몰딩이 솔더볼 마운팅보다 앞선다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Die Bonding",
+          "explanation": "교안의 흐름에서는 다이 본딩이 솔더볼 마운팅보다 앞선다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Back grinding",
+          "explanation": "교안의 흐름에서는 웨이퍼 백그라인딩이 솔더볼 마운팅보다 앞선다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-030",
+      "builtinQuizId": "semiconductor-packaging-quiz-030",
+      "number": 30,
+      "type": "choice",
+      "question": "반도체 패키지 공정의 쏘 앤 쏘터 공정 장비에서 쏘 파트와 쏘터 파트로 구분되는데 다음 중 쏘터 파트가 아닌 부분은 어느것인가 ?",
+      "answer": "교안 해설: Saw부분:매거진 로더,매거진 엘리베이터,리드프레임 푸셔,인렛 레일 유니트 픽커, X-로봇,척테이블,브러시 그리너 가 있고, Sorter부분:스트립 픽커, 리버스테이블,비젼픽커,칩픽커,볼비젼,굿트레이,리웍트레이 가 있다.\n\n보충·암기: Saw = 절단 측 장비 / Sorter = 분류·검사·트레이 배치 측 장비. Lead Frame Pusher는 Saw 부분으로 기억하기.",
+      "choices": [
+        {
+          "text": "Lead Frame Pusher",
+          "explanation": "교안에서 Saw 부분으로 분류하는 리드프레임 푸셔다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Strip Picker",
+          "explanation": "교안에서 Sorter 부분으로 분류하는 스트립 픽커다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Vision Picker",
+          "explanation": "교안에서 Sorter 부분으로 분류하는 비전 픽커다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Ball Vision",
+          "explanation": "교안에서 Sorter 부분으로 분류하는 볼 비전이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-031",
+      "builtinQuizId": "semiconductor-packaging-quiz-031",
+      "number": 31,
+      "type": "choice",
+      "question": "다음중 반도체 패키지 공정의 마킹 공정과 관계가 먼 것은 ?",
+      "answer": "교안 해설: 마킹 장비는 크게 제품을 로딩하는 로더부, 핸들러 및 마킹 PC, 인덱스(Index)부, 비전(Vision)부, 오프로더(Off loader)부로 나눌 수 있다\n\n보충·암기: 마킹 장비 = 로더 + 핸들러·마킹 PC + 인덱스 + 비전 + 오프로더.",
+      "choices": [
+        {
+          "text": "Lamination 부",
+          "explanation": "테이프 부착 등의 라미네이션은 교안의 마킹 장비 구성에 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "로더부",
+          "explanation": "마킹할 제품을 장비에 공급하는 부분이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "핸들러 및 마킹 PC부",
+          "explanation": "제품 취급과 마킹 제어 등을 담당하는 부분이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "인덱스 및 Off loader 부",
+          "explanation": "제품 위치 이동 및 완료 제품 배출에 관련된 부분이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-032",
+      "builtinQuizId": "semiconductor-packaging-quiz-032",
+      "number": 32,
+      "type": "choice",
+      "question": "반도체 후공정 패키지 공정에서 후 공정에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: 반도체 후 공정 패키지 공정의 후 공정은 1. 몰딩 2. 마킹 3. 도금 4. Singulation, Trim Form 공정등이 있다\n\n보충·암기: 범위 구분: 반도체 전체 후공정 안에서 패키지 전공정·후공정을 다시 나눈다. 다이 본딩은 패키지 내부 전공정.",
+      "choices": [
+        {
+          "text": "다이 본딩",
+          "explanation": "패키지 내부에서는 전공정으로 분류한다. 반도체 전체에서는 패키징 자체가 후공정이라는 점과 구분한다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Trim/Form 공정",
+          "explanation": "패키지 내부 후공정으로 리드 절단·성형 등에 해당한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "도금 공정",
+          "explanation": "패키지 내부 후공정으로 리드 등에 금속 표면 처리를 한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "마킹 공정",
+          "explanation": "패키지 내부 후공정으로 제품에 식별 정보를 표시한다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-033",
+      "builtinQuizId": "semiconductor-packaging-quiz-033",
+      "number": 33,
+      "type": "choice",
+      "question": "반도체 패키지 공정에서 8-SOP 의 Trim / Form 공정 Sequence에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: Conventional PKG의 Trim/Form 공정 Sequence는, 1.Mold완제품 2.Dambar cut 3. Lead cut 4. Pre-forming 5. Final Forming 6. Separated cut unit 이다.\n\n보충·암기: 교안 순서 = Mold 완제품 → Dambar cut → Lead cut → Pre-forming → Final Forming → Separated cut unit.",
+      "choices": [
+        {
+          "text": "Deflash",
+          "explanation": "몰딩 후 불필요한 플래시를 제거하는 작업으로 이 교안의 Trim/Form 시퀀스에는 포함되지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Dambar cut",
+          "explanation": "리드 사이 댐바를 제거하는 단계다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Lead cut",
+          "explanation": "리드를 절단하는 단계다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Pre forming",
+          "explanation": "최종 성형 전 리드 등을 예비 성형하는 단계다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-034",
+      "builtinQuizId": "semiconductor-packaging-quiz-034",
+      "number": 34,
+      "type": "choice",
+      "question": "반도체 패키지 리드 형태가 Forming에 의해 형성되지 않는 패키지이거나, PCB Type의 기판의 경우, 최종 개별 패키지 제품으로 분리하는 공정을 무엇이라 하는가 ?",
+      "answer": "교안 해설: 패키지 리드 형태가 Forming에 의해 형성되지 않는 패키지이거나, PCB Type의 기판의 경우, 최종 개별 패키지 제품으로 분리하는 공정을 Singulation 공정이라 한다.\n\n보충·암기: Singulation = 개별화. Sawing·Punching은 구조에 따라 개별화에 사용할 수 있는 방법이다.",
+      "choices": [
+        {
+          "text": "Singulation",
+          "explanation": "여러 제품이 연결된 상태에서 개별 패키지 단위로 분리하는 공정의 명칭이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "PCB Sawing",
+          "explanation": "PCB를 절단하는 방법으로 개별화에 사용될 수 있지만 문항이 묻는 전체 공정 명칭은 Singulation이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Lead Frame Punch",
+          "explanation": "리드프레임을 펀칭하는 가공 방법이며 전체 개별화 공정의 명칭은 아니다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Dambar cutting",
+          "explanation": "리드 사이 댐바를 제거하는 작업으로 개별 패키지 분리의 일반 명칭과 구분한다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-035",
+      "builtinQuizId": "semiconductor-packaging-quiz-035",
+      "number": 35,
+      "type": "choice",
+      "question": "다음중 마킹 장비의 Off-loader부에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: 오프 카세트, 오프 인서트, 오프 엘리베이터 푸셔, 인스펙션 부분이 있다\n\n보충·암기: Off-loader = 완료 제품 배출·수납 / Index = 위치 이동.",
+      "choices": [
+        {
+          "text": "인덱스 업-다운",
+          "explanation": "제품 위치를 이동시키는 Index 부분이며 Off-loader 구성과 구분한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "오프 엘리베이터 푸셔",
+          "explanation": "교안의 Off-loader 구성에 포함되는 엘리베이터 푸셔다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "오프 인서트",
+          "explanation": "교안의 Off-loader 구성에 포함되는 인서트 부분이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "오프 카세트 그리퍼",
+          "explanation": "출력 카세트를 취급하는 부분으로 교안에서 Off-loader 쪽 보기로 제시된다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-036",
+      "builtinQuizId": "semiconductor-packaging-quiz-036",
+      "number": 36,
+      "type": "choice",
+      "question": "반도체 패키지 도금 공정에서 Lead 에 도금이 되어 있는 주석(Sn)이 성장하게 되는 현상(Whisker)을 방지하기 위해 도금 부위를 경화시키는 공정을 무엇이라 하는가 ?",
+      "answer": "교안 해설: 반도체 패키지 도금 공정에서 Lead 에 도금이 되어 있는 주석(Sn)이 성장하게 되는 현상(Whisker)을 방지하기 위해 도금 부위를 경화시키는 공정을 Annealing 공정이라 한다\n\n보충·암기: 교안의 “경화” 표현은 보존했다. Annealing은 일반적으로 풀림 열처리를 뜻하며 단순히 단단하게 만드는 과정과 다르다. Sn = 주석 / Whisker = 수염 모양 금속 성장.",
+      "choices": [
+        {
+          "text": "Annealing 공정",
+          "explanation": "어닐링 열처리로 주석 도금층의 응력 등을 완화해 위스커 발생을 억제하는 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "PMC공정",
+          "explanation": "Post Mold Cure. 몰딩 후 봉지재를 추가 경화하는 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Adhesive Cure 공정",
+          "explanation": "다이 부착 등에 사용한 접착제를 경화하는 공정이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Singulation 공정",
+          "explanation": "연결된 제품을 개별 패키지로 분리하는 공정이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-037",
+      "builtinQuizId": "semiconductor-packaging-quiz-037",
+      "number": 37,
+      "type": "choice",
+      "question": "다음 중 반도체 후 공정의 패키지 공정에 해당되지 않는 것은 ?",
+      "answer": "교안 해설: 반도체 후 공정 패키지 공정은, 백그라인딩=>쏘잉=>다이본딩=>와이어본딩=>몰딩=>디플래쉬&플레이팅=>마킹=>싱귤레이션,트림,폼=>쏘&쏘터=>파이널테스트 공정으로 이루어진다\n\n보충·암기: Mask 제작은 회로 패턴 형성 측 과정 / 백그라인딩·소잉·Trim/Form은 패키지 공정.",
+      "choices": [
+        {
+          "text": "Mask제작 공정",
+          "explanation": "웨이퍼 회로 패턴 형성을 위한 마스크 제작으로 이 교안의 패키지 공정에 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Trim / Form 공정",
+          "explanation": "패키지 리드 등의 절단·성형 공정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Sawing 공정",
+          "explanation": "웨이퍼나 패키지를 절단·분리하는 공정이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Back-grinding 공정",
+          "explanation": "웨이퍼 뒷면을 연삭해 두께를 줄이는 공정이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-038",
+      "builtinQuizId": "semiconductor-packaging-quiz-038",
+      "number": 38,
+      "type": "choice",
+      "question": "반도체 후 공정 패키지 공정에서 제작된 패키지 소자의 실장 형태 중 표면 실장형 패키지가 아닌 것은 어느 것인가 ?",
+      "answer": "교안 해설: 패키지 종류 구분은 삽입형 / 표면실장형 / Leadless패키지로 구분 하고, 최근에는 WLP와 Conventional 패키지 Type으로 구분된다\n\n보충·암기: 표면 실장 = QFP·SOP·TO-252(D-PAK) / 삽입형 = DIP. Leadless·WLP는 서로 다른 분류 기준과 겹칠 수 있으므로 별도의 축으로 구분하기.",
+      "choices": [
+        {
+          "text": "22-DIP-400",
+          "explanation": "DIP 계열로 핀을 기판 구멍에 삽입하는 패키지다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "QFP",
+          "explanation": "Quad Flat Package. 기판 표면에 실장하는 패키지다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "SOP",
+          "explanation": "Small Outline Package. 기판 표면에 실장하는 패키지다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "TO-252(D-PAK)",
+          "explanation": "D-PAK 계열의 표면 실장형 패키지다.",
+          "originalNumber": 3
         }
       ],
       "correct": 0,
