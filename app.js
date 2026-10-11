@@ -125,6 +125,22 @@ function setTab(value){tab=value;document.querySelectorAll('[data-tab]').forEach
 $('#subjects').onclick=e=>{const b=e.target.closest('[data-subject]');if(b){if(busy){toast('현재 작업이 끝난 뒤 과목을 바꿔주세요.');return}selected=b.dataset.subject;homeView=false;$('#note-search').value='';setTab(subjectNotes().length?'notes':'pdf');$('#results').replaceChildren();$('#search-status').textContent='';render()}};
 $('#home').onclick=e=>{e.preventDefault();homeView=true;render();window.scrollTo({top:0})};
 $('#note-search').oninput=render;
+let homeSwipe,swipeClickUntil=0;
+document.addEventListener('pointerdown',e=>{
+ homeSwipe=undefined;swipeClickUntil=0;
+ if(e.pointerType!=='touch'||!e.isPrimary||homeView||!$('#conceal').hidden||!$('#review').hidden||document.querySelector('dialog[open]')||e.target.closest('input,textarea,select,button,a,summary'))return;
+ homeSwipe={id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now()};
+});
+document.addEventListener('pointercancel',()=>{homeSwipe=undefined});
+document.addEventListener('pointerup',e=>{
+ const start=homeSwipe;homeSwipe=undefined;
+ if(!start||start.id!==e.pointerId||!$('#conceal').hidden)return;
+ const dx=e.clientX-start.x,dy=Math.abs(e.clientY-start.y);
+ if(dx<80||dx<dy*1.5||performance.now()-start.time>1000)return;
+ swipeClickUntil=performance.now()+400;homeView=true;render();window.scrollTo({top:0});
+});
+document.addEventListener('click',e=>{if(performance.now()<swipeClickUntil){e.preventDefault();e.stopImmediatePropagation()}},{capture:true});
+
 for(const id of ['#add-subject','#first-subject'])$(id).onclick=()=>{$('#subject-form').reset();$('#subject-dialog').showModal()};
 $('.tabs').onclick=e=>{const b=e.target.closest('[data-tab]');if(b)setTab(b.dataset.tab)};
 for(const b of document.querySelectorAll('.close-dialog'))b.onclick=()=>b.closest('dialog').close();

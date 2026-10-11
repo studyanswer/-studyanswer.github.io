@@ -13,3 +13,5 @@
 #review-card{cursor:pointer}#review-card:focus-visible{outline:1px solid #777;outline-offset:4px}
 
 body.screen-concealed > *{visibility:hidden!important}body.screen-concealed #conceal{visibility:visible!important}body.screen-concealed dialog::backdrop{background:#000;backdrop-filter:none}#conceal{touch-action:none}
+
+.subject-view{touch-action:pan-y}
