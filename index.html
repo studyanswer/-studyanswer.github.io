@@ -6,7 +6,6 @@
 </head>
 <body>
 <div id="app" class="home-view">
-<header><a href="#" id="home" class="brand">← 과목 목록</a><span class="local-label">내 기기에 저장</span></header>
 <main>
 <section class="workspace">
 <div class="section-heading"><h2>내 과목 <span id="subject-count"></span></h2></div>
@@ -19,7 +18,6 @@
 <section id="pdf-panel" hidden><div class="toolbar"><p>교재와 실습 자료에서 필요한 내용을 찾아보세요.</p><label class="primary upload">＋ PDF 추가<input id="pdf-upload" type="file" accept="application/pdf,.pdf" multiple hidden></label></div><p class="hint">기본 교재는 사이트에서 제공됩니다. 직접 추가한 PDF는 이 기기에만 저장돼요. 단어와 초성(예: ㅂㄷㅊ)으로 검색할 수 있어요. 기본 교재의 이미지 글자도 검색할 수 있어요. 직접 추가한 PDF는 선택 가능한 글자만 검색됩니다.</p><form id="search-form" class="search-box"><input id="search-query" placeholder="단어·초성·문제를 입력하세요" required aria-label="교재 검색"><button class="primary">검색</button></form><label class="semantic-option"><input id="semantic" type="checkbox"> 의미 검색도 함께 사용 <span>첫 사용 시 모델 다운로드 · 기기에서 처리</span></label><p id="search-status" role="status"></p><div id="results"></div><h3 class="library-heading">자료 목록</h3><div id="documents"></div></section>
 </div>
 </section>
-<section class="backup"><div><h3>공부 기록을 안전하게</h3><p>브라우저 데이터가 지워지면 기록도 사라져요.<br>노트를 백업하세요. PDF는 원본을 따로 보관하세요.</p></div><div><button id="export" class="subtle">노트 백업 ↓</button><label class="subtle upload">복원 ↑<input id="import" type="file" accept="application/json,.json" hidden></label></div></section>
 </main>
 </div>
 <dialog id="subject-dialog"><form id="subject-form"><div class="dialog-heading"><h2>새 과목</h2><button type="button" class="close-dialog" aria-label="닫기">✕</button></div><label>과목 이름<input id="subject-name" required maxlength="60" placeholder="예: 전기 기초"></label><button class="primary full">과목 만들기</button></form></dialog>
