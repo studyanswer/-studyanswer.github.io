@@ -1,0 +1,318 @@
+{
+  "version": 2,
+  "subject": "전자응용회로설계",
+  "notes": [
+    {
+      "id": "electronic-circuits-quiz-001",
+      "builtinQuizId": "electronic-circuits-quiz-001",
+      "number": 1,
+      "type": "ox",
+      "question": "Pspice는 모든 회로에 공통으로 사용하는 저항, 콘덴서, 인덕터 등의 수동소자와 다이오드, 트랜지스터, FET 등의 능동소자에 대한 모델을 자료화 함으로써 거의 모든 회로에 대한 시뮬레이션이 가능하다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: PSpice는 소자 모델을 이용해 다양한 회로의 전압·전류 등을 계산한다. 다만 실제로 해석할 수 있는 범위와 정확도는 사용한 모델, 분석 종류, 설정에 따라 달라진다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "수동·능동 소자 모델을 이용한 다양한 회로 시뮬레이션이라는 교안 설명에 해당한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "PSpice는 저항·커패시터·인덕터 및 반도체 소자 모델을 지원하므로 시뮬레이션이 불가능하다는 판단은 틀리다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-002",
+      "builtinQuizId": "electronic-circuits-quiz-002",
+      "number": 2,
+      "type": "ox",
+      "question": "회로를 그릴 수 있는 창을 실행시키기 위해서 Schematics라는 실행 파일을 실행하면 된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안에서 사용하는 PSpice Schematics 환경 기준이다. 최신 OrCAD Capture에서는 회로도 편집 프로그램과 실행 경로가 다를 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 Schematics 프로그램은 회로도를 작성하는 편집 환경이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "교안의 환경에서는 Schematics로 회로도 작성 창을 실행한다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-003",
+      "builtinQuizId": "electronic-circuits-quiz-003",
+      "number": 3,
+      "type": "ox",
+      "question": "불러온 부품을 서로 연결하기 위해 Ctrl + W를 누르면 마우스 위치를 나타내는 화살표가 연필 모양으로 바뀌며 연결작업을 수행할 수 있다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안의 Schematics 환경에서 Ctrl+W는 배선 작업을 시작한다. 부품의 핀 사이를 와이어로 연결한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 배선 단축키는 Ctrl+W이며 배선 모드로 전환한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "Ctrl+W는 이 교안 환경에서 부품 연결을 위한 배선 단축키이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-004",
+      "builtinQuizId": "electronic-circuits-quiz-004",
+      "number": 4,
+      "type": "ox",
+      "question": "회로에서 부품을 불러오기 위해서는 Get New Part를 선택하거나 단축키 Ctrl + G를 이용하면 된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안의 Schematics 환경에서 Get New Part 또는 Ctrl+G로 부품을 선택해 배치한다. 배선 Ctrl+W와 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "Get New Part와 Ctrl+G는 교안 환경에서 부품 불러오기에 사용한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "교안의 부품 불러오기 메뉴와 단축키를 정확하게 설명하므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-005",
+      "builtinQuizId": "electronic-circuits-quiz-005",
+      "number": 5,
+      "type": "ox",
+      "question": "작성한 회로에서 내가 원하는 지점의 전류 또는 전압 등을 그래프로 보면서 확인하기 위해서는 Probe를 실행해야 한다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: Probe는 시뮬레이션 결과의 전압·전류 파형을 그래프로 확인하는 도구다. 먼저 회로와 분석 조건을 설정하고 시뮬레이션 결과를 생성해야 한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "Probe를 이용하면 계산된 전압·전류 파형 등을 확인할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "Probe는 교안에서 결과 파형을 확인하는 도구이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-006",
+      "builtinQuizId": "electronic-circuits-quiz-006",
+      "number": 6,
+      "type": "ox",
+      "question": "내가 그린 회로를 시뮬레이션 하려면 Analysis에 들어가서 Simulate를 클릭하면 된다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안의 Schematics 환경에서 Analysis → Simulate로 해석을 실행한다. 필요한 분석 종류와 조건을 먼저 설정한다. 최신 환경에서는 메뉴 이름이 다를 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 시뮬레이션 실행 경로는 Analysis → Simulate다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "교안 환경의 실행 메뉴 경로를 바르게 설명하므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-007",
+      "builtinQuizId": "electronic-circuits-quiz-007",
+      "number": 7,
+      "type": "ox",
+      "question": "IPROBE를 원하는 지점에 두고 Simulate 실행하면 지정된 위치의 전류 값을 보여준다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안의 Schematics 환경에서 IPROBE는 전류 확인용이다. 전류를 측정할 가지에 직렬로 배치하고 시뮬레이션한다. 표시 부호는 설정된 기준 방향에 따른다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "IPROBE는 지정한 가지의 전류를 확인하는 용도다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "전압·전위 표시와 구분하여 IPROBE는 전류 확인용이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-008",
+      "builtinQuizId": "electronic-circuits-quiz-008",
+      "number": 8,
+      "type": "ox",
+      "question": "VIEWPOINT를 원하는 지점에 두고 Simulate 실행하면 지정된 위치의 전위 값을 보여준다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안의 Schematics 환경에서 VIEWPOINT는 해당 노드의 기준점(접지)에 대한 전위를 확인하는 용도다. 두 노드 사이 전압은 두 전위의 차이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "VIEWPOINT를 배치한 노드의 전위를 확인할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "VIEWPOINT는 전류가 아니라 노드의 전위 확인용이므로 이 설명은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-009",
+      "builtinQuizId": "electronic-circuits-quiz-009",
+      "number": 9,
+      "type": "ox",
+      "question": "중첩의 원리를 적용할 때 하나의 전원만 남겨두고 나머지 전원은 제거를 하는데 전압원은 단락시키고 전류원은 개방시킨다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 선형 회로에서 독립 전원을 하나씩 활성화하여 전압·전류 응답을 더한다. 나머지 독립 전압원은 0V로 만들어 단락, 독립 전류원은 0A로 만들어 개방한다. 종속 전원은 유지하며 전력에는 직접 중첩을 적용하지 않는다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "비활성화할 이상적인 독립 전압원은 단락, 독립 전류원은 개방한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "독립 전원을 비활성화하는 방법을 바르게 설명한다. 전압원을 개방하고 전류원을 단락하는 것으로 뒤바꾸면 틀리다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-010",
+      "builtinQuizId": "electronic-circuits-quiz-010",
+      "number": 10,
+      "type": "ox",
+      "question": "이상적인 전압원의 내부저항은 0옴이고 전류원은 무한대의 저항값을 가진다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이상적인 전압원은 내부 직렬 저항이 0Ω, 이상적인 전류원은 내부 병렬 저항이 무한대다. 이는 이상 모델이며 실제 전원은 다를 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "이상 전압원의 내부 직렬 저항은 0Ω, 이상 전류원의 내부 병렬 저항은 무한대다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이상 전원의 내부저항 모델을 올바르게 설명하므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-011",
+      "builtinQuizId": "electronic-circuits-quiz-011",
+      "number": 11,
+      "type": "ox",
+      "question": "테브난 정리는 복잡한 회로에서 두 점을 기준으로 측정된 전압과 측정된 저항값을 단순하게 전원과 직렬로 연결된 저항 회로로 나타낸 것이다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 선형 2단자 회로를 등가 전압원 Vth와 직렬 저항 Rth로 바꾼다. Vth는 부하를 제거한 개방 단자 전압이며 Rth는 단자에서 바라본 등가저항이다. 독립 전원은 비활성화하고 종속 전원이 있으면 시험 전원 등의 방법을 사용한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "테브난 등가는 전압원과 직렬 저항으로 구성된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "전압원과 직렬 저항이라는 구성이 테브난 등가의 형태이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-012",
+      "builtinQuizId": "electronic-circuits-quiz-012",
+      "number": 12,
+      "type": "ox",
+      "question": "노턴 정리는 복잡한 회로에서 두 점을 기준으로 측정된 전류와 측정된 저항이 있을 때 전류원과 병렬로 연결된 저항으로 회로를 나타낸 것이다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 선형 2단자 회로를 등가 전류원 In과 병렬 저항 Rn으로 바꾼다. In은 단자를 단락했을 때의 전류이며 Rn=Rth, Vth=In×Rn이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "노턴 등가는 전류원과 병렬 저항으로 구성된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "전류원과 병렬 저항이라는 구성이 노턴 등가의 형태이므로 X가 아니다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    }
+  ]
+}
