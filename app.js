@@ -89,8 +89,9 @@ function orderedChoices(note){return [note.correct,...note.choices.map((_,i)=>i)
 const studyAnswer=answer=>String(answer||'').replace(/교안\s*해설\s*[:：]\s*/g,'');
 function choiceDetails(note){
  const choices=orderedChoices(note);
- const row=(c,i)=>`<div class="study-choice ${c.isCorrect?'correct-choice':''}"><strong>${i+1}) ${c.isCorrect?'✓ 정답 · ':''}${escapeHTML(c.text)}</strong>${c.originalNumber?`<span class="original-choice">원문 ${c.originalNumber}번</span>`:''}<p>${escapeHTML(c.explanation||'보기 설명을 추가해보세요.')}</p></div>`;
- return row(choices[0],0)+`<p class="study-explanation">${escapeHTML(studyAnswer(note.answer))}</p><details class="wrong-choices"><summary>오답 보기 · 설명 ${choices.length-1}개</summary>${choices.slice(1).map((c,i)=>row(c,i+1)).join('')}</details>`;
+ const otherChoices=choices.slice(1).map((c,i)=>`<div class="study-choice"><strong>${i+2}) ${escapeHTML(c.text)}</strong></div>`).join('');
+ const explanations=choices.map((c,i)=>`<div class="choice-explanation"><strong>${i+1}) ${escapeHTML(c.text)}</strong><p>${escapeHTML(c.explanation||'')}</p></div>`).join('');
+ return `<details class="wrong-choices question-details"><summary><strong>1) ✓ ${escapeHTML(choices[0].text)}</strong><span class="question-chevron" aria-hidden="true">⌄</span></summary><div class="expanded-choices">${otherChoices}</div><div class="choice-explanations">${explanations}</div><p class="study-explanation">${escapeHTML(studyAnswer(note.answer))}</p></details>`;
 }
 function pdfLearningContent(doc){
  for(const chunk of doc.chunks||[]){
