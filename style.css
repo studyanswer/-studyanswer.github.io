@@ -36,3 +36,6 @@ html.pdf-open{overflow:hidden;overscroll-behavior:none}body.pdf-open{position:fi
 #pdf-dialog{overflow:hidden}#pdf-dialog.pdf-zoomed{overflow:auto}
 
 #pdf-dialog.pdf-tap-zoomed #pdf-canvas{width:var(--pdf-zoom-width);max-width:none;margin-inline:0}
+
+#pdf-dialog,#pdf-canvas-wrap,#pdf-canvas{touch-action:none}
+button:focus,button:focus-visible,[role=button]:focus,[role=button]:focus-visible{outline:none!important}
