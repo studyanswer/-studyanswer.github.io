@@ -39,3 +39,5 @@ html.pdf-open{overflow:hidden;overscroll-behavior:none}body.pdf-open{position:fi
 
 #pdf-dialog,#pdf-canvas-wrap,#pdf-canvas{touch-action:none}
 button:focus,button:focus-visible,[role=button]:focus,[role=button]:focus-visible{outline:none!important}
+
+.pdf-expand-option{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}.pdf-learning-content{margin-top:12px;font-size:13px;line-height:1.8;color:var(--muted)}.pdf-learning-content:empty{display:none}

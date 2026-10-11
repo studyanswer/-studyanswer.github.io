@@ -92,6 +92,17 @@ function choiceDetails(note){
  const row=(c,i)=>`<div class="study-choice ${c.isCorrect?'correct-choice':''}"><strong>${i+1}) ${c.isCorrect?'✓ 정답 · ':''}${escapeHTML(c.text)}</strong>${c.originalNumber?`<span class="original-choice">원문 ${c.originalNumber}번</span>`:''}<p>${escapeHTML(c.explanation||'보기 설명을 추가해보세요.')}</p></div>`;
  return row(choices[0],0)+`<p class="study-explanation">${escapeHTML(studyAnswer(note.answer))}</p><details class="wrong-choices"><summary>오답 보기 · 설명 ${choices.length-1}개</summary>${choices.slice(1).map((c,i)=>row(c,i+1)).join('')}</details>`;
 }
+function pdfLearningContent(doc){
+ for(const chunk of doc.chunks||[]){
+  const lines=chunk.text.split(/\r?\n/).map(line=>line.trim()),heading=lines.findIndex(line=>/^학\s*습\s*내\s*용$/.test(line));
+  if(heading>=0){const content=[];for(const line of lines.slice(heading+1)){if(/^학\s*습\s*목\s*표/.test(line))break;if(line)content.push(line.replace(/^[•▪\uf0a7]\s*/,''))}if(content.length)return content}
+  if(doc.subjectId==='applied-math'||doc.id?.startsWith('applied-math-')){
+   const combined=lines.findIndex(line=>/^학\s*습\s*내\s*용\s*및\s*학\s*습\s*목\s*표$/.test(line));
+   if(combined>=0){const content=[];for(const line of lines.slice(combined+1)){if(/할\s*수|이해하고|정의하고|파악하고/.test(line))break;if(line)content.push(line.replace(/^•\s*/,''))}if(content.length)return content}
+  }
+ }
+ return [];
+}
 function noteContent(note){return isChoice(note)?choiceDetails(note):`<p>${escapeHTML(studyAnswer(note.answer).slice(0,120))}</p>`}
 const kinds = {qa:'문답', choice:'객관식', ox:'O/X', memo:'일반 노트'};
 const escapeHTML = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -120,7 +131,7 @@ function render(){
  $('#note-count').textContent=notes.length;$('#pdf-count').textContent=docs.length;
  $('#notes').innerHTML=visibleNotes.length?visibleNotes.map(n=>`<article class="note-row"><div class="note-main"><span class="note-type">${kinds[n.type]}${n.week?' · '+n.week+'주차 '+n.lecture+'강':''}${n.marked?' · 다시 보기':''}</span><h3>${n.number?n.number+'. ':''}${escapeHTML(n.question)}</h3>${noteContent(n)}</div></article>`).join(''):(query?'<p class="empty-inline">검색 결과가 없어요. 다른 단어나 초성으로 찾아보세요.</p>':'<p class="empty-inline">아직 등록된 노트가 없어요.<br>이 대화에서 문제를 보내주면 등록할 수 있어요.</p>');
  $('#start-review').disabled=!notes.length;
- $('#documents').innerHTML=docs.map(d=>`<article class="document-row" role="button" tabindex="0" data-open-pdf="${d.id}" aria-label="${escapeHTML(d.name)}"><div><strong>${escapeHTML(d.name)}</strong></div></article>`).join('');
+ $('#documents').innerHTML=docs.map(d=>`<article class="document-row" role="button" tabindex="0" data-open-pdf="${d.id}" aria-label="${escapeHTML(d.name)}"><div><strong>${escapeHTML(d.name)}</strong>${$('#pdf-expand').checked?`<div class="pdf-learning-content">${pdfLearningContent(d).map(line=>`<div>${escapeHTML(line)}</div>`).join('')}</div>`:''}</div></article>`).join('');
 }
 function setTab(value){tab=value;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('#notes-panel').hidden=tab!=='notes';$('#pdf-panel').hidden=tab!=='pdf'}
 $('#subjects').onclick=e=>{const b=e.target.closest('[data-subject]');if(b){if(busy){toast('현재 작업이 끝난 뒤 과목을 바꿔주세요.');return}selected=b.dataset.subject;homeView=false;$('#note-search').value='';setTab(subjectNotes().length?'notes':'pdf');$('#results').replaceChildren();$('#search-status').textContent='';render()}};
@@ -206,6 +217,7 @@ document.addEventListener('keydown',e=>{
 async function pdfjs(){if(!pdfModule){pdfModule=await import('./vendor/pdf.mjs');pdfModule.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdf.worker.mjs',import.meta.url).href}return pdfModule}
 function chunksFor(text,page){const chunks=[];for(let start=0;start<text.length;start+=550){const section=text.slice(start,start+700).trim();if(section)chunks.push({page,text:section})}return chunks}
 $('#pdf-upload').onchange=async e=>{if(busy)return;const files=[...e.target.files],subjectId=selected;busy=true;$('#pdf-upload').disabled=true;try{const pdf=await pdfjs();for(const file of files){if(file.size>50*1024*1024){toast(`${file.name}: PDF는 50MB 이하로 넣어주세요.`);continue}$('#search-status').textContent=`${file.name} 읽는 중…`;let doc;try{doc=await pdf.getDocument({data:new Uint8Array(await file.arrayBuffer()),cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;const chunks=[];for(let p=1;p<=doc.numPages;p++){const page=await doc.getPage(p);const content=await page.getTextContent();const text=content.items.map(x=>x.str+(x.hasEOL?'\n':' ')).join('').trim();chunks.push(...chunksFor(text,p));$('#search-status').textContent=`${file.name} · ${p}/${doc.numPages}페이지 추출 중…`}const item={id:uid(),subjectId,name:file.name,pageCount:doc.numPages,chunks,blob:file,vectors:null};state.documents.push(item);if(!await persist()){state.documents.pop();break}render();if(!chunks.length)toast('글자가 추출되지 않았어요. 스캔 PDF는 글자 인식이 필요합니다.')}catch(error){toast(`${file.name}: PDF를 읽지 못했어요. 암호나 파일 상태를 확인해주세요.`);console.error(error)}finally{await doc?.destroy()}}$('#search-status').textContent='PDF 추가를 마쳤어요. 단어 검색은 바로 사용할 수 있어요.'}catch(error){toast('PDF 도구를 불러오지 못했어요.');console.error(error)}finally{busy=false;$('#pdf-upload').disabled=false;e.target.value=''}};
+$('#pdf-expand').onchange=render;
 $('#documents').onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-open-pdf]')){e.preventDefault();openPDF(e.target.dataset.openPdf,1)}};
 $('#documents').onclick=e=>{const open=e.target.closest('[data-open-pdf]');if(open)openPDF(open.dataset.openPdf,1)};
 async function openPDF(id,page){const item=state.documents.find(d=>d.id===id);if(!item)return;if(item.type==='csv'){openCSV(item,page);return}$('#pdf-title').textContent=item.name;$('#pdf-error').textContent='';$('#pdf-canvas').width=0;$('#pdf-canvas').height=0;$('#pdf-page').textContent='불러오는 중…';$('#pdf-prev').disabled=true;$('#pdf-next').disabled=true;lockPDFBackground();$('#pdf-dialog').showModal();$('#pdf-dialog .close-dialog').blur();$('#pdf-dialog').scrollTop=0;try{if(renderTask){renderTask.cancel();try{await renderTask.promise}catch{}}await viewer?.destroy();const pdf=await pdfjs();viewer=await pdf.getDocument({...item.blob?{data:new Uint8Array(await item.blob.arrayBuffer())}:{url:new URL(item.sourceUrl,import.meta.url).href,disableRange:true},cMapUrl:new URL('./vendor/cmaps/',import.meta.url).href,cMapPacked:true,standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href}).promise;viewerPage=page;await renderPDF()}catch(error){$('#pdf-error').textContent='페이지를 열지 못했어요. 인터넷 연결과 PDF 상태를 확인해주세요.';console.error(error)}}
