@@ -17,9 +17,9 @@ const {chromium}=require('playwright');
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  try{
-  const page=await browser.newPage();await page.goto('http://127.0.0.1:8080');
+  const page=await browser.newPage();await page.goto('http://127.0.0.1:8082');
   for(const [subject,query,word,ocr] of [['반도체패키지공학실무','ㅂㄷㅊ','반도체',false],['컴퓨터활용실무','ㅇㅅㅇ','이승엽',true]]){
-   await page.getByRole('button',{name:subject,exact:true}).click();await page.locator('[data-tab="pdf"]').click();
+   if(await page.locator('#home').isVisible())await page.locator('#home').click();await page.getByRole('button',{name:subject,exact:true}).click();await page.locator('[data-tab="pdf"]').click();
    await page.locator('#search-query').fill(query);await page.locator('#search-form button').click();
    await page.locator('.result').first().waitFor();
    assert.ok((await page.locator('.result').allTextContents()).some(text=>text.replace(/\s/g,'').includes(word)));

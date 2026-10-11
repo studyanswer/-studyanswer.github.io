@@ -86,11 +86,16 @@ async function prepareQuizLibrary(){
 }
 const isChoice=note=>note?.type==='choice'||note?.type==='ox';
 function orderedChoices(note){return [note.correct,...note.choices.map((_,i)=>i).filter(i=>i!==note.correct)].map(i=>({...note.choices[i],isCorrect:i===note.correct}))}
-function choiceDetails(note){return orderedChoices(note).map((c,i)=>`<div class="study-choice ${c.isCorrect?'correct-choice':''}"><strong>${i+1}) ${c.isCorrect?'✓ 정답 · ':''}${escapeHTML(c.text)}</strong>${c.originalNumber?`<span class="original-choice">원문 ${c.originalNumber}번</span>`:''}<p>${escapeHTML(c.explanation||'보기 설명을 추가해보세요.')}</p></div>`).join('')}
+function choiceDetails(note){
+ const choices=orderedChoices(note);
+ const row=(c,i)=>`<div class="study-choice ${c.isCorrect?'correct-choice':''}"><strong>${i+1}) ${c.isCorrect?'✓ 정답 · ':''}${escapeHTML(c.text)}</strong>${c.originalNumber?`<span class="original-choice">원문 ${c.originalNumber}번</span>`:''}<p>${escapeHTML(c.explanation||'보기 설명을 추가해보세요.')}</p></div>`;
+ return row(choices[0],0)+`<details class="wrong-choices"><summary>오답 보기 · 설명 ${choices.length-1}개</summary>${choices.slice(1).map((c,i)=>row(c,i+1)).join('')}</details>`;
+}
 function noteContent(note){return isChoice(note)?choiceDetails(note)+`<p class="study-explanation">${escapeHTML(note.answer)}</p>`:`<p>${escapeHTML(note.answer.slice(0,120))}</p>`}
 const kinds = {qa:'문답', choice:'객관식', ox:'O/X', memo:'일반 노트'};
 const escapeHTML = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let db, state = {subjects:[],notes:[],documents:[]}, selected, editing, tab='notes';
+let homeView=true;
 let reviewList=[],reviewIndex=0,revealed=false,viewer,viewerPage=1,renderTask;
 let extractor, pdfModule, busy=false;
 function toast(message){$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').hidden=true,4500)}
@@ -101,25 +106,29 @@ async function persist(){try{await save();return true}catch(e){toast('저장하�
 function subjectNotes(){return state.notes.filter(n=>n.subjectId===selected)}
 function subjectDocs(){return state.documents.filter(d=>d.subjectId===selected).sort((a,b)=>a.name.localeCompare(b.name,'ko',{numeric:true}))}
 function render(){
+ $('#app').classList.toggle('home-view',homeView);
+ $('#app').classList.toggle('subject-view',!homeView);
  if(!state.subjects.some(s=>s.id===selected))selected=state.subjects[0]?.id;
  $('#subject-count').textContent=state.subjects.length;
  $('#subjects').innerHTML=state.subjects.map(s=>`<button class="subject-chip ${s.id===selected?'active':''}" data-subject="${escapeHTML(s.id)}">${escapeHTML(s.name)}</button>`).join('');
  $('#empty-subject').hidden=!!selected;$('#subject-content').hidden=!selected;
  if(!selected)return;
  $('#subject-title').textContent=state.subjects.find(s=>s.id===selected).name;
- const notes=subjectNotes(), docs=subjectDocs();
+ const notes=subjectNotes(), docs=subjectDocs(),query=$('#note-search').value.trim();
+ const visibleNotes=query?notes.filter(n=>lexicalScore([n.question,n.answer,...(n.choices||[]).flatMap(c=>[c.text,c.explanation])].join(' '),query)>0):notes;
  $('#note-count').textContent=notes.length;$('#pdf-count').textContent=docs.length;
- $('#notes').innerHTML=notes.length?notes.map(n=>`<article class="note-row"><div class="note-main"><span class="note-type">${kinds[n.type]}${n.week?' · '+n.week+'주차 '+n.lecture+'강':''}${n.marked?' · 다시 보기':''}</span><h3>${n.number?n.number+'. ':''}${escapeHTML(n.question)}</h3>${noteContent(n)}</div><div class="row-actions"><button data-edit="${n.id}">수정</button><button data-delete="${n.id}">삭제</button></div></article>`).join(''):'<p class="empty-inline">첫 노트를 추가해보세요.<br>질문뿐 아니라 모든 보기의 설명도 담을 수 있어요.</p>';
+ $('#notes').innerHTML=visibleNotes.length?visibleNotes.map(n=>`<article class="note-row"><div class="note-main"><span class="note-type">${kinds[n.type]}${n.week?' · '+n.week+'주차 '+n.lecture+'강':''}${n.marked?' · 다시 보기':''}</span><h3>${n.number?n.number+'. ':''}${escapeHTML(n.question)}</h3>${noteContent(n)}</div><div class="row-actions"><button data-edit="${n.id}">수정</button><button data-delete="${n.id}">삭제</button></div></article>`).join(''):(query?'<p class="empty-inline">검색 결과가 없어요. 다른 단어나 초성으로 찾아보세요.</p>':'<p class="empty-inline">첫 노트를 추가해보세요.<br>질문뿐 아니라 모든 보기의 설명도 담을 수 있어요.</p>');
  $('#start-review').disabled=!notes.length;
  $('#documents').innerHTML=docs.map(d=>`<article class="document-row"><div><strong>${escapeHTML(d.name)}</strong><p>${d.type==='csv'?'CSV · '+d.rowCount+'행':d.pageCount+'페이지'}${d.builtin?' · 기본 자료':''}${d.ocrPageCount?' · 이미지 글자 포함':''} · ${d.chunks.length}개 검색 구간${d.vectors?' · 의미 검색 준비됨':''}${!d.chunks.length?' · 추출 가능한 글자 없음':''}</p></div><div class="row-actions"><button data-open-pdf="${d.id}">열기</button><button data-delete-pdf="${d.id}">${d.builtin?'빼기':'삭제'}</button></div></article>`).join('');
 }
 function setTab(value){tab=value;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('#notes-panel').hidden=tab!=='notes';$('#pdf-panel').hidden=tab!=='pdf'}
-$('#subjects').onclick=e=>{const b=e.target.closest('[data-subject]');if(b){if(busy){toast('현재 작업이 끝난 뒤 과목을 바꿔주세요.');return}selected=b.dataset.subject;$('#results').replaceChildren();$('#search-status').textContent='';render()}};
-$('#home').onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})};
+$('#subjects').onclick=e=>{const b=e.target.closest('[data-subject]');if(b){if(busy){toast('현재 작업이 끝난 뒤 과목을 바꿔주세요.');return}selected=b.dataset.subject;homeView=false;$('#note-search').value='';setTab(subjectNotes().length?'notes':'pdf');$('#results').replaceChildren();$('#search-status').textContent='';render()}};
+$('#home').onclick=e=>{e.preventDefault();homeView=true;render();window.scrollTo({top:0})};
+$('#note-search').oninput=render;
 for(const id of ['#add-subject','#first-subject'])$(id).onclick=()=>{$('#subject-form').reset();$('#subject-dialog').showModal()};
 $('.tabs').onclick=e=>{const b=e.target.closest('[data-tab]');if(b)setTab(b.dataset.tab)};
 for(const b of document.querySelectorAll('.close-dialog'))b.onclick=()=>b.closest('dialog').close();
-$('#subject-form').onsubmit=async e=>{e.preventDefault();const name=$('#subject-name').value.trim();if(!name)return;selected=uid();state.subjects.push({id:selected,name});if(await persist()){$('#subject-dialog').close();render()}};
+$('#subject-form').onsubmit=async e=>{e.preventDefault();const name=$('#subject-name').value.trim();if(!name)return;homeView=false;selected=uid();state.subjects.push({id:selected,name});if(await persist()){$('#subject-dialog').close();render()}};
 $('#delete-subject').onclick=async()=>{if(busy){toast('PDF 처리가 끝난 뒤 삭제해주세요.');return}if(!confirm('이 과목의 노트와 PDF를 모두 삭제할까요?'))return;state.subjects=state.subjects.filter(s=>s.id!==selected);state.notes=state.notes.filter(n=>n.subjectId!==selected);state.documents=state.documents.filter(d=>d.subjectId!==selected);await persist();$('#results').replaceChildren();render()};
 $('#choices-editor').innerHTML=Array.from({length:4},(_,i)=>`<div class="choice-field"><label><input type="radio" name="correct" value="${i}" ${!i?'checked':''}> ${i+1}번 · 정답이면 선택</label><input id="choice-${i}" placeholder="보기 내용" aria-label="${i+1}번 보기"><textarea id="explanation-${i}" rows="2" placeholder="왜 맞거나 틀린가요? 어떤 경우에 맞는 말인가요?" aria-label="${i+1}번 보기 설명"></textarea></div>`).join('');
 function updateNoteType(){const type=$('#note-type').value,count=type==='ox'?2:4,choice=isChoice({type});$('#choices-editor').hidden=!choice;$('#question-label').textContent=type==='memo'?'제목':'질문 / 문제';$('#answer').required=!choice;for(let i=0;i<4;i++){const visible=i<count;$(`#choice-${i}`).closest('.choice-field').hidden=!visible;$(`#choice-${i}`).required=choice&&visible;$(`#choice-${i}`).disabled=!visible;$(`#explanation-${i}`).disabled=!visible;$(`input[name="correct"][value="${i}"]`).disabled=!visible}if(choice&&Number($('input[name="correct"]:checked').value)>=count)$('input[name="correct"][value="0"]').checked=true}
@@ -133,7 +142,8 @@ function renderReview(){const note=reviewList[reviewIndex];$('#review-progress')
 $('#start-review').onclick=()=>{$('#shuffle').checked=false;$('#marked-only').checked=false;prepareReview();$('#review').hidden=false;$('#app').inert=true};
 $('#exit-review').onclick=()=>{$('#review').hidden=true;$('#app').inert=false;render()};
 function moveReview(delta){if(!reviewList.length)return;reviewIndex=(reviewIndex+delta+reviewList.length)%reviewList.length;revealed=false;renderReview()}
-$('#review-card').onclick=()=>{if(!reviewList.length)return;if(revealed)moveReview(1);else{revealed=true;renderReview()}};
+$('#review-card').onclick=e=>{if(e.target.closest('.wrong-choices'))return;if(!reviewList.length)return;if(revealed)moveReview(1);else{revealed=true;renderReview()}};
+$('#review-card').onkeydown=e=>{if(e.target!==e.currentTarget)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.click()}};
 $('#next').onclick=()=>moveReview(1);$('#previous').onclick=()=>moveReview(-1);
 $('#mark').onclick=async()=>{const note=reviewList[reviewIndex];if(note){note.marked=!note.marked;await persist();renderReview()}};
 $('#shuffle').onchange=prepareReview;$('#marked-only').onchange=prepareReview;

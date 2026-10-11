@@ -1,3 +1,4 @@
+async function selectSubject(page,name){if(await page.locator('#home').isVisible())await page.locator('#home').click();await page.getByRole('button',{name,exact:true}).first().click()}
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const {chromium}=require('playwright');
@@ -17,9 +18,9 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
  try{
   const context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:8081');await page.locator('.note-row').nth(27).waitFor();
+  await page.goto('http://127.0.0.1:8082');await selectSubject(page,'AI기초와활용');await page.locator('.note-row').nth(27).waitFor();
   assert.equal(await page.locator('.note-row').count(),28);
-  await page.getByRole('button',{name:'반도체패키지공학실무',exact:true}).click();assert.equal(await page.locator('.note-row').count(),38);assert.match(await page.locator('.correct-choice').first().innerText(),/원가 절감/);await page.getByRole('button',{name:'AI기초와활용',exact:true}).click();
+  await selectSubject(page,'반도체패키지공학실무');assert.equal(await page.locator('.note-row').count(),38);assert.match(await page.locator('.correct-choice').first().innerText(),/원가 절감/);await selectSubject(page,'AI기초와활용');
   const first=page.locator('.note-row').first();
   assert.match(await first.locator('.study-choice').first().innerText(),/1\) ✓ 정답 · K-means/);
   assert.match(await first.innerText(),/원문 4번/);
@@ -29,26 +30,26 @@ async function read(page){return page.evaluate(()=>new Promise(resolve=>{const r
   await page.locator('.note-row').nth(4).getByRole('button',{name:'수정',exact:true}).click();
   assert.equal(await page.locator('#note-type').inputValue(),'ox');
   await page.locator('#explanation-1').fill('내 추가 설명 유지');await page.getByRole('button',{name:'저장하기',exact:true}).click();await page.locator('#note-dialog').waitFor({state:'hidden'});
-  await page.reload();await page.locator('.note-row').nth(27).waitFor();assert.equal(await page.locator('.note-row').count(),28);
-  assert.match(await page.locator('.note-row').nth(4).innerText(),/내 추가 설명 유지/);
+  await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.locator('.note-row').nth(27).waitFor();assert.equal(await page.locator('.note-row').count(),28);
+  assert.match(await page.locator('.note-row').nth(4).textContent(),/내 추가 설명 유지/);
   const saved=await read(page);assert.equal(saved.notes[4].choices[1].originalNumber,2);
   await page.locator('#start-review').click();await page.locator('#review-card').click();
   assert.match(await page.locator('#review-answer .study-choice').first().innerText(),/K-means/);
   await page.locator('#hide-review').click();assert.ok(await page.locator('#conceal').isVisible());await page.locator('#conceal').dblclick();await page.locator('#exit-review').click();
   const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;
   const backup=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(backup.notes.length,94);
-  page.on('dialog',d=>d.accept());await first.getByRole('button',{name:'삭제',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);await page.reload();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
+  page.on('dialog',d=>d.accept());await first.getByRole('button',{name:'삭제',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===27);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
   await page.locator('#import').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backup))});await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');
   assert.equal((await read(page)).notes.length,187);
-  await page.reload();await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');assert.equal((await read(page)).notes.length,187);
+  await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='14');assert.equal((await read(page)).notes.length,187);
   assert.equal((await read(page)).documents.length,82);
-  await page.evaluate(()=>navigator.serviceWorker.ready);await context.setOffline(true);await page.reload();await page.locator('.note-row').first().waitFor();assert.equal((await read(page)).notes.length,187);
+  await page.evaluate(()=>navigator.serviceWorker.ready);await context.setOffline(true);await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.locator('.note-row').first().waitFor();assert.equal((await read(page)).notes.length,187);
   await context.setOffline(false);
   await page.evaluate(()=>new Promise(resolve=>{const r=indexedDB.open('secret-note',1);r.onsuccess=()=>{const db=r.result,tx=db.transaction('data','readwrite'),store=tx.objectStore('data'),q=store.get('state');q.onsuccess=()=>{const s=q.result;s.notes=[{id:'existing-personal',subjectId:s.subjects[0].id,type:'qa',question:'기존 개인 노트',answer:'보존할 답변',choices:[]}];delete s.builtinQuizIds;store.put(s,'state')};tx.oncomplete=()=>{db.close();resolve()}}}));
-  await page.reload();await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===29);
+  await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelectorAll('.note-row').length===29);
   assert.match(await page.locator('.note-row').first().innerText(),/보존할 답변/);
-  await page.locator('#delete-subject').click();await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');await page.reload();await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');
+  await page.locator('#delete-subject').click();await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');await page.reload();await page.locator("#app.home-view").waitFor();await selectSubject(page,'AI기초와활용');await page.waitForFunction(()=>document.querySelector('#subject-count').textContent==='13');
   assert.equal((await read(page)).subjects.filter(s=>s.name==='AI기초와활용').length,1);
   assert.ok(!(await read(page)).notes.some(n=>n.id==='ai-basics-quiz-001'));
   assert.deepEqual(errors,[]);
