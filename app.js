@@ -167,12 +167,36 @@ function setConcealed(value){
 const inScreenCorner=e=>!e.target?.closest?.('#pdf-dialog .close-dialog')&&e.clientX>=window.innerWidth-88&&(e.clientY<=88||e.clientY>=window.innerHeight-88);
 document.addEventListener('pointerdown',e=>{
  if(!e.isPrimary||e.button!==0||!inScreenCorner(e))return;
+ // PDF touch gestures must be classified before a corner tap can hide the page.
+ if(e.pointerType==='touch'&&$('#pdf-dialog').open&&$('#conceal').hidden)return;
+ if(e.pointerType==='touch'&&$('#pdf-dialog').open&&!$('#conceal').hidden)pdfCornerRestoreTouch=true;
  e.preventDefault();e.stopImmediatePropagation();
  setConcealed($('#conceal').hidden);
 },{capture:true});
 document.addEventListener('click',e=>{
  if(inScreenCorner(e)||!$('#conceal').hidden){e.preventDefault();e.stopImmediatePropagation()}
 },{capture:true});
+let pdfCornerTap, pdfCornerRestoreTouch=false;
+document.addEventListener('touchstart',e=>{
+ pdfCornerTap=undefined;
+ if(pdfCornerRestoreTouch){pdfCornerRestoreTouch=false;return}
+ if(!$('#pdf-dialog').open||!$('#conceal').hidden||e.touches.length!==1)return;
+ const touch=e.touches[0];
+ if(inScreenCorner(touch))pdfCornerTap={x:touch.clientX,y:touch.clientY,id:touch.identifier};
+},{capture:true,passive:true});
+document.addEventListener('touchmove',e=>{
+ if(!pdfCornerTap)return;
+ const touch=[...e.touches].find(t=>t.identifier===pdfCornerTap.id);
+ if(e.touches.length!==1||!touch||Math.hypot(touch.clientX-pdfCornerTap.x,touch.clientY-pdfCornerTap.y)>12)pdfCornerTap=undefined;
+},{capture:true,passive:true});
+document.addEventListener('touchcancel',()=>{pdfCornerTap=undefined},{capture:true,passive:true});
+document.addEventListener('touchend',e=>{
+ const tap=pdfCornerTap;pdfCornerTap=undefined;
+ if(!tap||e.touches.length||!$('#pdf-dialog').open||!$('#conceal').hidden)return;
+ const touch=[...e.changedTouches].find(t=>t.identifier===tap.id);
+ if(!touch||!inScreenCorner(touch)||Math.hypot(touch.clientX-tap.x,touch.clientY-tap.y)>12)return;
+ e.preventDefault();e.stopImmediatePropagation();setConcealed(true);
+},{capture:true,passive:false});
 $('#hide-review').onclick=()=>setConcealed(true);
 document.addEventListener('keydown',e=>{
  if(!$('#conceal').hidden){e.preventDefault();e.stopImmediatePropagation();return}

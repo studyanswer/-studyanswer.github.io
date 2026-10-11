@@ -74,3 +74,5 @@ PDF 빼기/삭제와 과목 추가 버튼 제거. 등록된 노트/과목/자료
 상단 과목 목록/내 기기 저장 표시와 하단 백업/복원 영역 및 바인딩 제거. 과목 복귀는 스와이프 사용. 158문항/82자료와 개인 기록 보존, 모바일 스와이프/숨김/노트·교재 검색·오프라인·과목 정정 검사 통과. 서비스 워커 v24.
 
 PDF 뷰어 상자·테두리 제거: 투명 전체 뷰포트 대화상자와 흐린 배경, 제목/닫기/페이지 이동 유지. PDF 가로폭100%, 실제 표시 높이의 절반만큼 하단 여백, 남는 세로 공간에서 아래쪽 정렬. PDF 닫기는 우측 모서리 숨김에서 제외하여 정상 동작. 모바일 실제 PDF/전후 페이지/닫기/레이아웃 검사 통과. 서비스 워커 v25.
+
+PDF pinch conflict fix: defer visible PDF corner conceal until a stationary single-touch release; cancel for multi-touch, movement or cancellation, preserve immediate restore and non-PDF corner behavior. Enable browser pinch/pan in PDF viewer. Remove empty-subject startup copy so an empty library is blank. Service worker v26. Verified pdf-pinch.cjs, pdf-layout.cjs and corner-toggle.cjs with mobile Chromium touch events.
