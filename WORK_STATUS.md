@@ -92,3 +92,5 @@ Expanded PDF edge navigation: interior swipes pan; a new outward horizontal swip
 Removed semantic search checkbox, model downloads and embedding search execution. Retain keyword/initial-consonant ranking and source page deduplication. Document list now shows filenames only, with page count/builtin/OCR/search chunk metadata removed. Stored notes/documents remain intact. Cache v34. Initial search unit/live two-course checks and clean-layout test pass.
 
 PDF 펼치기 checkbox below search toggles per-document learning contents. Extract explicit 학습내용 section before 학습목표; applied-math combined slides stop at objective statements. Verified all 81 PDFs have nonempty contents without objectives, toggle open/close and direct PDF opening. Existing keyword search retained; cache v35.
+
+Questions now start collapsed with 1) ✓ correct choice and a right chevron, without 정답 wording or original-number badges. Tap summary reveals other choices followed by all choice explanations and existing source/memory answer. Review expansion remains on same question. Cache v36. Mobile question-details test and syntax/diff checks pass.

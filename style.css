@@ -41,3 +41,5 @@ html.pdf-open{overflow:hidden;overscroll-behavior:none}body.pdf-open{position:fi
 button:focus,button:focus-visible,[role=button]:focus,[role=button]:focus-visible{outline:none!important}
 
 .pdf-expand-option{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}.pdf-learning-content{margin-top:12px;font-size:13px;line-height:1.8;color:var(--muted)}.pdf-learning-content:empty{display:none}
+
+.question-details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;list-style:none;font-size:14px;color:var(--text);padding:12px 0}.question-details summary::-webkit-details-marker{display:none}.question-details summary strong{font-weight:550}.question-chevron{flex:none;font-size:22px;line-height:1;transition:transform .15s}.question-details[open] .question-chevron{transform:rotate(180deg)}.choice-explanations{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}.choice-explanation{margin-bottom:16px;font-size:13px;line-height:1.8}.choice-explanation p{white-space:pre-wrap}.question-details .study-explanation{margin-top:20px}#review-answer .choice-explanation{font-size:inherit}
