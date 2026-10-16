@@ -989,6 +989,58 @@
       "lecture": 1,
       "source": "사용자 제공 퀴즈 이미지",
       "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-039",
+      "builtinQuizId": "electronic-circuits-quiz-039",
+      "number": 39,
+      "type": "ox",
+      "question": "JFET직렬 스위치가 병렬 스위치보다 on-off비 특성이 더 좋다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 교안은 직렬형 JFET 스위치의 ON/OFF비 특성이 병렬형보다 좋다고 설명한다. 직렬형은 신호 경로를 직접 연결·차단하고, 병렬형은 신호를 우회시키는 방식이다. 실제 ON/OFF비는 주파수, 부하, ON 저항, OFF 누설 및 기생 용량 등에 따라 달라진다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "이미지에 표시된 정답은 O다. 이 문항은 교안의 직렬형·병렬형 ON/OFF비 비교를 묻는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 8,
+      "lecture": 2,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "electronic-circuits-quiz-040",
+      "builtinQuizId": "electronic-circuits-quiz-040",
+      "number": 40,
+      "type": "ox",
+      "question": "FET계열의 소자로 신호 스위칭 회로를 만드는 이유는 트랜지스터에 비해 ON저항이 상대적으로 적고 전압강하가 작기때문이다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이미지의 정답은 X다. FET도 트랜지스터의 한 종류이므로 이 문장의 비교 대상은 문맥상 BJT로 이해한다. FET 신호 스위치는 게이트 전압으로 채널을 제어하며 입력 임피던스가 높고 게이트의 정상상태 구동 전류가 작다는 특징이 있다. ON 저항과 전압강하는 소자와 동작 조건에 따라 달라지므로, BJT보다 항상 작다는 설명으로 일반화하지 않는다.",
+      "choices": [
+        {
+          "text": "X",
+          "explanation": "이미지의 정답은 X다. FET는 전압 제어·높은 입력 임피던스 등의 특징으로 구분하며, 제시된 ON 저항·전압강하 비교를 일반적인 선정 이유로 단정하지 않는다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "O",
+          "explanation": "이미지의 정답은 X다. 제시된 비교를 일반적인 사실로 받아들이지 않는다.",
+          "originalNumber": 1
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 8,
+      "lecture": 2,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
     }
   ]
 }
