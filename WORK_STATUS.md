@@ -114,3 +114,5 @@ Added computer practice weeks 3 and 4 (013–024), six questions per week, all i
 Added computer practice weeks 5 and 6 as 025–036, six questions each, all O. Preserve distinct source week6 questions 2 and 6 despite repeated wording; overlapping screenshots do not add duplicate question4. Previous 24 unchanged. Validate 36 unique IDs, six per week 1–6, all keys and importer state preservation/no duplicates. Cache v46.
 
 Added computer practice week7 chart quizzes 037–042, all O; existing36 preserved. Correct source content and separate supplements; VM importer validates42 unique entries, state preserved/no duplication. Later supplied review-image questions match earlier weeks; week label awaiting user clarification. Cache v47.
+
+User confirmed last review images are computer-practice week8. Add distinct week8 questions 043–048 in source order (cell selection, F5, Shift, cell background, custom Hanja, document password), all O. Week8 Hanja source explanation is present unlike week2 blank source. Prior42 preserved; unique48 IDs/six per week 1–8 and importer persistence/no duplicates validated. Cache v48.
