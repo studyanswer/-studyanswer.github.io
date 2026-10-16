@@ -1,0 +1,318 @@
+{
+  "version": 1,
+  "subject": "컴퓨터활용실무",
+  "notes": [
+    {
+      "id": "computer-practice-quiz-001",
+      "builtinQuizId": "computer-practice-quiz-001",
+      "number": 1,
+      "type": "ox",
+      "question": "한글문서는 자동저장 기능이 있다.",
+      "answer": "교안 해설: 한글문서는 자동저장 기능이 있다.\n\n보충·암기: 자동저장 기능은 문서 복구에 도움을 준다. 저장 간격 등 환경 설정을 확인하고 직접 저장도 함께 사용한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글문서는 자동저장 기능이 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-002",
+      "builtinQuizId": "computer-practice-quiz-002",
+      "number": 2,
+      "type": "ox",
+      "question": "한글문서를 저장할 때 암호화를 할 수 있다.",
+      "answer": "교안 해설: 한글문서를 저장할 때 암호화를 할 수 있다.\n\n보충·암기: 문서 저장 시 암호를 설정하여 보호할 수 있다. 암호 설정과 단순한 파일 이름 변경은 다른 기능이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글문서를 저장할 때 암호화를 할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-003",
+      "builtinQuizId": "computer-practice-quiz-003",
+      "number": 3,
+      "type": "ox",
+      "question": "다른이름으로 저장하기는 또다른 문서가 생성된다.",
+      "answer": "교안 해설: 다른이름으로 저장하기는 또다른 문서가 생성된다.\n\n보충·암기: 다른 이름으로 저장은 새 이름이나 위치로 파일을 저장하는 기능이다. 원본을 유지하려면 원본과 다른 이름이나 경로를 지정한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "다른이름으로 저장하기는 또다른 문서가 생성된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-004",
+      "builtinQuizId": "computer-practice-quiz-004",
+      "number": 4,
+      "type": "ox",
+      "question": "편집 용지를 통해 용지 여백을 설정할 수 있다.",
+      "answer": "교안 해설: 편집 용지를 통해 용지 여백을 설정할 수 있다.\n\n보충·암기: 편집 용지에서 위·아래·왼쪽·오른쪽 등의 문서 여백을 조절한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "편집 용지를 통해 용지 여백을 설정할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-005",
+      "builtinQuizId": "computer-practice-quiz-005",
+      "number": 5,
+      "type": "ox",
+      "question": "인쇄하기 전 미리보기를 통해 문서 전체를 확인할 수 있다.",
+      "answer": "교안 해설: 인쇄하기 전 미리보기를 통해 문서 전체를 확인할 수 있다.\n\n보충·암기: 인쇄 미리보기에서 출력될 페이지의 배치와 잘림 등을 확인한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "인쇄하기 전 미리보기를 통해 문서 전체를 확인할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-006",
+      "builtinQuizId": "computer-practice-quiz-006",
+      "number": 6,
+      "type": "ox",
+      "question": "한글 문서의 확장자 명은 .hwp이다.",
+      "answer": "교안 해설: 한글 문서의 확장자 명은 .hwp이다.\n\n보충·암기: 교안의 한글 문서 기본 확장자는 .hwp다. 다른 버전·저장 형식에는 .hwpx 등도 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글 문서의 확장자 명은 .hwp이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 1,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-007",
+      "builtinQuizId": "computer-practice-quiz-007",
+      "number": 7,
+      "type": "ox",
+      "question": "특수문자 입력은 문자표에서 한다.",
+      "answer": "교안 해설: 특수문자 입력은 문자표에서 한다.\n\n보충·암기: 문자표에서 필요한 기호나 특수문자를 선택하여 문서에 입력한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "특수문자 입력은 문자표에서 한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-008",
+      "builtinQuizId": "computer-practice-quiz-008",
+      "number": 8,
+      "type": "ox",
+      "question": "특수문자를 글자겹치기를 통해 겹쳐서 표시 할 수 있다.",
+      "answer": "교안 해설: 특수문자를 글자겹치기를 통해 겹쳐서 표시 할 수 있다.\n\n보충·암기: 글자 겹치기는 문자나 기호를 겹쳐 표현하는 기능이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "특수문자를 글자겹치기를 통해 겹쳐서 표시 할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-009",
+      "builtinQuizId": "computer-practice-quiz-009",
+      "number": 9,
+      "type": "ox",
+      "question": "한글을 한자로, 한자를 한글로 표시 할 수 있다.",
+      "answer": "교안 해설: 한글을 한자로, 한자를 한글로 표시 할 수 있다.\n\n보충·암기: 한글-한자 변환 기능으로 한글을 한자로 바꾸거나 한자를 한글로 표시할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글을 한자로, 한자를 한글로 표시 할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-010",
+      "builtinQuizId": "computer-practice-quiz-010",
+      "number": 10,
+      "type": "ox",
+      "question": "한글문서는 새로운 한자를 등록하여 사용할 수 있다.",
+      "answer": "교안 해설: 이미지의 해설란은 비어 있음.\n\n보충·암기: 이미지의 정답은 O다. 한자 변환에 필요한 사용자 한자·단어 등록 기능을 이용할 수 있다는 뜻으로 기억한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-011",
+      "builtinQuizId": "computer-practice-quiz-011",
+      "number": 11,
+      "type": "ox",
+      "question": "구역단위 블록 설정은 키 F4를 이용하여 설정한다.",
+      "answer": "교안 해설: 구역단위 블록 설정은 키 F4를 이용하여 설정한다.\n\n보충·암기: 교안의 정답은 O이며, 구역단위 블록 설정 단축키를 F4로 제시한다. 단축키는 교안에서 다루는 프로그램과 설정을 기준으로 기억한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "구역단위 블록 설정은 키 F4를 이용하여 설정한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-012",
+      "builtinQuizId": "computer-practice-quiz-012",
+      "number": 12,
+      "type": "ox",
+      "question": "붙여넣기의 단축키는 Ctrl + V 이다.",
+      "answer": "교안 해설: 붙여넣기의 단축키는 Ctrl + V 이다.\n\n보충·암기: Ctrl+C는 복사, Ctrl+X는 잘라내기, Ctrl+V는 붙여넣기다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "붙여넣기의 단축키는 Ctrl + V 이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    }
+  ]
+}
