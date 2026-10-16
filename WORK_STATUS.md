@@ -104,3 +104,5 @@ Card-only simplification: immediately show question and plain numbered choices i
 Added six user-image molding questions to semiconductor packaging as 039–044 (44 total). Preserve image keys 4/4/1/1/2/2, source explanation and original option numbers; add distinct supplemental memory/choice explanations. Cache v41. Data assertions and mobile import/card/reload-without-duplication checks pass.
 
 Added electronic circuits week 8 lecture 1 FET O/X questions 037–038; both image answers O. Source explanation blank is explicit; supplementary explanation distinguishes JFET pinch-off saturation from gate cutoff. Existing 36 entries preserved; unique IDs, O/X schema, correct answers and lecture metadata validated. Cache v42.
+
+Added electronic circuits week 8 lecture 2 O/X questions 039–040 from user image, correct O/X respectively. Source explanation blank preserved separately from supplemental notes. Existing 38 entries unchanged, IDs unique, answer ordering and original numbers validated. Total 40 circuit questions; cache v43.
