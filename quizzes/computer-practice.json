@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "subject": "컴퓨터활용실무",
   "notes": [
     {
@@ -934,6 +934,162 @@
       "correct": 0,
       "marked": false,
       "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-037",
+      "builtinQuizId": "computer-practice-quiz-037",
+      "number": 37,
+      "type": "ox",
+      "question": "차트 영역의 서식을 변경하면 모든 구성요소의 서식이 변경된다.",
+      "answer": "교안 해설: 차트 영역의 서식을 변경하면 모든 구성요소의 서식이 변경된다.\n\n보충·암기: 교안의 정답은 O다. 차트 영역에 공통 서식을 적용하는 기능을 묻는다. 구성요소에 개별 서식이 지정된 경우 적용 범위는 해당 설정에 따라 달라질 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 정답은 O다. 차트 영역에 공통 서식을 적용하는 기능을 묻는다. 구성요소에 개별 서식이 지정된 경우 적용 범위는 해당 설정에 따라 달라질 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-038",
+      "builtinQuizId": "computer-practice-quiz-038",
+      "number": 38,
+      "type": "ox",
+      "question": "데이터 계열의 내용을 표시하는 것은 범례이다.",
+      "answer": "교안 해설: 데이터 계열의 내용을 표시하는 것은 범례이다.\n\n보충·암기: 범례는 각 데이터 계열이 무엇을 나타내는지 이름과 색·기호 등을 대응시켜 보여준다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "범례는 각 데이터 계열이 무엇을 나타내는지 이름과 색·기호 등을 대응시켜 보여준다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-039",
+      "builtinQuizId": "computer-practice-quiz-039",
+      "number": 39,
+      "type": "ox",
+      "question": "실제 값을 표시하는 차트 그래프는 데이터 계열이다.",
+      "answer": "교안 해설: 실제 값을 표시하는 차트 그래프는 데이터 계열이다.\n\n보충·암기: 데이터 계열은 값들을 막대·선 등의 그래프로 표현한 것이다. 개별 수치를 글자로 표시하는 데이터 레이블과 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "데이터 계열은 값들을 막대·선 등의 그래프로 표현한 것이다. 개별 수치를 글자로 표시하는 데이터 레이블과 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-040",
+      "builtinQuizId": "computer-practice-quiz-040",
+      "number": 40,
+      "type": "ox",
+      "question": "차트 데이터 편집을 통해 각 셀에 데이터를 입력하거나 수정할 수 있다.",
+      "answer": "교안 해설: 차트 데이터 편집을 통해 각 셀에 데이터를 입력하거나 수정할 수 있다.\n\n보충·암기: 차트 데이터 편집에서 원본 데이터 표의 셀 값을 입력하거나 수정하여 차트에 반영할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "차트 데이터 편집에서 원본 데이터 표의 셀 값을 입력하거나 수정하여 차트에 반영할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-041",
+      "builtinQuizId": "computer-practice-quiz-041",
+      "number": 41,
+      "type": "ox",
+      "question": "차트의 기본형에는 세로 막대와 가로 막대형이 있다.",
+      "answer": "교안 해설: 차트의 기본형에는 세로 막대와 가로 막대형이 있다.\n\n보충·암기: 세로 막대형과 가로 막대형은 막대가 뻗는 방향이 다르며 모두 기본 차트 유형에 포함된다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "세로 막대형과 가로 막대형은 막대가 뻗는 방향이 다르며 모두 기본 차트 유형에 포함된다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-042",
+      "builtinQuizId": "computer-practice-quiz-042",
+      "number": 42,
+      "type": "ox",
+      "question": "차트 그래프가 표시되는 영역은 그림영역이다.",
+      "answer": "교안 해설: 차트 그래프가 표시되는 영역은 그림영역이다.\n\n보충·암기: 그림 영역은 데이터 계열이 실제로 그려지는 영역이다. 제목·범례 등을 포함하는 전체 차트 영역과 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "그림 영역은 데이터 계열이 실제로 그려지는 영역이다. 제목·범례 등을 포함하는 전체 차트 영역과 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 7,
       "lecture": null,
       "source": "사용자 제공 퀴즈 이미지",
       "builtin": true

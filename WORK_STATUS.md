@@ -112,3 +112,5 @@ Added computer practice quiz catalog, 12 O/X questions: week 1 six and week 2 si
 Added computer practice weeks 3 and 4 (013–024), six questions per week, all image answers O. Source explanations retained, supplement separated; existing 12 unchanged. Verified 24 unique IDs, six per week 1–4, all keys, importer no-duplication and existing state preservation. Cache v45.
 
 Added computer practice weeks 5 and 6 as 025–036, six questions each, all O. Preserve distinct source week6 questions 2 and 6 despite repeated wording; overlapping screenshots do not add duplicate question4. Previous 24 unchanged. Validate 36 unique IDs, six per week 1–6, all keys and importer state preservation/no duplicates. Cache v46.
+
+Added computer practice week7 chart quizzes 037–042, all O; existing36 preserved. Correct source content and separate supplements; VM importer validates42 unique entries, state preserved/no duplication. Later supplied review-image questions match earlier weeks; week label awaiting user clarification. Cache v47.
