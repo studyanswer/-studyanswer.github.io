@@ -102,3 +102,5 @@ Card launch simplified to 카드로 확인하기 →. Card screen retains exit/p
 Card-only simplification: immediately show question and plain numbered choices in original order (when original numbers exist), with correct answer bold. Remove card checks, expandable details, all explanations/memory. Question list remains expandable. Cache v40. Card navigation/conceal/plain-options test and question-list detail test pass; syntax/diff checks pass.
 
 Added six user-image molding questions to semiconductor packaging as 039–044 (44 total). Preserve image keys 4/4/1/1/2/2, source explanation and original option numbers; add distinct supplemental memory/choice explanations. Cache v41. Data assertions and mobile import/card/reload-without-duplication checks pass.
+
+Added electronic circuits week 8 lecture 1 FET O/X questions 037–038; both image answers O. Source explanation blank is explicit; supplementary explanation distinguishes JFET pinch-off saturation from gate cutoff. Existing 36 entries preserved; unique IDs, O/X schema, correct answers and lecture metadata validated. Cache v42.
