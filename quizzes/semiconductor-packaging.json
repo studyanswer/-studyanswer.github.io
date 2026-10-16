@@ -1369,6 +1369,222 @@
       "lecture": null,
       "source": "사용자 제공 퀴즈 이미지",
       "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-039",
+      "builtinQuizId": "semiconductor-packaging-quiz-039",
+      "number": 39,
+      "type": "choice",
+      "question": "다음 중 반도체 패키지 공정의 몰딩 공정 작업에 해당되는 것은?",
+      "answer": "교안 해설: 반도체 후공정 패키지 공정의 몰딩 공정 진행은 먼저 와이어본딩 완료된 자재를 로딩 픽스처에 장착하고 몰드 체이스에 로딩한 후 금형을 닫는다. 오토장비는 매거진을 자동으로 로딩한다.\n\n보충·암기: 몰딩 시작: 와이어본딩 완료 자재 → Fixture Loading → 몰드 체이스 로딩 → 금형 닫기.",
+      "choices": [
+        {
+          "text": "Fixture Loading",
+          "explanation": "와이어본딩이 완료된 자재를 몰딩용 로딩 픽스처에 장착하는 작업이다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Capillary 교체",
+          "explanation": "와이어본딩에서 사용하는 캐필러리 공구의 교체 작업이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "BPT",
+          "explanation": "Bond Pull Test로 와이어 접합 강도를 평가하는 시험이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Spool 교체",
+          "explanation": "본딩 와이어가 감긴 스풀을 교체하는 작업이다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-040",
+      "builtinQuizId": "semiconductor-packaging-quiz-040",
+      "number": 40,
+      "type": "choice",
+      "question": "반도체 후 공정 패키지 공정에서 몰딩 공정의 중요한 Parameter가 아닌 것은?",
+      "answer": "교안 해설: 반도체 후 공정 패키지 공정의 몰딩 공정 중요 요소는 1. 온도, 2. 경화시간, 3. EMC 예열시간, 4. 자재로딩 상태이다.\n\n보충·암기: 온도·시간·로딩 상태를 기억한다. Jig Weight는 이 문항의 주요 파라미터에 해당하지 않는다.",
+      "choices": [
+        {
+          "text": "Jig Weight",
+          "explanation": "지그의 무게이며 교안이 제시한 주요 몰딩 파라미터에 포함되지 않는다.",
+          "originalNumber": 4
+        },
+        {
+          "text": "Pre-heating Time",
+          "explanation": "EMC 예열시간으로 몰딩 공정의 주요 관리 요소다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Mold Temperature",
+          "explanation": "금형 온도로 수지 유동과 경화에 영향을 주는 관리 요소다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Cure Time",
+          "explanation": "수지의 경화시간으로 주요 관리 요소다.",
+          "originalNumber": 3
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-041",
+      "builtinQuizId": "semiconductor-packaging-quiz-041",
+      "number": 41,
+      "type": "choice",
+      "question": "반도체 패키지 몰딩 공정에서 와이어 본딩이 완료된 자재를 로딩하는 기구를 무엇이라 하는가?",
+      "answer": "교안 해설: 반도체 패키지 몰딩 공정에서 와이어 본딩 완료된 자재를 로딩하는 보조 기구를 로딩 픽스처라고 한다.\n\n보충·암기: Fixture = 자재를 지지·고정하는 기구. 이 문제는 Loading Fixture를 묻는다.",
+      "choices": [
+        {
+          "text": "Fixture",
+          "explanation": "몰딩할 자재를 로딩할 때 지지·고정하는 보조 기구다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Collet",
+          "explanation": "칩 등을 집거나 옮길 때 사용하는 공구로 로딩 픽스처와 구분한다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Nozzle",
+          "explanation": "흡착이나 분사 등에 사용하는 노즐로 이 문항의 자재 로딩 기구 명칭은 아니다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Magazine",
+          "explanation": "여러 자재를 수납·공급하는 용기이며 자재를 고정하는 픽스처와 구분한다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-042",
+      "builtinQuizId": "semiconductor-packaging-quiz-042",
+      "number": 42,
+      "type": "choice",
+      "question": "반도체 패키지 몰딩 공정에서 EMC의 원재료 중 3대 재료 구성 요소가 아닌 것은?",
+      "answer": "교안 해설: 반도체 패키지 몰딩 공정에서 EMC 원재료의 3대 주재료로 사용하는 것은 Filler, Epoxy, Hardner이다.\n\n보충·암기: EMC = Epoxy Molding Compound. 교안의 Hardner는 Hardener(경화제)를 뜻한다. 충전재·에폭시·경화제를 기억한다.",
+      "choices": [
+        {
+          "text": "Adhesive",
+          "explanation": "접착제를 뜻하며 교안이 제시한 EMC 3대 주재료에는 해당하지 않는다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "Filler",
+          "explanation": "충전재로 EMC의 주요 구성 재료다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Epoxy",
+          "explanation": "에폭시 수지로 EMC의 주요 구성 재료다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Hardner",
+          "explanation": "경화제(Hardener)로 EMC의 주요 구성 재료다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-043",
+      "builtinQuizId": "semiconductor-packaging-quiz-043",
+      "number": 43,
+      "type": "choice",
+      "question": "다음 중 몰딩 장비의 구성 요소가 아닌 것은?",
+      "answer": "교안 해설: 몰딩 장비의 주요 구성 부분은 TOP Chase, BTM Chase, Pre-heater, Loading Fixture, Thermal Heater, Air Gun 등이다.\n\n보충·암기: 몰딩 장비: 상·하부 Chase, 예열기, Loading Fixture. Epoxy Dotting은 에폭시를 도포하는 작업이다.",
+      "choices": [
+        {
+          "text": "Epoxy Dotting",
+          "explanation": "에폭시를 점 형태로 도포하는 작업으로 교안의 몰딩 장비 구성 요소가 아니다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "Pre-Heater",
+          "explanation": "재료 등을 예열하는 장치로 몰딩 장비의 구성 요소다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "TOP Chase",
+          "explanation": "상부 몰드 체이스로 몰딩 장비의 구성 요소다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "Loading Fixture",
+          "explanation": "자재를 로딩하는 픽스처로 몰딩 장비의 구성 요소다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "semiconductor-packaging-quiz-044",
+      "builtinQuizId": "semiconductor-packaging-quiz-044",
+      "number": 44,
+      "type": "choice",
+      "question": "반도체 패키지 몰딩 공정이 완료된 제품의 내부 상태를 검사하는 방법을 무엇이라 하는가?",
+      "answer": "교안 해설: 반도체 패키지 몰딩 공정 후 패키지 내부를 검사하는 방법은 X-Ray로 내부의 본딩상태 및 기타 외부환경으로부터의 Damage를 검사하는 것이다.\n\n보충·암기: 내부 관찰 = X-Ray / 와이어 인장 강도 = BPT / 고온·고습·압력 신뢰성 = PCT / 다이 전단 강도 = DST.",
+      "choices": [
+        {
+          "text": "X-Ray Test",
+          "explanation": "X선을 이용해 패키지 내부 구조와 본딩 상태 등을 비파괴 검사하는 방법이다.",
+          "originalNumber": 2
+        },
+        {
+          "text": "BPT(Bond Pull Test)",
+          "explanation": "와이어를 당겨 본딩 접합 강도를 평가하는 시험이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "PCT(Pressure Cooker Test)",
+          "explanation": "고온·고습·압력 환경에서 신뢰성을 평가하는 시험이다.",
+          "originalNumber": 3
+        },
+        {
+          "text": "DST(Die Shear Test)",
+          "explanation": "다이에 전단력을 가해 접합 강도를 평가하는 시험이다.",
+          "originalNumber": 4
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": null,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
     }
   ]
 }
