@@ -56,7 +56,7 @@ async function prepareCourseLibrary(){
 }
 async function prepareQuizLibrary(){
  const catalogs=[];
- for(const url of ['./quizzes/ai-basics.json','./quizzes/practical-ai.json','./quizzes/semiconductor-packaging.json','./quizzes/applied-math.json','./quizzes/electronic-circuits.json']){
+ for(const url of ['./quizzes/ai-basics.json','./quizzes/practical-ai.json','./quizzes/semiconductor-packaging.json','./quizzes/applied-math.json','./quizzes/electronic-circuits.json','./quizzes/computer-practice.json']){
   try{
    const response=await fetch(url);
    if(!response.ok)throw new Error('Quiz catalog unavailable');
