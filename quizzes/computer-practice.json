@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "subject": "컴퓨터활용실무",
   "notes": [
     {
@@ -622,6 +622,318 @@
       "correct": 0,
       "marked": false,
       "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-025",
+      "builtinQuizId": "computer-practice-quiz-025",
+      "number": 25,
+      "type": "ox",
+      "question": "셀을 하나 선택하기 위해서는 Ctrl을 누른 채 마우스를 클릭한다.",
+      "answer": "교안 해설: 셀을 하나 선택하기 위해서는 Ctrl을 누른 채 마우스를 클릭한다.\n\n보충·암기: 교안의 셀 단위 선택 방법은 Ctrl을 누른 채 클릭하는 것이다. 셀 안에 입력 커서를 놓는 일반 클릭과 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 셀 단위 선택 방법은 Ctrl을 누른 채 클릭하는 것이다. 셀 안에 입력 커서를 놓는 일반 클릭과 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-026",
+      "builtinQuizId": "computer-practice-quiz-026",
+      "number": 26,
+      "type": "ox",
+      "question": "연속적인 셀을 선택하는 방법은 Shift 키를 누른 채 마우스로 마지막 셀을 클릭한다.",
+      "answer": "교안 해설: 연속적인 셀을 선택하는 방법은 Shift 키를 누른 채 마우스로 마지막 셀을 클릭한다.\n\n보충·암기: 시작 셀을 기준으로 Shift를 누른 채 끝 셀을 클릭하여 연속된 셀 범위를 선택한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "시작 셀을 기준으로 Shift를 누른 채 끝 셀을 클릭하여 연속된 셀 범위를 선택한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-027",
+      "builtinQuizId": "computer-practice-quiz-027",
+      "number": 27,
+      "type": "ox",
+      "question": "전체 셀을 블록으로 설정하는 방법은 F5키를 3회 누른다.",
+      "answer": "교안 해설: 전체 셀을 블록으로 설정하는 방법은 F5키를 3회 누른다.\n\n보충·암기: 한글 표 안에서 F5를 세 번 눌러 전체 셀을 블록으로 선택하는 교안의 단축키다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글 표 안에서 F5를 세 번 눌러 전체 셀을 블록으로 선택하는 교안의 단축키다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-028",
+      "builtinQuizId": "computer-practice-quiz-028",
+      "number": 28,
+      "type": "ox",
+      "question": "한글에서 표의 크기를 키보드와 마우스를 사용하여 변경 할 수 있다.",
+      "answer": "교안 해설: 한글에서 표의 크기를 키보드와 마우스를 사용하여 변경 할 수 있다.\n\n보충·암기: 표의 크기는 마우스 드래그나 키보드를 이용하여 조절할 수 있다. 적용 범위가 셀·행·열·표 중 무엇인지 확인한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "표의 크기는 마우스 드래그나 키보드를 이용하여 조절할 수 있다. 적용 범위가 셀·행·열·표 중 무엇인지 확인한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-029",
+      "builtinQuizId": "computer-practice-quiz-029",
+      "number": 29,
+      "type": "ox",
+      "question": "나눠진 표를 하나로 묶을 수 있다.",
+      "answer": "교안 해설: 나눠진 표를 하나로 묶을 수 있다.\n\n보충·암기: 교안의 정답은 O다. 나뉜 표를 하나로 합치는 기능을 묻는 문항이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 정답은 O다. 나뉜 표를 하나로 합치는 기능을 묻는 문항이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-030",
+      "builtinQuizId": "computer-practice-quiz-030",
+      "number": 30,
+      "type": "ox",
+      "question": "기존 표 아래쪽에 셀을 추가하는 것이 가능하다.",
+      "answer": "교안 해설: 기존 표 아래쪽에 셀을 추가하는 것이 가능하다.\n\n보충·암기: 기존 표의 아래쪽에 줄을 추가하면 셀이 함께 추가되어 표를 확장할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "기존 표의 아래쪽에 줄을 추가하면 셀이 함께 추가되어 표를 확장할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 5,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-031",
+      "builtinQuizId": "computer-practice-quiz-031",
+      "number": 31,
+      "type": "ox",
+      "question": "셀 내용이 가운데로 오도록 하기 위해서는 도구모음 중에서 가운데 정렬을 선택한다.",
+      "answer": "교안 해설: 셀 내용이 가운데로 오도록 하기 위해서는 도구모음 중에서 가운데 정렬을 선택한다.\n\n보충·암기: 가운데 정렬은 셀 내용의 가로 위치를 가운데로 맞춘다. 세로 가운데 맞춤은 별도 설정이므로 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "가운데 정렬은 셀 내용의 가로 위치를 가운데로 맞춘다. 세로 가운데 맞춤은 별도 설정이므로 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-032",
+      "builtinQuizId": "computer-practice-quiz-032",
+      "number": 32,
+      "type": "ox",
+      "question": "셀 안에서 왼쪽, 오른쪽 글자 여백이 가능하다.",
+      "answer": "교안 해설: 셀 안에서 왼쪽, 오른쪽 글자 여백이 가능하다.\n\n보충·암기: 셀 내부의 왼쪽·오른쪽 여백을 설정하여 글자와 셀 테두리 사이 간격을 조절할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "셀 내부의 왼쪽·오른쪽 여백을 설정하여 글자와 셀 테두리 사이 간격을 조절할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-033",
+      "builtinQuizId": "computer-practice-quiz-033",
+      "number": 33,
+      "type": "ox",
+      "question": "셀 테두리 설정에는 종류, 굵기, 색이 있다.",
+      "answer": "교안 해설: 셀 테두리 설정에는 종류, 굵기, 색이 있다.\n\n보충·암기: 셀 테두리의 선 종류, 선 굵기와 색을 설정할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "셀 테두리의 선 종류, 선 굵기와 색을 설정할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-034",
+      "builtinQuizId": "computer-practice-quiz-034",
+      "number": 34,
+      "type": "ox",
+      "question": "셀 안에 그림을 넣어 배경으로 지정할 수 있다.",
+      "answer": "교안 해설: 셀 안에 그림을 넣어 배경으로 지정할 수 있다.\n\n보충·암기: 셀의 배경 설정에서 그림을 사용하여 셀 배경으로 지정할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "셀의 배경 설정에서 그림을 사용하여 셀 배경으로 지정할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-035",
+      "builtinQuizId": "computer-practice-quiz-035",
+      "number": 35,
+      "type": "ox",
+      "question": "떨어진 셀들을 선택하기 위해서는 Ctrl을 이용한다.",
+      "answer": "교안 해설: 떨어진 셀들을 선택하기 위해서는 Ctrl을 이용한다.\n\n보충·암기: Ctrl을 이용하면 서로 떨어진 셀을 추가로 선택할 수 있다. 연속 범위를 선택하는 Shift와 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "Ctrl을 이용하면 서로 떨어진 셀을 추가로 선택할 수 있다. 연속 범위를 선택하는 Shift와 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-036",
+      "builtinQuizId": "computer-practice-quiz-036",
+      "number": 36,
+      "type": "ox",
+      "question": "셀 안에서 왼쪽, 오른쪽 글자 여백이 가능하다.",
+      "answer": "교안 해설: 셀 안에서 왼쪽, 오른쪽 글자 여백이 가능하다.\n\n보충·암기: 셀 내부의 왼쪽·오른쪽 여백을 설정하여 글자와 셀 테두리 사이 간격을 조절할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "셀 내부의 왼쪽·오른쪽 여백을 설정하여 글자와 셀 테두리 사이 간격을 조절할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 6,
       "lecture": null,
       "source": "사용자 제공 퀴즈 이미지",
       "builtin": true
