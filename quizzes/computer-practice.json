@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "subject": "컴퓨터활용실무",
   "notes": [
     {
@@ -310,6 +310,318 @@
       "correct": 0,
       "marked": false,
       "week": 2,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-013",
+      "builtinQuizId": "computer-practice-quiz-013",
+      "number": 13,
+      "type": "ox",
+      "question": "글자에 강조점을 표시 할 수 있다.",
+      "answer": "교안 해설: 글자에 강조점을 표시 할 수 있다.\n\n보충·암기: 글자 모양 설정에서 강조점을 적용하여 특정 글자를 강조할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "글자 모양 설정에서 강조점을 적용하여 특정 글자를 강조할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-014",
+      "builtinQuizId": "computer-practice-quiz-014",
+      "number": 14,
+      "type": "ox",
+      "question": "글자 모양을 복사하여 붙여넣기 할 수 있다.",
+      "answer": "교안 해설: 글자 모양을 복사하여 붙여넣기 할 수 있다.\n\n보충·암기: 모양 복사는 글자나 문단의 서식을 다른 대상에 적용하는 기능이다. 문서 내용 자체를 복사하는 기능과 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "모양 복사는 글자나 문단의 서식을 다른 대상에 적용하는 기능이다. 문서 내용 자체를 복사하는 기능과 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-015",
+      "builtinQuizId": "computer-practice-quiz-015",
+      "number": 15,
+      "type": "ox",
+      "question": "여백은 왼쪽과 오른쪽을 설정 할 수 있다.",
+      "answer": "교안 해설: 여백은 왼쪽과 오른쪽을 설정 할 수 있다.\n\n보충·암기: 문단 모양에서 왼쪽·오른쪽 여백을 설정할 수 있다. 문서 전체의 용지 여백 설정과 문단 여백은 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "문단 모양에서 왼쪽·오른쪽 여백을 설정할 수 있다. 문서 전체의 용지 여백 설정과 문단 여백은 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-016",
+      "builtinQuizId": "computer-practice-quiz-016",
+      "number": 16,
+      "type": "ox",
+      "question": "장평은 글자의 가로세로 비율을 지정한다.",
+      "answer": "교안 해설: 장평은 글자의 가로세로 비율을 지정한다.\n\n보충·암기: 장평은 글자의 폭을 조절하는 가로·세로 비율이다. 장평과 글자 크기, 자간은 서로 다른 설정이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "장평은 글자의 폭을 조절하는 가로·세로 비율이다. 장평과 글자 크기, 자간은 서로 다른 설정이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-017",
+      "builtinQuizId": "computer-practice-quiz-017",
+      "number": 17,
+      "type": "ox",
+      "question": "자간은 글자와 글자 사이의 간격을 지정한다.",
+      "answer": "교안 해설: 자간은 글자와 글자 사이의 간격을 지정한다.\n\n보충·암기: 자간 = 글자 사이 간격 / 장평 = 글자 폭의 비율 / 줄 간격 = 줄과 줄 사이 간격.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "자간 = 글자 사이 간격 / 장평 = 글자 폭의 비율 / 줄 간격 = 줄과 줄 사이 간격.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-018",
+      "builtinQuizId": "computer-practice-quiz-018",
+      "number": 18,
+      "type": "ox",
+      "question": "모양 복사의 단축키는 alt+C이다.",
+      "answer": "교안 해설: 모양 복사의 단축키는 alt+C이다.\n\n보충·암기: 한글의 모양 복사 단축키는 Alt+C다. Ctrl+C는 내용 복사이므로 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "한글의 모양 복사 단축키는 Alt+C다. Ctrl+C는 내용 복사이므로 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 3,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-019",
+      "builtinQuizId": "computer-practice-quiz-019",
+      "number": 19,
+      "type": "ox",
+      "question": "여러 개의 개체를 한번에 선택하는 방법은 Shift 키이다.",
+      "answer": "교안 해설: 여러 개의 개체를 한번에 선택하는 방법은 Shift 키이다.\n\n보충·암기: Shift 키를 누른 채 개체들을 선택하면 여러 개체를 함께 선택할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "Shift 키를 누른 채 개체들을 선택하면 여러 개체를 함께 선택할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-020",
+      "builtinQuizId": "computer-practice-quiz-020",
+      "number": 20,
+      "type": "ox",
+      "question": "개체를 복사하는 방법은 Ctrl을 누른 채 드래그 한다.",
+      "answer": "교안 해설: 개체를 복사하는 방법은 Ctrl을 누른 채 드래그 한다.\n\n보충·암기: Ctrl을 누른 채 개체를 드래그하면 원본을 두고 복사본을 만들 수 있다. 일반 드래그로 이동하는 경우와 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "Ctrl을 누른 채 개체를 드래그하면 원본을 두고 복사본을 만들 수 있다. 일반 드래그로 이동하는 경우와 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-021",
+      "builtinQuizId": "computer-practice-quiz-021",
+      "number": 21,
+      "type": "ox",
+      "question": "그리기 상자에 그림자를 넣을 수 있다.",
+      "answer": "교안 해설: 그리기 상자에 그림자를 넣을 수 있다.\n\n보충·암기: 그리기 개체의 속성에서 그림자 효과를 지정할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "그리기 개체의 속성에서 그림자 효과를 지정할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-022",
+      "builtinQuizId": "computer-practice-quiz-022",
+      "number": 22,
+      "type": "ox",
+      "question": "여러 개의 도형을 하나로 묶을 수 있다.",
+      "answer": "교안 해설: 여러 개의 도형을 하나로 묶을 수 있다.\n\n보충·암기: 여러 도형을 선택한 뒤 묶기 기능을 사용하면 하나의 그룹처럼 이동하거나 크기를 조절할 수 있다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "여러 도형을 선택한 뒤 묶기 기능을 사용하면 하나의 그룹처럼 이동하거나 크기를 조절할 수 있다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-023",
+      "builtinQuizId": "computer-practice-quiz-023",
+      "number": 23,
+      "type": "ox",
+      "question": "그림 넣기에서 문서에 포함은 그림파일 자체를 문서에 포함시키는 옵션이다.",
+      "answer": "교안 해설: 그림 넣기에서 문서에 포함은 그림파일 자체를 문서에 포함시키는 옵션이다.\n\n보충·암기: 문서에 포함은 그림 데이터를 문서 안에 저장하는 옵션이다. 외부 그림 파일을 참조하는 연결 방식과 구분한다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "문서에 포함은 그림 데이터를 문서 안에 저장하는 옵션이다. 외부 그림 파일을 참조하는 연결 방식과 구분한다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
+      "lecture": null,
+      "source": "사용자 제공 퀴즈 이미지",
+      "builtin": true
+    },
+    {
+      "id": "computer-practice-quiz-024",
+      "builtinQuizId": "computer-practice-quiz-024",
+      "number": 24,
+      "type": "ox",
+      "question": "그리기 마당을 이용하여 도형 모양을 변경할 수 있다.",
+      "answer": "교안 해설: 그리기 마당을 이용하여 도형 모양을 변경할 수 있다.\n\n보충·암기: 교안의 정답은 O다. 그리기 마당을 이용한 도형 모양 변경 기능을 묻는 문항이다.",
+      "choices": [
+        {
+          "text": "O",
+          "explanation": "교안의 정답은 O다. 그리기 마당을 이용한 도형 모양 변경 기능을 묻는 문항이다.",
+          "originalNumber": 1
+        },
+        {
+          "text": "X",
+          "explanation": "이미지에 표시된 정답은 O다.",
+          "originalNumber": 2
+        }
+      ],
+      "correct": 0,
+      "marked": false,
+      "week": 4,
       "lecture": null,
       "source": "사용자 제공 퀴즈 이미지",
       "builtin": true

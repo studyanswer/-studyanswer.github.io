@@ -108,3 +108,5 @@ Added electronic circuits week 8 lecture 1 FET O/X questions 037–038; both ima
 Added electronic circuits week 8 lecture 2 O/X questions 039–040 from user image, correct O/X respectively. Source explanation blank preserved separately from supplemental notes. Existing 38 entries unchanged, IDs unique, answer ordering and original numbers validated. Total 40 circuit questions; cache v43.
 
 Added computer practice quiz catalog, 12 O/X questions: week 1 six and week 2 six, all image answers O; overlapping week1 question4 deduplicated. Source explanations retained, blank week2 question4 noted separately from supplement. Register sixth quiz catalog for import and offline cache. VM test executes actual importer, verifies subject assignment, keys, no duplication, marked/hidden state preservation and precache inclusion. Syntax/diff checks pass. Cache v44.
+
+Added computer practice weeks 3 and 4 (013–024), six questions per week, all image answers O. Source explanations retained, supplement separated; existing 12 unchanged. Verified 24 unique IDs, six per week 1–4, all keys, importer no-duplication and existing state preservation. Cache v45.
