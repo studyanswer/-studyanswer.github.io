@@ -1,0 +1,21 @@
+name: Build shareable study downloads
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install PyMuPDF==1.26.6
+      - run: python scripts/build-downloads.py
+      - name: Publish downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view study-materials-v1 >/dev/null 2>&1 || gh release create study-materials-v1 --target "$GITHUB_SHA" --title '전체 교재와 216문제 공유용 다운로드' --notes '교재 PDF 81개 합본·원본 ZIP 및 216문제 PDF·텍스트·JSON 묶음입니다. 아이폰 Safari에서 열거나 파일에 저장할 수 있습니다.'
+          gh release upload study-materials-v1 release-files/all-textbooks-81.pdf release-files/all-textbooks-originals.zip release-files/quiz-book-216.zip downloads/quiz-book-216.pdf downloads/quiz-book-216.md --clobber
